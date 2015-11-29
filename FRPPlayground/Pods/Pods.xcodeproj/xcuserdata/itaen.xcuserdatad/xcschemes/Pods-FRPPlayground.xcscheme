@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '6826D60B2E09DAD13C3651B5'
+               BlueprintIdentifier = '699951D8831C8D14F291FC2B'
                BlueprintName = 'Pods-FRPPlayground'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-FRPPlayground.a'>

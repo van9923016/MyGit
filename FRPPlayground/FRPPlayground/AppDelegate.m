@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <RXCollections/RXCollection.h>
 
 @interface AppDelegate ()
 
@@ -16,9 +17,56 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	// Override point for customization after application launch.
+	[self mapArray];
+	[self filterArray];
 	return YES;
 }
+
+- (void)mapArray {
+	NSArray *array = @[@(1), @(2), @(3)];
+	
+	//	traditional way map
+	NSMutableArray *mutableArray = [NSMutableArray arrayWithCapacity:array.count];
+	for (NSNumber *number in array) {
+		[mutableArray addObject:@(pow([number integerValue], 2))];
+	}
+	NSArray *mappedArr = [NSArray arrayWithArray:mutableArray];
+	
+	//	functional programming : map
+	NSArray *mappedArray = [array rx_mapWithBlock:^id(id each) {
+		return @(pow([each integerValue], 2));
+	}];
+	
+	NSLog(@"%@",array);
+	NSLog(@"%@", mappedArr);
+	NSLog(@"%@",mappedArray);
+}
+
+- (void)filterArray {
+	NSArray *array = @[@(1), @(2), @(3)];
+	
+//	traditional way filter array
+	NSMutableArray *mutableArray = [NSMutableArray arrayWithCapacity:array.count];
+	
+	for (NSNumber *number in array) {
+		if ([number integerValue] % 2 == 0) {
+			[mutableArray addObject:number];
+		}
+	}
+	NSArray *filteredArr = [NSArray arrayWithArray:mutableArray];
+	
+//	functional filter
+	NSArray *filteredArray = [array rx_filterWithBlock:^BOOL(id each) {
+		return ([each integerValue] % 2 == 0);
+	}];
+	
+	NSLog(@"%@",array);
+	NSLog(@"%@", filteredArr);
+	NSLog(@"%@",filteredArray);
+}
+
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
 	// Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
