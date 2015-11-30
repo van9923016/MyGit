@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'D8C792B1ABAFD5964CE57C5F'
+               BlueprintIdentifier = '50E3A73C1EFEBCBB7BF7ADB6'
                BlueprintName = 'RXCollections'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libRXCollections.a'>

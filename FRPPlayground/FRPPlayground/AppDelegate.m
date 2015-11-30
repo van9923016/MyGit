@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
 #import <RXCollections/RXCollection.h>
 
 @interface AppDelegate ()
@@ -17,9 +18,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+	
 	[self mapArray];
 	[self filterArray];
 	[self foldArray];
+	
+	ViewController *mainVC = [[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
+	self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
+	self.window.rootViewController = mainVC;
+	[self.window makeKeyAndVisible];
 	return YES;
 }
 
