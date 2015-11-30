@@ -19,6 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	[self mapArray];
 	[self filterArray];
+	[self foldArray];
 	return YES;
 }
 
@@ -63,6 +64,24 @@
 	NSLog(@"%@",array);
 	NSLog(@"%@", filteredArr);
 	NSLog(@"%@",filteredArray);
+}
+
+- (void)foldArray {
+	NSArray *array = @[@(1), @(2), @(3)];
+//	fold it also means combine sorts of data to a new one
+	NSNumber *sum = [array rx_foldWithBlock:^id(id memo, id each) {
+		return @([memo integerValue] + [each integerValue]);
+	}];
+	
+	NSString *newStr = [[array rx_mapWithBlock:^id(id each) {
+		return [each stringValue];
+	}] rx_foldInitialValue:@"" block:^id(id memo, id each) {
+		return [memo stringByAppendingString:each];
+	}];
+	
+	NSLog(@"%@",sum);
+	NSLog(@"%@", newStr);
+
 }
 
 
