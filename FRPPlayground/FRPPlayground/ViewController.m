@@ -46,6 +46,7 @@
 														 signalBlock:^RACSignal *(id input) {
 		NSLog(@"Create account button has pressed!");
 		return [RACSignal empty];
+															 
 	}];
 }
 

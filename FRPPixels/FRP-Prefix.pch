@@ -1,0 +1,25 @@
+//
+//  FRP-Prefix.pch
+//  FRPPixels
+//
+//  Created by Wen Tan on 12/2/15.
+//  Copyright © 2015 Wen Tan. All rights reserved.
+//
+
+#ifndef FRP_Prefix_pch
+#define FRP_Prefix_pch
+
+//Pod
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <500px-iOS-api/PXAPI.h>
+#import <libextobjc/EXTScope.h>
+#import "FRPPhotoModel.h"
+#import "FRPPhotoImporter.h"
+
+#import "AppDelegate.h"
+#define myAppDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* FRP_Prefix_pch */

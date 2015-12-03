@@ -1,0 +1,401 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9E133C49A846C50961160ED9 /* libPods-FRPPixels.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D41E6ED60E5E0EA5197F93 /* libPods-FRPPixels.a */; };
+		B8EE4E091C0E87360090314D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EE4E081C0E87360090314D /* main.m */; };
+		B8EE4E0C1C0E87360090314D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EE4E0B1C0E87360090314D /* AppDelegate.m */; };
+		B8EE4E141C0E87360090314D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8EE4E131C0E87360090314D /* Assets.xcassets */; };
+		B8EE4E171C0E87360090314D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8EE4E151C0E87360090314D /* LaunchScreen.storyboard */; };
+		B8EE4E211C0E87BF0090314D /* FRPGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EE4E1F1C0E87BF0090314D /* FRPGalleryViewController.m */; };
+		B8EE4E221C0E87BF0090314D /* FRPGalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8EE4E201C0E87BF0090314D /* FRPGalleryViewController.xib */; };
+		B8EE4E251C0E87F90090314D /* FRPGalleryFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EE4E241C0E87F90090314D /* FRPGalleryFlowLayout.m */; };
+		B8EE4E291C0E985B0090314D /* FRPPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EE4E281C0E985B0090314D /* FRPPhotoModel.m */; };
+		B8EE4E2C1C0E992E0090314D /* FRPPhotoImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EE4E2B1C0E992E0090314D /* FRPPhotoImporter.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		25D41E6ED60E5E0EA5197F93 /* libPods-FRPPixels.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FRPPixels.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		786653EEDCFA603D5DBFB46F /* Pods-FRPPixels.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FRPPixels.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FRPPixels/Pods-FRPPixels.debug.xcconfig"; sourceTree = "<group>"; };
+		B8EE4E041C0E87360090314D /* FRPPixels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FRPPixels.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8EE4E081C0E87360090314D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B8EE4E0A1C0E87360090314D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B8EE4E0B1C0E87360090314D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B8EE4E131C0E87360090314D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B8EE4E161C0E87360090314D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B8EE4E181C0E87360090314D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8EE4E1E1C0E87BF0090314D /* FRPGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRPGalleryViewController.h; sourceTree = "<group>"; };
+		B8EE4E1F1C0E87BF0090314D /* FRPGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRPGalleryViewController.m; sourceTree = "<group>"; };
+		B8EE4E201C0E87BF0090314D /* FRPGalleryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FRPGalleryViewController.xib; sourceTree = "<group>"; };
+		B8EE4E231C0E87F90090314D /* FRPGalleryFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRPGalleryFlowLayout.h; sourceTree = "<group>"; };
+		B8EE4E241C0E87F90090314D /* FRPGalleryFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRPGalleryFlowLayout.m; sourceTree = "<group>"; };
+		B8EE4E261C0E92AB0090314D /* FRP-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FRP-Prefix.pch"; path = "../FRP-Prefix.pch"; sourceTree = "<group>"; };
+		B8EE4E271C0E985B0090314D /* FRPPhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRPPhotoModel.h; sourceTree = "<group>"; };
+		B8EE4E281C0E985B0090314D /* FRPPhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRPPhotoModel.m; sourceTree = "<group>"; };
+		B8EE4E2A1C0E992E0090314D /* FRPPhotoImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRPPhotoImporter.h; sourceTree = "<group>"; };
+		B8EE4E2B1C0E992E0090314D /* FRPPhotoImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRPPhotoImporter.m; sourceTree = "<group>"; };
+		DF580A2CDDEC45DFF8C40680 /* Pods-FRPPixels.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FRPPixels.release.xcconfig"; path = "Pods/Target Support Files/Pods-FRPPixels/Pods-FRPPixels.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B8EE4E011C0E87360090314D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E133C49A846C50961160ED9 /* libPods-FRPPixels.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B8EE4DFB1C0E87360090314D = {
+			isa = PBXGroup;
+			children = (
+				B8EE4E061C0E87360090314D /* FRPPixels */,
+				B8EE4E051C0E87360090314D /* Products */,
+				D05AEDE71C5B50F2D09C5DA4 /* Pods */,
+				C7BF3CD17673E7F000DEF56C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B8EE4E051C0E87360090314D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B8EE4E041C0E87360090314D /* FRPPixels.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B8EE4E061C0E87360090314D /* FRPPixels */ = {
+			isa = PBXGroup;
+			children = (
+				B8EE4E0A1C0E87360090314D /* AppDelegate.h */,
+				B8EE4E0B1C0E87360090314D /* AppDelegate.m */,
+				B8EE4E1E1C0E87BF0090314D /* FRPGalleryViewController.h */,
+				B8EE4E1F1C0E87BF0090314D /* FRPGalleryViewController.m */,
+				B8EE4E201C0E87BF0090314D /* FRPGalleryViewController.xib */,
+				B8EE4E231C0E87F90090314D /* FRPGalleryFlowLayout.h */,
+				B8EE4E241C0E87F90090314D /* FRPGalleryFlowLayout.m */,
+				B8EE4E271C0E985B0090314D /* FRPPhotoModel.h */,
+				B8EE4E281C0E985B0090314D /* FRPPhotoModel.m */,
+				B8EE4E2A1C0E992E0090314D /* FRPPhotoImporter.h */,
+				B8EE4E2B1C0E992E0090314D /* FRPPhotoImporter.m */,
+				B8EE4E151C0E87360090314D /* LaunchScreen.storyboard */,
+				B8EE4E181C0E87360090314D /* Info.plist */,
+				B8EE4E131C0E87360090314D /* Assets.xcassets */,
+				B8EE4E071C0E87360090314D /* Supporting Files */,
+			);
+			path = FRPPixels;
+			sourceTree = "<group>";
+		};
+		B8EE4E071C0E87360090314D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B8EE4E261C0E92AB0090314D /* FRP-Prefix.pch */,
+				B8EE4E081C0E87360090314D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C7BF3CD17673E7F000DEF56C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				25D41E6ED60E5E0EA5197F93 /* libPods-FRPPixels.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D05AEDE71C5B50F2D09C5DA4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				786653EEDCFA603D5DBFB46F /* Pods-FRPPixels.debug.xcconfig */,
+				DF580A2CDDEC45DFF8C40680 /* Pods-FRPPixels.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B8EE4E031C0E87360090314D /* FRPPixels */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8EE4E1B1C0E87360090314D /* Build configuration list for PBXNativeTarget "FRPPixels" */;
+			buildPhases = (
+				C94FF0B35C06616DD397255E /* Check Pods Manifest.lock */,
+				B8EE4E001C0E87360090314D /* Sources */,
+				B8EE4E011C0E87360090314D /* Frameworks */,
+				B8EE4E021C0E87360090314D /* Resources */,
+				DA7DD9CE21CD19A3A6A7163D /* Embed Pods Frameworks */,
+				0F463FAB4EF1030A36FA1343 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FRPPixels;
+			productName = FRPPixels;
+			productReference = B8EE4E041C0E87360090314D /* FRPPixels.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B8EE4DFC1C0E87360090314D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Wen Tan";
+				TargetAttributes = {
+					B8EE4E031C0E87360090314D = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+				};
+			};
+			buildConfigurationList = B8EE4DFF1C0E87360090314D /* Build configuration list for PBXProject "FRPPixels" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B8EE4DFB1C0E87360090314D;
+			productRefGroup = B8EE4E051C0E87360090314D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B8EE4E031C0E87360090314D /* FRPPixels */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B8EE4E021C0E87360090314D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8EE4E171C0E87360090314D /* LaunchScreen.storyboard in Resources */,
+				B8EE4E141C0E87360090314D /* Assets.xcassets in Resources */,
+				B8EE4E221C0E87BF0090314D /* FRPGalleryViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F463FAB4EF1030A36FA1343 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FRPPixels/Pods-FRPPixels-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C94FF0B35C06616DD397255E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DA7DD9CE21CD19A3A6A7163D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FRPPixels/Pods-FRPPixels-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B8EE4E001C0E87360090314D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8EE4E291C0E985B0090314D /* FRPPhotoModel.m in Sources */,
+				B8EE4E0C1C0E87360090314D /* AppDelegate.m in Sources */,
+				B8EE4E211C0E87BF0090314D /* FRPGalleryViewController.m in Sources */,
+				B8EE4E2C1C0E992E0090314D /* FRPPhotoImporter.m in Sources */,
+				B8EE4E091C0E87360090314D /* main.m in Sources */,
+				B8EE4E251C0E87F90090314D /* FRPGalleryFlowLayout.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B8EE4E151C0E87360090314D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B8EE4E161C0E87360090314D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B8EE4E191C0E87360090314D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B8EE4E1A1C0E87360090314D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B8EE4E1C1C0E87360090314D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 786653EEDCFA603D5DBFB46F /* Pods-FRPPixels.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "/Users/itaen/MyGit/FRPPixels/FRP-Prefix.pch";
+				INFOPLIST_FILE = FRPPixels/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wentan.FRPPixels;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B8EE4E1D1C0E87360090314D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF580A2CDDEC45DFF8C40680 /* Pods-FRPPixels.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "/Users/itaen/MyGit/FRPPixels/FRP-Prefix.pch";
+				INFOPLIST_FILE = FRPPixels/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wentan.FRPPixels;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B8EE4DFF1C0E87360090314D /* Build configuration list for PBXProject "FRPPixels" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8EE4E191C0E87360090314D /* Debug */,
+				B8EE4E1A1C0E87360090314D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B8EE4E1B1C0E87360090314D /* Build configuration list for PBXNativeTarget "FRPPixels" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8EE4E1C1C0E87360090314D /* Debug */,
+				B8EE4E1D1C0E87360090314D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B8EE4DFC1C0E87360090314D /* Project object */;
+}
