@@ -8,6 +8,7 @@
 
 #import "FRPGalleryViewController.h"
 #import "FRPGalleryFlowLayout.h"
+#import "FRPCell.h"
 
 @interface FRPGalleryViewController ()
 
@@ -42,8 +43,17 @@ static NSString * const reuseIdentifier = @"Cell";
 	//configure self
 	self.title  = @"Popular on 500px";
 	//configure view
-//	[self.collectionView registerClass:<#(nullable Class)#> forCellWithReuseIdentifier:<#(nonnull NSString *)#>]
+	[self.collectionView registerClass:[FRPCell class] forCellWithReuseIdentifier:reuseIdentifier];
 	
+	//Reactive Stuff, avoid strong reference cycle
+	@weakify(self);
+	[RACObserve(self, photosArray) subscribeNext:^(id x) {
+		@strongify(self);
+		[self.collectionView reloadData];
+	}];
+	
+	//load data
+	[self loadPopularPhotos];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,20 +75,20 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
 #warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of items
-    return 0;
+    return self.photosArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell
-    
+	// Configure the cell
+	FRPCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+	[cell setPhotoModel:self.photosArray[indexPath.row]];
+	
     return cell;
 }
 
