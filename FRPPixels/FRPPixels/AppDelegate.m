@@ -18,6 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	
+	//500px key to get photo
 	self.apiHelper = [[PXAPIHelper alloc] initWithHost:nil consumerKey:@"PmjNivg69eq9nlvZWdBCBg3JT5wFHDnvYNET2r5o" consumerSecret:@"sk7JknvBL0pDm4q0YSGVee2i7kwkWsnvgEqorm4U"];
 	
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

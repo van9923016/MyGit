@@ -22,7 +22,7 @@
 							   
 							   if (data) {
 								   id results = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-								   
+								   NSLog(@"%@",results);
 								   //map block for subject
 								   id (^mapBlock)(NSDictionary *) = ^id(NSDictionary *photoDict) {
 									   //init model

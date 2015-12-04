@@ -9,6 +9,7 @@
 #import "FRPGalleryViewController.h"
 #import "FRPGalleryFlowLayout.h"
 #import "FRPCell.h"
+#import "FRPFullSizePhotoViewController.h"
 
 @interface FRPGalleryViewController ()
 
@@ -36,6 +37,20 @@ static NSString * const reuseIdentifier = @"Cell";
 		NSLog(@"Could't fetch photos from 500px: %@",error);
 	}];
 }
+
+
+
+// FRPFullSizePhotoViewController delegate
+
+- (void)userDidScroll:(FRPFullSizePhotoViewController *)viewController toPhotoAtIndex:(NSInteger)index {
+	[self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]
+								atScrollPosition:UICollectionViewScrollPositionCenteredVertically
+										animated:NO];
+}
+
+
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -123,4 +138,7 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 */
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+	
+}
 @end
