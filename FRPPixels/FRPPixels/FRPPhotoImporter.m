@@ -11,34 +11,58 @@
 
 @implementation FRPPhotoImporter
 
+
 + (RACReplaySubject *)importPhotos {
 	RACReplaySubject *subject = [[RACReplaySubject alloc] init];
-	
 	NSURLRequest *urlRequest = [self popularURLRequest];
 	
-	[NSURLConnection sendAsynchronousRequest:urlRequest
-									   queue:[NSOperationQueue mainQueue]
-						   completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
-							   
-							   if (data) {
-								   id results = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-								   NSLog(@"%@",results);
-								   //map block for subject
-								   id (^mapBlock)(NSDictionary *) = ^id(NSDictionary *photoDict) {
-									   //init model
-									   FRPPhotoModel *photoModel = [FRPPhotoModel new];
-									   //store fetched data to local model.
-									   [self configurePhotoModel:photoModel withDict:photoDict];
-									   [self downloadThumbnailForPhotoModel:photoModel];
-									   return photoModel;
-								   };
-								//FRP
-								   [subject sendNext:[[[results[@"photos"] rac_sequence] map:mapBlock] array]];
-								   [subject sendCompleted];
-							   }else{
-								   [subject sendError:connectionError];
-							   }
-						   }];
+//	depcreated async method
+//	[NSURLConnection sendAsynchronousRequest:urlRequest
+//									   queue:[NSOperationQueue mainQueue]
+//						   completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+//							   
+//							   if (data) {
+//								   id results = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+//								   NSLog(@"%@",results);
+//								   //map block for subject
+//								   id (^mapBlock)(NSDictionary *) = ^id(NSDictionary *photoDict) {
+//									   //init model
+//									   FRPPhotoModel *photoModel = [FRPPhotoModel new];
+//									   //store fetched data to local model.
+//									   [self configurePhotoModel:photoModel withDict:photoDict];
+//									   [self downloadThumbnailForPhotoModel:photoModel];
+//									   return photoModel;
+//								   };
+//								//FRP
+//								   [subject sendNext:[[[results[@"photos"] rac_sequence] map:mapBlock] array]];
+//								   [subject sendCompleted];
+//							   }else{
+//								   [subject sendError:connectionError];
+//							   }
+//						   }];
+	
+	NSURLSession *session = [NSURLSession sharedSession];
+	NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+		if (data) {
+			id results = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+			NSLog(@"%@",results);
+			//map block for subject
+			id (^mapBlock)(NSDictionary *) = ^id(NSDictionary *photoDict) {
+				//init model
+				FRPPhotoModel *photoModel = [FRPPhotoModel new];
+				//store fetched data to local model.
+				[self configurePhotoModel:photoModel withDict:photoDict];
+				[self downloadThumbnailForPhotoModel:photoModel];
+				return photoModel;
+			};
+			//FRP
+			[subject sendNext:[[[results[@"photos"] rac_sequence] map:mapBlock] array]];
+			[subject sendCompleted];
+		}else{
+			[subject sendError:error];
+		}
+	}];
+	[dataTask resume];
 	return subject;
 }
 
@@ -130,19 +154,44 @@
 + (void)download:(NSString *)urlString withCompletionHandler:(void(^)(NSData *data))completion {
 	NSAssert(urlString, @"URL must not be nil");
 	
-	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+//	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+
+//	[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+//		if (completion) {
+//			completion(data);
+//		}
+//	}];
 	
-	[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
-		if (completion) {
+	NSURLSession *session = [NSURLSession sharedSession];
+	NSURLSessionDataTask *dataTask =  [session dataTaskWithURL:[NSURL URLWithString:urlString] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+		if(completion) {
 			completion(data);
 		}
 	}];
+	
+	[dataTask resume];
+	
 }
 
 + (RACReplaySubject *)fetchPhotoDetails:(FRPPhotoModel *)photoModel {
 	RACReplaySubject *subject = [RACReplaySubject subject];
 	NSURLRequest *request = [self photoURLRequest:photoModel];
-	[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+	
+//	[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+//		if (data) {
+//			id results = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil][@"photo"];
+//			[self configurePhotoModel:photoModel withDict:results];
+//			[self downloadFullsizedImageForPhotoModel:photoModel];
+//			[subject sendNext:photoModel];
+//			[subject sendCompleted];
+//
+//		}else{
+//			[subject sendError:connectionError];
+//		}
+//	}];
+	
+	NSURLSession *session = [NSURLSession sharedSession];
+	NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
 		if (data) {
 			id results = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil][@"photo"];
 			
@@ -152,10 +201,11 @@
 			[subject sendNext:photoModel];
 			[subject sendCompleted];
 		}else{
-			[subject sendError:connectionError];
+			[subject sendError:error];
 		}
 	}];
 	
+	[dataTask resume];
 	return subject;
 }
 							   

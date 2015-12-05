@@ -104,8 +104,8 @@
 				B8235BF81C0FE36D0017DC26 /* FRPFullSizePhotoViewController.h */,
 				B8235BF91C0FE36D0017DC26 /* FRPFullSizePhotoViewController.m */,
 				B8235BFA1C0FE36D0017DC26 /* FRPFullSizePhotoViewController.xib */,
-				B8EE4E151C0E87360090314D /* LaunchScreen.storyboard */,
 				B8EE4E181C0E87360090314D /* Info.plist */,
+				B8EE4E151C0E87360090314D /* LaunchScreen.storyboard */,
 				B8EE4E131C0E87360090314D /* Assets.xcassets */,
 				B8EE4E071C0E87360090314D /* Supporting Files */,
 			);
