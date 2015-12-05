@@ -7,6 +7,7 @@
 //
 
 #import "FRPFullSizePhotoViewController.h"
+#import "FRPPhotoViewController.h"
 
 @interface FRPFullSizePhotoViewController ()<UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 
@@ -18,8 +19,8 @@
 
 @implementation FRPFullSizePhotoViewController
 
-- (instancetype)initwithPhotoModels:(NSArray *)photoModelArray currentPhotoIndex:(NSInteger)photoIndex {
-	self = [super init];
+- (instancetype)initWithPhotoModels:(NSArray *)photoModelArray currentPhotoIndex:(NSInteger)photoIndex {
+	self = [self init];
 	if (!self) {
 		return nil;
 	}
@@ -39,16 +40,20 @@
 	self.pageViewController.delegate = self;
 	[self addChildViewController:self.pageViewController];
 	
-//	[self.pageViewController setViewControllers:<#(nullable NSArray<UIViewController *> *)#> direction:<#(UIPageViewControllerNavigationDirection)#> animated:<#(BOOL)#> completion:<#^(BOOL finished)completion#>]
+	[self.pageViewController setViewControllers:@[[self photoViewControllerForIndex:photoIndex]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
 	
 	return self;
 }
 
-- (FRPFullSizePhotoViewController *)photoViewControllerForIndex:(NSInteger)index {
+- (FRPPhotoViewController *)photoViewControllerForIndex:(NSInteger)index {
 	if (index >= 0 && index < self.photoModelArray.count) {
 		FRPPhotoModel *photoModel = self.photoModelArray[index];
 		
+		FRPPhotoViewController *photoViewController = [[FRPPhotoViewController alloc] initWithPhotoModel:photoModel index:index];
+		return photoViewController;
 	}
+	//Index out of bounds, return nil
+	return nil;
 }
 
 
@@ -56,15 +61,16 @@
 #pragma mark -- UIPageViewControllerDelegate
 
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
-	
+	self.title = [[self.pageViewController.viewControllers.firstObject photoModel] photoName];
+	[self.delegate userDidScroll:self toPhotoAtIndex:[self.pageViewController.viewControllers.firstObject photoIndex]];
 }
 
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-	
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(FRPPhotoViewController *)viewController {
+	return [self photoViewControllerForIndex:viewController.photoIndex - 1];
 }
 
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-	
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(FRPPhotoViewController *)viewController {
+	return [self photoViewControllerForIndex:viewController.photoIndex + 1];
 }
 
 #pragma mark -- APP lifecycles

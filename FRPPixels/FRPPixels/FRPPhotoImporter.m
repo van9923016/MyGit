@@ -42,6 +42,11 @@
 	return subject;
 }
 
++ (NSURLRequest *)photoURLRequest:(FRPPhotoModel *)photoModel {
+	return [myAppDelegate.apiHelper
+			urlRequestForPhotoID:photoModel.identifier.integerValue];
+}
+
 + (NSURLRequest *)popularURLRequest {
 	return [myAppDelegate.apiHelper
 			urlRequestForPhotoFeature:PXAPIHelperPhotoFeaturePopular
@@ -84,16 +89,74 @@
 	return [[[[[array rac_sequence] filter:filterBlock] map:mapBlock] array] firstObject];
 }
 
+//+ (void)downloadThumbnailForPhotoModel:(FRPPhotoModel *)photoModel {
+//	NSAssert(photoModel.thumbnailURL, @"Thumbnail URL must not be nil");
+//	
+//	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:photoModel.thumbnailURL]];
+//	
+//	[NSURLConnection sendAsynchronousRequest:request
+//									   queue:[NSOperationQueue mainQueue]
+//						   completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+//							   photoModel.thumbnailData = data;
+//	}];
+//}
+
+//+ (void)downloadFullsizedImageForPhotoModel:(FRPPhotoModel *)photoModel {
+//	NSAssert(photoModel.fullsizedURL, @"Fullsize URL must not be nil");
+//	
+//	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:photoModel.fullsizedURL]];
+//	[NSURLConnection sendAsynchronousRequest:request
+//									   queue:[NSOperationQueue mainQueue]
+//						   completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+//							   photoModel.fullsizedData = data;
+//	}];
+//}
+
+
+#pragma mark -- Refactor download thumbnail and full size picture
 + (void)downloadThumbnailForPhotoModel:(FRPPhotoModel *)photoModel {
-	NSAssert(photoModel.thumbnailURL, @"Thumbnail URL must not be nil");
-	
-	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:photoModel.thumbnailURL]];
-	
-	[NSURLConnection sendAsynchronousRequest:request
-									   queue:[NSOperationQueue mainQueue]
-						   completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
-							   photoModel.thumbnailData = data;
+	[self download:photoModel.thumbnailURL withCompletionHandler:^(NSData *data) {
+		photoModel.thumbnailData = data;
 	}];
+}
+
++ (void)downloadFullsizedImageForPhotoModel:(FRPPhotoModel *)photoModel {
+	[self download:photoModel.fullsizedURL withCompletionHandler:^(NSData *data) {
+		photoModel.fullsizedData = data;
+	}];
+	
+}
+
++ (void)download:(NSString *)urlString withCompletionHandler:(void(^)(NSData *data))completion {
+	NSAssert(urlString, @"URL must not be nil");
+	
+	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+	
+	[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+		if (completion) {
+			completion(data);
+		}
+	}];
+}
+
++ (RACReplaySubject *)fetchPhotoDetails:(FRPPhotoModel *)photoModel {
+	RACReplaySubject *subject = [RACReplaySubject subject];
+	NSURLRequest *request = [self photoURLRequest:photoModel];
+	[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+		if (data) {
+			id results = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil][@"photo"];
+			
+			[self configurePhotoModel:photoModel withDict:results];
+			[self downloadFullsizedImageForPhotoModel:photoModel];
+			
+			[subject sendNext:photoModel];
+			[subject sendCompleted];
+		}else{
+			[subject sendError:connectionError];
+		}
+	}];
+	
+	return subject;
 }
 							   
 							   

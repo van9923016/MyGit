@@ -12,4 +12,7 @@
 
 + (RACSignal *)importPhotos;
 
+//fetch photo data from photomodel
++ (RACReplaySubject *)fetchPhotoDetails:(FRPPhotoModel *)photoModel;
+
 @end

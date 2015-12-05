@@ -26,6 +26,12 @@
 
 
 - (instancetype)initWithPhotoModel:(FRPPhotoModel *)photoModel index:(NSInteger)photoIndex {
+	self = [self init];
+	if (!self) {
+		return nil;
+	}
+	self.photoIndex = photoIndex;
+	self.photoModel = photoModel;
 	return self;
 }
 
@@ -34,11 +40,31 @@
 #pragma mark -- App lifecycles
 - (void)viewDidLoad {
     [super viewDidLoad];
+	//configure self's view
+	self.view.backgroundColor = [UIColor blackColor];
 	
+	//configure subviews
+	UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+	RAC(imageView, image) = [RACObserve(self.photoModel, fullsizedData) map:^id(id value) {
+		return [UIImage imageWithData:value];
+	}];
+	
+	imageView.contentMode = UIViewContentModeScaleAspectFit;
+	[self.view addSubview:imageView];
+	self.imageView = imageView;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
+	[SVProgressHUD show];
+	
+//	fetch data
+	[[FRPPhotoImporter fetchPhotoDetails:self.photoModel]
+	 subscribeError:^(NSError *error) {
+		[SVProgressHUD showErrorWithStatus:@"error"];
+	} completed:^{
+		[SVProgressHUD dismiss];
+	}];
 	
 }
 

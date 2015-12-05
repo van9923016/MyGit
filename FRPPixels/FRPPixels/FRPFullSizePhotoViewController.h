@@ -18,7 +18,7 @@
 
 @interface FRPFullSizePhotoViewController : UIViewController
 
-- (instancetype)initwithPhotoModels:(NSArray *)photoModelArray currentPhotoIndex:(NSInteger)photoIndex;
+- (instancetype)initWithPhotoModels:(NSArray *)photoModelArray currentPhotoIndex:(NSInteger)photoIndex;
 
 @property (nonatomic, readonly) NSArray *photoModelArray;
 @property (nonatomic, weak) id <FRPFullSizePhotoViewControllerDelegate> delegate;
