@@ -10,6 +10,7 @@
 
 @interface FRPPhotoModel : NSObject
 
+//Basic Image model. Properties to store an image data
 @property (strong, nonatomic) NSString *photoName;
 @property (strong, nonatomic) NSNumber *identifier;
 @property (strong, nonatomic) NSString *photographerName;

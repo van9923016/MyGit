@@ -34,6 +34,8 @@
 	
 	return self;
 }
+
+//configure cell data and subview image
 - (void)setPhotoModel:(FRPPhotoModel *)photoModel {
 	
 	self.subscription = [[[RACObserve(photoModel, thumbnailData) filter:^BOOL(id value) {

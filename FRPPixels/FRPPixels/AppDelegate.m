@@ -10,7 +10,7 @@
 #import "FRPGalleryViewController.h"
 
 @interface AppDelegate ()
-@property (nonatomic) PXAPIHelper *apiHelper;
+@property (nonatomic, readwrite, strong) PXAPIHelper *apiHelper;
 @end
 
 @implementation AppDelegate

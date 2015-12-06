@@ -27,9 +27,7 @@
 
 - (instancetype)initWithPhotoModel:(FRPPhotoModel *)photoModel index:(NSInteger)photoIndex {
 	self = [self init];
-	if (!self) {
-		return nil;
-	}
+	if (!self)	return nil;
 	self.photoIndex = photoIndex;
 	self.photoModel = photoModel;
 	return self;

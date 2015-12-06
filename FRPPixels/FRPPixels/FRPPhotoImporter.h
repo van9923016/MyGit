@@ -10,9 +10,12 @@
 
 @interface FRPPhotoImporter : NSObject
 
+//Tool to use FRP import photoModel to ViewController Array and show
+
+//import thumbnail image
 + (RACSignal *)importPhotos;
 
-//fetch photo data from photomodel
+//fetch full size photo data from photoModel
 + (RACReplaySubject *)fetchPhotoDetails:(FRPPhotoModel *)photoModel;
 
 @end

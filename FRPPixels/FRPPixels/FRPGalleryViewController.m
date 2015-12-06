@@ -12,7 +12,7 @@
 #import "FRPFullSizePhotoViewController.h"
 
 @interface FRPGalleryViewController ()
-
+//photoModel array
 @property (nonatomic, strong) NSArray *photosArray;
 
 @end
@@ -23,7 +23,6 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (instancetype)init {
 	FRPGalleryFlowLayout *flowLayout = [[FRPGalleryFlowLayout alloc] init];
-	
 	self = [self initWithCollectionViewLayout:flowLayout];
 	if (!self) return nil;
 	return self;
@@ -33,24 +32,13 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)loadPopularPhotos {
 	[[FRPPhotoImporter importPhotos] subscribeNext:^(id x) {
 		self.photosArray = x;
+		NSLog(@"Array is %@",self.photosArray);
 	} error:^(NSError *error) {
 		NSLog(@"Could't fetch photos from 500px: %@",error);
 	}];
 }
 
-
-
-// FRPFullSizePhotoViewController delegate
-
-- (void)userDidScroll:(FRPFullSizePhotoViewController *)viewController toPhotoAtIndex:(NSInteger)index {
-	[self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]
-								atScrollPosition:UICollectionViewScrollPositionCenteredVertically
-										animated:NO];
-}
-
-
-
-
+#pragma mark <AppLifecycles>
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -60,7 +48,7 @@ static NSString * const reuseIdentifier = @"Cell";
 	//configure view
 	[self.collectionView registerClass:[FRPCell class] forCellWithReuseIdentifier:reuseIdentifier];
 	
-	//Reactive Stuff, avoid strong reference cycle
+	//Reactive Stuff, avoid strong reference cycle, once array change view will reload
 	@weakify(self);
 	[RACObserve(self, photosArray) subscribeNext:^(id x) {
 		@strongify(self);
@@ -73,18 +61,8 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark <UICollectionViewDataSource>
 
@@ -113,33 +91,15 @@ static NSString * const reuseIdentifier = @"Cell";
 	[self.navigationController pushViewController:fullsizeViewController animated:YES];
 }
 
+#pragma mark <FRPFullSizePhotoViewControllerDelegate>
 
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
+- (void)userDidScroll:(FRPFullSizePhotoViewController *)viewController toPhotoAtIndex:(NSInteger)index {
+	[self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]
+								atScrollPosition:UICollectionViewScrollPositionCenteredVertically
+										animated:YES];
 }
 
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
 
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
+
+
 @end

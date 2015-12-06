@@ -11,11 +11,11 @@
 @implementation FRPGalleryFlowLayout
 
 - (instancetype)init {
-	if (!(self = [super init])) {
-		return nil;
-	}
+	self = [super init];
+	if (!self)return nil;
 	
-	self.itemSize = CGSizeMake(145, 145);
+	//define collectionview cell frame
+	self.itemSize = CGSizeMake(150, 150);
 	self.minimumInteritemSpacing = 10;
 	self.minimumLineSpacing = 10;
 	self.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);

@@ -10,8 +10,9 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, readonly) PXAPIHelper *apiHelper;
+@property (nonatomic, strong) UIWindow *window;
+//500px apiHelper
+@property (nonatomic, readonly, strong) PXAPIHelper *apiHelper;
 
 
 @end

@@ -25,7 +25,7 @@
 		return nil;
 	}
 	
-	//Init read only properties
+	//Init readonly properties
 	self.photoModelArray = photoModelArray;
 	
 	//configure self
@@ -73,7 +73,7 @@
 	return [self photoViewControllerForIndex:viewController.photoIndex + 1];
 }
 
-#pragma mark -- APP lifecycles
+#pragma mark <APPLifecycles>
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
