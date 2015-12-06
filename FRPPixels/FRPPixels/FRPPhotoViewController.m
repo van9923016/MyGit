@@ -35,7 +35,7 @@
 
 
 
-#pragma mark -- App lifecycles
+#pragma mark <AppLifecycles>
 - (void)viewDidLoad {
     [super viewDidLoad];
 	//configure self's view
@@ -56,7 +56,7 @@
 	[super viewWillAppear:animated];
 	[SVProgressHUD show];
 	
-//	fetch data
+	//fetch data
 	[[FRPPhotoImporter fetchPhotoDetails:self.photoModel]
 	 subscribeError:^(NSError *error) {
 		[SVProgressHUD showErrorWithStatus:@"error"];
@@ -68,7 +68,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
