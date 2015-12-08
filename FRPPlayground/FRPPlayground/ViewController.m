@@ -28,7 +28,10 @@
 //	toggle button state and react to button pressed
 //	reuse signal
 	RACSignal *validEmailSignal = [self.emailField.rac_textSignal map:^id(id value) {
-		return @([value rangeOfString:@"@"].location != NSNotFound);
+		return @([value rangeOfString:@"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"].location != NSNotFound);
+//		NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+//		NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES%@",emailRegex];
+//		return @([emailTest evaluateWithObject:value]);
 	}];
 	
 //	RAC(self.createBtn, enabled) = validEmailSignal;
