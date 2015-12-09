@@ -6,32 +6,44 @@
 //  Copyright © 2015 Wen Tan. All rights reserved.
 //
 
+#import "Person.h"
 #import "PersonViewController.h"
 
 @interface PersonViewController ()
+
+@property (nonatomic, strong) Person *personModel;
 
 @end
 
 @implementation PersonViewController
 
+- (IBAction)updateLabel:(UIButton *)sender {
+	//update UI
+	self.salutaionLabel.text = self.personModel.salutation;
+	self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", self.personModel.lastname, self.personModel.firstname];
+	self.birthLabel.text = [NSString stringWithFormat:@"%@", self.personModel.birthDate];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+	//convert String to NSdate format
+	NSString *stringDate = @"08/01/1994";
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setDateFormat:@"MM/dd/yyyy"];
+	NSDate *myBirth = [dateFormatter dateFromString:stringDate];
+	NSLog(@"My birthday is %@",myBirth);
+	
+	//Configure person model
+	self.personModel = [[Person alloc] initWithSalutation:@"Tank"
+												firstname:@"Wen"
+												 lastname:@"Tan"
+												birthDate:myBirth];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

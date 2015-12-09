@@ -10,4 +10,9 @@
 
 @interface PersonViewController : UIViewController
 
+@property (nonatomic, strong) IBOutlet UILabel *salutaionLabel;
+@property (nonatomic, strong) IBOutlet UILabel *nameLabel;
+@property (nonatomic, strong) IBOutlet UILabel *birthLabel;
+
+
 @end

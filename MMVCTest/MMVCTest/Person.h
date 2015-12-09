@@ -10,4 +10,11 @@
 
 @interface Person : NSObject
 
+@property (nonatomic, readonly) NSString *salutation;
+@property (nonatomic, readonly) NSString *firstname;
+@property (nonatomic, readonly) NSString *lastname;
+@property (nonatomic, readonly) NSDate   *birthDate;
+
+- (instancetype)initWithSalutation:(NSString *)salutation firstname:(NSString *)firstname lastname:(NSString *)lastname birthDate:(NSDate *)birthDate;
+
 @end
