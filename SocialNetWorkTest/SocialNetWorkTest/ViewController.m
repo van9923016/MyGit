@@ -29,6 +29,7 @@
 
 - (void)shareText:(NSString *)message {
 	SLComposeViewController *sinaWeiboVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeSinaWeibo];
+
 	if (message.length < 140) {
 		[sinaWeiboVC setInitialText:message];
 	}else{
@@ -39,14 +40,17 @@
 }
 
 - (void)configureSystemSinaWeibo {
-	UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:@"您尚未配置系统微博账户" preferredStyle:UIAlertControllerStyleAlert];
-	[alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+	UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"提示"
+																	 message:@"您尚未配置系统微博账户"
+															  preferredStyle:UIAlertControllerStyleAlert];
+	[alertVC addAction:[UIAlertAction actionWithTitle:@"取消"
+												style:UIAlertActionStyleCancel
+											  handler:nil]];
 	
 	//TODO: using URL scheme to jump to sina weibo settings
 	[alertVC addAction:[UIAlertAction actionWithTitle:@"设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-		NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-//		NSURL *settingsURL = [NSURL URLWithString:@"prefs:root=TWITTER"];
 		
+		NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
 		if ([[UIApplication sharedApplication] canOpenURL:settingsURL]) {
 			[[UIApplication sharedApplication] openURL:settingsURL];
 		}
@@ -66,14 +70,16 @@
 														   style:UIAlertActionStyleDefault
 														 handler:nil];
 	
-	UIAlertAction *shareAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-		if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeSinaWeibo]) {
-			[self shareText:self.shareTextView.text];
-		}else{
-			[self configureSystemSinaWeibo];
-		}
-		
-	}];
+	UIAlertAction *shareAction = [UIAlertAction actionWithTitle:@"确定"
+														  style:UIAlertActionStyleDefault
+														handler:^(UIAlertAction *action) {
+															
+															if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeSinaWeibo]) {
+																[self shareText:self.shareTextView.text];
+															}else{
+																[self configureSystemSinaWeibo];
+															}
+														}];
 	
 	//add left cancel action
 	[shareAlertVC addAction:cancelAction];
