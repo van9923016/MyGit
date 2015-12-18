@@ -1,25 +1,104 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Apj-WS-W73">
+                                <rect key="frame" x="-4" y="20" width="328" height="44"/>
+                                <color key="backgroundColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <items>
+                                    <barButtonItem systemItem="action" id="eHm-Ne-bEF">
+                                        <color key="tintColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="tweetAction:" destination="BYZ-38-t0r" id="tI1-8s-5UI"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="efL-sb-8am"/>
+                                    <barButtonItem systemItem="action" id="is4-LA-aEr">
+                                        <color key="tintColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="facebookAction:" destination="BYZ-38-t0r" id="KqM-dE-Thc"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="I3w-Lo-Bpn"/>
+                                    <barButtonItem systemItem="action" id="qft-HG-2bq">
+                                        <color key="tintColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="moreAction:" destination="BYZ-38-t0r" id="zL0-3g-IwX"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="4ni-nW-q2x"/>
+                                    <barButtonItem systemItem="action" id="GqG-e3-S6V">
+                                        <color key="tintColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="popupAlert:" destination="BYZ-38-t0r" id="QFs-uf-dQl"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tweet Test!!!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kPt-RX-QE4">
+                                <rect key="frame" x="-4" y="64" width="328" height="168"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="More Action Test!!!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OvZ-t5-Php">
+                                <rect key="frame" x="-4" y="400" width="328" height="168"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Facebook Test!!!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2SU-BH-E25">
+                                <rect key="frame" x="-4" y="232" width="328" height="168"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2SU-BH-E25" firstAttribute="top" secondItem="kPt-RX-QE4" secondAttribute="bottom" id="6A2-Nc-Mq0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OvZ-t5-Php" secondAttribute="trailing" constant="-20" id="A0t-cj-43h"/>
+                            <constraint firstItem="OvZ-t5-Php" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Cdw-ix-dsY"/>
+                            <constraint firstItem="Apj-WS-W73" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="GXj-EJ-hqp"/>
+                            <constraint firstItem="2SU-BH-E25" firstAttribute="height" secondItem="kPt-RX-QE4" secondAttribute="height" id="Rwk-2f-0DU"/>
+                            <constraint firstItem="OvZ-t5-Php" firstAttribute="height" secondItem="kPt-RX-QE4" secondAttribute="height" id="SAN-9A-BZF"/>
+                            <constraint firstItem="2SU-BH-E25" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="TYg-mR-krG"/>
+                            <constraint firstItem="OvZ-t5-Php" firstAttribute="top" secondItem="2SU-BH-E25" secondAttribute="bottom" id="VJR-Gb-wii"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kPt-RX-QE4" secondAttribute="trailing" constant="-20" id="WoV-9W-l6t"/>
+                            <constraint firstItem="kPt-RX-QE4" firstAttribute="top" secondItem="Apj-WS-W73" secondAttribute="bottom" id="aci-on-2bQ"/>
+                            <constraint firstItem="Apj-WS-W73" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="e3d-gi-96L"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OvZ-t5-Php" secondAttribute="bottom" id="oRh-QD-jqc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2SU-BH-E25" secondAttribute="trailing" constant="-20" id="sGn-cB-MOq"/>
+                            <constraint firstItem="kPt-RX-QE4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="wIS-IL-3J9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Apj-WS-W73" secondAttribute="trailing" constant="-20" id="wNA-Rd-uBq"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="facebookTextView" destination="2SU-BH-E25" id="Rye-Fo-uCX"/>
+                        <outlet property="moreActionTextView" destination="OvZ-t5-Php" id="nUU-W4-Rdc"/>
+                        <outlet property="tweetTextView" destination="kPt-RX-QE4" id="2EG-rd-zMV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-76" y="415"/>
         </scene>
     </scenes>
 </document>
