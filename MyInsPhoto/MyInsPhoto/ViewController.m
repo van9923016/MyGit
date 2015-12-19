@@ -14,6 +14,7 @@
 @property (nonatomic, weak) IBOutlet UIBarButtonItem	*logOutBtn;
 @property (nonatomic, weak) IBOutlet UIButton			*refreshBtn;
 @property (nonatomic, weak) IBOutlet UISegmentedControl *segmentControl;
+@property (nonatomic, weak) IBOutlet UILabel			*insLabel;
 @property (nonatomic, weak) IBOutlet UIImageView		*insImageView;
 
 
@@ -42,7 +43,17 @@
 }
 
 - (IBAction)segmentChanged:(UISegmentedControl *)sender {
-	
+	switch (sender.selectedSegmentIndex) {
+		case 0:
+			self.insImageView.contentMode = UIViewContentModeScaleToFill;
+			break;
+		case 1:
+			self.insImageView.contentMode = UIViewContentModeScaleAspectFit;
+			break;
+		case 2:
+			self.insImageView.contentMode = UIViewContentModeScaleAspectFill;
+			break;
+	}
 }
 
 @end

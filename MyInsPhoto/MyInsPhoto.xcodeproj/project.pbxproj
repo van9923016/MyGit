@@ -13,6 +13,7 @@
 		B84005921C2546D100F9163F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84005901C2546D100F9163F /* Main.storyboard */; };
 		B84005941C2546D100F9163F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B84005931C2546D100F9163F /* Assets.xcassets */; };
 		B84005971C2546D100F9163F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84005951C2546D100F9163F /* LaunchScreen.storyboard */; };
+		B840059F1C254D7500F9163F /* Gingerbread Man.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B840059E1C254D7500F9163F /* Gingerbread Man.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		B84005931C2546D100F9163F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B84005961C2546D100F9163F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B84005981C2546D100F9163F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B840059E1C254D7500F9163F /* Gingerbread Man.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Gingerbread Man.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		B84005871C2546D100F9163F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B840059E1C254D7500F9163F /* Gingerbread Man.jpg */,
 				B84005881C2546D100F9163F /* main.m */,
 			);
 			name = "Supporting Files";
@@ -136,6 +139,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B840059F1C254D7500F9163F /* Gingerbread Man.jpg in Resources */,
 				B84005971C2546D100F9163F /* LaunchScreen.storyboard in Resources */,
 				B84005941C2546D100F9163F /* Assets.xcassets in Resources */,
 				B84005921C2546D100F9163F /* Main.storyboard in Resources */,

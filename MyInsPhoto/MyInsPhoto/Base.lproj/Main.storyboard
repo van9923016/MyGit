@@ -35,13 +35,20 @@
                                 </items>
                                 <color key="barTintColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ama-g3-iZH">
-                                <rect key="frame" x="10" y="134" width="300" height="300"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gingerbread Man.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ama-g3-iZH">
+                                <rect key="frame" x="10" y="159" width="300" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="ZcC-YK-dRu"/>
-                                    <constraint firstAttribute="height" constant="300" id="qQx-xw-Mq2"/>
+                                    <constraint firstAttribute="height" constant="250" id="qQx-xw-Mq2"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0M-OH-Lq6">
+                                <rect key="frame" x="130" y="439" width="61" height="30"/>
+                                <state key="normal" title="Refresh"/>
+                                <connections>
+                                    <action selector="refreshInsImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ch8-sN-sUf"/>
+                                </connections>
+                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eKB-uC-GnO">
                                 <rect key="frame" x="14" y="532" width="292" height="29"/>
                                 <segments>
@@ -53,24 +60,26 @@
                                     <action selector="segmentChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="BjI-LY-3b7"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0M-OH-Lq6">
-                                <rect key="frame" x="130" y="464" width="61" height="30"/>
-                                <state key="normal" title="Refresh"/>
-                                <connections>
-                                    <action selector="refreshInsImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ch8-sN-sUf"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Instgram Photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ku6-JK-7QL">
+                                <rect key="frame" x="56" y="98" width="209" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="b0M-OH-Lq6" firstAttribute="top" secondItem="ama-g3-iZH" secondAttribute="bottom" constant="30" id="195-ms-z2q"/>
+                            <constraint firstItem="ku6-JK-7QL" firstAttribute="top" secondItem="bdo-zE-Anb" secondAttribute="bottom" constant="34" id="2BR-ox-gI8"/>
                             <constraint firstItem="ama-g3-iZH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6Nf-iD-TY4"/>
+                            <constraint firstItem="ku6-JK-7QL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="G0I-WQ-HCH"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eKB-uC-GnO" secondAttribute="bottom" constant="8" id="Pzk-4S-LAB"/>
                             <constraint firstItem="ama-g3-iZH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b60-XW-dga"/>
                             <constraint firstItem="bdo-zE-Anb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="bM7-Pv-qgA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bdo-zE-Anb" secondAttribute="trailing" constant="-20" id="fl2-pn-vDV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eKB-uC-GnO" secondAttribute="trailing" constant="-2" id="hWw-Gf-1ab"/>
                             <constraint firstItem="eKB-uC-GnO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-2" id="iTa-Lw-yJi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ku6-JK-7QL" secondAttribute="trailing" constant="39" id="itX-ct-at8"/>
                             <constraint firstItem="bdo-zE-Anb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="k9M-sw-U5P"/>
                             <constraint firstAttribute="trailingMargin" secondItem="b0M-OH-Lq6" secondAttribute="trailing" constant="113" id="xIf-3Z-1fc"/>
                             <constraint firstItem="b0M-OH-Lq6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="114" id="zG9-Lt-4t8"/>
@@ -78,6 +87,7 @@
                     </view>
                     <connections>
                         <outlet property="insImageView" destination="ama-g3-iZH" id="RQZ-OD-eCf"/>
+                        <outlet property="insLabel" destination="ku6-JK-7QL" id="5ke-DY-EQk"/>
                         <outlet property="logOutBtn" destination="jdh-hE-lRr" id="nUw-NN-Vq4"/>
                         <outlet property="loginBtn" destination="fuh-xi-v91" id="il8-84-s7P"/>
                         <outlet property="refreshBtn" destination="b0M-OH-Lq6" id="MIF-zZ-Aei"/>
@@ -89,4 +99,7 @@
             <point key="canvasLocation" x="202" y="321"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Gingerbread Man.jpg" width="512" height="512"/>
+    </resources>
 </document>
