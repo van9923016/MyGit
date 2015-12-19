@@ -10,18 +10,39 @@
 
 @interface ViewController ()
 
+@property (nonatomic, weak) IBOutlet UIBarButtonItem	*loginBtn;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem	*logOutBtn;
+@property (nonatomic, weak) IBOutlet UIButton			*refreshBtn;
+@property (nonatomic, weak) IBOutlet UISegmentedControl *segmentControl;
+@property (nonatomic, weak) IBOutlet UIImageView		*insImageView;
+
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
-	// Dispose of any resources that can be recreated.
+}
+
+- (IBAction)loginIns:(UIBarButtonItem *)sender {
+	
+}
+
+- (IBAction)logoutIns:(UIBarButtonItem *)sender {
+	
+}
+
+- (IBAction)refreshInsImage:(UIButton *)sender {
+	
+}
+
+- (IBAction)segmentChanged:(UISegmentedControl *)sender {
+	
 }
 
 @end
