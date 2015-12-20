@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27242D59AEFEBDB90ADB9764 /* libPods-MyInsPhoto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 446645AB04986FFBF37BC5DD /* libPods-MyInsPhoto.a */; };
 		B84005891C2546D100F9163F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B84005881C2546D100F9163F /* main.m */; };
 		B840058C1C2546D100F9163F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B840058B1C2546D100F9163F /* AppDelegate.m */; };
 		B840058F1C2546D100F9163F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B840058E1C2546D100F9163F /* ViewController.m */; };
@@ -17,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		446645AB04986FFBF37BC5DD /* libPods-MyInsPhoto.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyInsPhoto.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		64801449A2D539EDAF7B9325 /* Pods-MyInsPhoto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyInsPhoto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyInsPhoto/Pods-MyInsPhoto.debug.xcconfig"; sourceTree = "<group>"; };
+		90492006E0C67568E9C6A650 /* Pods-MyInsPhoto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyInsPhoto.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyInsPhoto/Pods-MyInsPhoto.release.xcconfig"; sourceTree = "<group>"; };
 		B84005841C2546D100F9163F /* MyInsPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyInsPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B84005881C2546D100F9163F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B840058A1C2546D100F9163F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -35,17 +39,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27242D59AEFEBDB90ADB9764 /* libPods-MyInsPhoto.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1AB1F7EC113210EB50575ADB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				64801449A2D539EDAF7B9325 /* Pods-MyInsPhoto.debug.xcconfig */,
+				90492006E0C67568E9C6A650 /* Pods-MyInsPhoto.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6DE843D32A6D04574570BCA9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				446645AB04986FFBF37BC5DD /* libPods-MyInsPhoto.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B840057B1C2546D100F9163F = {
 			isa = PBXGroup;
 			children = (
 				B84005861C2546D100F9163F /* MyInsPhoto */,
 				B84005851C2546D100F9163F /* Products */,
+				1AB1F7EC113210EB50575ADB /* Pods */,
+				6DE843D32A6D04574570BCA9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,9 +113,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B840059B1C2546D100F9163F /* Build configuration list for PBXNativeTarget "MyInsPhoto" */;
 			buildPhases = (
+				5D14021B0A3E0F92A26C1B72 /* Check Pods Manifest.lock */,
 				B84005801C2546D100F9163F /* Sources */,
 				B84005811C2546D100F9163F /* Frameworks */,
 				B84005821C2546D100F9163F /* Resources */,
+				81345C31BFF813DB7917FAEF /* Embed Pods Frameworks */,
+				C00B341481C367D0C2EE7070 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -113,6 +140,7 @@
 				TargetAttributes = {
 					B84005831C2546D100F9163F = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 6QRWM94KKM;
 					};
 				};
 			};
@@ -147,6 +175,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5D14021B0A3E0F92A26C1B72 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		81345C31BFF813DB7917FAEF /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyInsPhoto/Pods-MyInsPhoto-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C00B341481C367D0C2EE7070 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyInsPhoto/Pods-MyInsPhoto-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B84005801C2546D100F9163F /* Sources */ = {
@@ -265,8 +341,10 @@
 		};
 		B840059C1C2546D100F9163F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64801449A2D539EDAF7B9325 /* Pods-MyInsPhoto.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MyInsPhoto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wentan.MyInsPhoto;
@@ -276,8 +354,10 @@
 		};
 		B840059D1C2546D100F9163F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90492006E0C67568E9C6A650 /* Pods-MyInsPhoto.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MyInsPhoto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wentan.MyInsPhoto;
@@ -304,6 +384,7 @@
 				B840059D1C2546D100F9163F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -61,7 +61,7 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Instgram Photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ku6-JK-7QL">
-                                <rect key="frame" x="56" y="98" width="209" height="29"/>
+                                <rect key="frame" x="60" y="98" width="201" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -71,15 +71,14 @@
                         <constraints>
                             <constraint firstItem="b0M-OH-Lq6" firstAttribute="top" secondItem="ama-g3-iZH" secondAttribute="bottom" constant="30" id="195-ms-z2q"/>
                             <constraint firstItem="ku6-JK-7QL" firstAttribute="top" secondItem="bdo-zE-Anb" secondAttribute="bottom" constant="34" id="2BR-ox-gI8"/>
+                            <constraint firstItem="ku6-JK-7QL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5e6-wS-i7Z"/>
                             <constraint firstItem="ama-g3-iZH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6Nf-iD-TY4"/>
-                            <constraint firstItem="ku6-JK-7QL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="G0I-WQ-HCH"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eKB-uC-GnO" secondAttribute="bottom" constant="8" id="Pzk-4S-LAB"/>
                             <constraint firstItem="ama-g3-iZH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b60-XW-dga"/>
                             <constraint firstItem="bdo-zE-Anb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="bM7-Pv-qgA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bdo-zE-Anb" secondAttribute="trailing" constant="-20" id="fl2-pn-vDV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eKB-uC-GnO" secondAttribute="trailing" constant="-2" id="hWw-Gf-1ab"/>
                             <constraint firstItem="eKB-uC-GnO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-2" id="iTa-Lw-yJi"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ku6-JK-7QL" secondAttribute="trailing" constant="39" id="itX-ct-at8"/>
                             <constraint firstItem="bdo-zE-Anb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="k9M-sw-U5P"/>
                             <constraint firstAttribute="trailingMargin" secondItem="b0M-OH-Lq6" secondAttribute="trailing" constant="113" id="xIf-3Z-1fc"/>
                             <constraint firstItem="b0M-OH-Lq6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="114" id="zG9-Lt-4t8"/>

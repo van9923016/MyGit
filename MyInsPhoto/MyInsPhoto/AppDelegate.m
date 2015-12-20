@@ -7,6 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import <NXOAuth2.h>
+
+NSString *const clientID = @"d5f53a5eed3e48cda70e9124679bee39";
+NSString *const clientSecret = @"859726ff8f80400eb1ce9b3d81c5bc3e";
+NSString *const accountType = @"Instagram";
+
 
 @interface AppDelegate ()
 
@@ -16,7 +22,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	// Override point for customization after application launch.
+	
+	//singleton model for account
+	[[NXOAuth2AccountStore sharedStore] setClientID:clientID
+											 secret:clientSecret
+								   authorizationURL:[NSURL URLWithString:@"https://api.instagram.com/oauth/authorize"]
+										   tokenURL:[NSURL URLWithString:@"https://api.instagram.com/oauth/access_token"]
+										redirectURL:[NSURL URLWithString:@"scheme://itaen.com"]
+									 forAccountType:accountType];
 	return YES;
 }
 
@@ -40,6 +53,12 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 	// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+// Recieve callback to open custom URL
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
+	NSLog(@"We received a callback");
+	return [[NXOAuth2AccountStore sharedStore] handleRedirectURL:url];
 }
 
 @end
