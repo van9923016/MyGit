@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5lX-g9-0Sq">
+                                <rect key="frame" x="16" y="131" width="225" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sw1-QM-1gH">
+                                <rect key="frame" x="275" y="135" width="15" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.078431372550000003" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gfX-Jn-dED">
+                                <rect key="frame" x="16" y="186" width="288" height="29"/>
+                                <color key="backgroundColor" red="0.078431372549019607" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
+                                <segments>
+                                    <segment title="cm"/>
+                                    <segment title="ft"/>
+                                    <segment title="in"/>
+                                </segments>
+                                <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Po2-v8-vDP">
+                                <rect key="frame" x="131" y="238" width="59" height="30"/>
+                                <state key="normal" title="Convert!">
+                                    <color key="titleColor" red="0.078431372550000003" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="convertNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3bn-0J-oOn"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mk5-to-vJj">
+                                <rect key="frame" x="16" y="301" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="sw1-QM-1gH" secondAttribute="trailing" constant="14" id="138-vp-6oV"/>
+                            <constraint firstItem="gfX-Jn-dED" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="5Bv-eO-Jus"/>
+                            <constraint firstItem="gfX-Jn-dED" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="APU-Zh-9k4"/>
+                            <constraint firstItem="mk5-to-vJj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Alw-aX-AzN"/>
+                            <constraint firstItem="5lX-g9-0Sq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="D45-A9-LMs"/>
+                            <constraint firstItem="sw1-QM-1gH" firstAttribute="leading" secondItem="5lX-g9-0Sq" secondAttribute="trailing" constant="34" id="L7e-HM-mT1"/>
+                            <constraint firstItem="Po2-v8-vDP" firstAttribute="top" secondItem="gfX-Jn-dED" secondAttribute="bottom" constant="24" id="LDI-xz-rZz"/>
+                            <constraint firstItem="5lX-g9-0Sq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="111" id="Op7-Wy-eLV"/>
+                            <constraint firstItem="gfX-Jn-dED" firstAttribute="top" secondItem="5lX-g9-0Sq" secondAttribute="bottom" constant="25" id="QlV-jy-owX"/>
+                            <constraint firstItem="Po2-v8-vDP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U80-TO-uwa"/>
+                            <constraint firstItem="sw1-QM-1gH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="115" id="X4z-7t-kBa"/>
+                            <constraint firstItem="mk5-to-vJj" firstAttribute="top" secondItem="Po2-v8-vDP" secondAttribute="bottom" constant="33" id="ZXq-Fj-YGW"/>
+                            <constraint firstItem="mk5-to-vJj" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="fF9-ai-7ek"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="inputField" destination="5lX-g9-0Sq" id="ra2-o0-sOi"/>
+                        <outlet property="resultLabel" destination="mk5-to-vJj" id="dWX-s2-bv8"/>
+                        <outlet property="segmentControl" destination="gfX-Jn-dED" id="jK0-UT-Pc2"/>
+                        <outlet property="unitLabel" destination="sw1-QM-1gH" id="3m9-D6-XqH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="284" y="436"/>
+        </scene>
+    </scenes>
+</document>
