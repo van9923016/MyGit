@@ -1,0 +1,388 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B076DBDDBD6AE12A6A5DFF78 /* libPods-DistanceCalculation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A173144D199E6F9C9C1C6D4 /* libPods-DistanceCalculation.a */; };
+		B891EB591C297A8600E6420B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B891EB581C297A8600E6420B /* main.m */; };
+		B891EB5C1C297A8600E6420B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B891EB5B1C297A8600E6420B /* AppDelegate.m */; };
+		B891EB5F1C297A8600E6420B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B891EB5E1C297A8600E6420B /* ViewController.m */; };
+		B891EB621C297A8600E6420B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B891EB601C297A8600E6420B /* Main.storyboard */; };
+		B891EB641C297A8600E6420B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B891EB631C297A8600E6420B /* Assets.xcassets */; };
+		B891EB671C297A8600E6420B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B891EB651C297A8600E6420B /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		128AE43B9A256B813B9235CA /* Pods-DistanceCalculation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DistanceCalculation.release.xcconfig"; path = "Pods/Target Support Files/Pods-DistanceCalculation/Pods-DistanceCalculation.release.xcconfig"; sourceTree = "<group>"; };
+		7A173144D199E6F9C9C1C6D4 /* libPods-DistanceCalculation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DistanceCalculation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E80E2D7B7B81B6E98E62B48 /* Pods-DistanceCalculation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DistanceCalculation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DistanceCalculation/Pods-DistanceCalculation.debug.xcconfig"; sourceTree = "<group>"; };
+		B891EB541C297A8600E6420B /* DistanceCalculation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DistanceCalculation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B891EB581C297A8600E6420B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B891EB5A1C297A8600E6420B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B891EB5B1C297A8600E6420B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B891EB5D1C297A8600E6420B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B891EB5E1C297A8600E6420B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B891EB611C297A8600E6420B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B891EB631C297A8600E6420B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B891EB661C297A8600E6420B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B891EB681C297A8600E6420B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B891EB511C297A8600E6420B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B076DBDDBD6AE12A6A5DFF78 /* libPods-DistanceCalculation.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B891EB4B1C297A8600E6420B = {
+			isa = PBXGroup;
+			children = (
+				B891EB561C297A8600E6420B /* DistanceCalculation */,
+				B891EB551C297A8600E6420B /* Products */,
+				E12138CA39D6219CA3D4DCE5 /* Pods */,
+				D2F76F8FC56E5B8085FA0EE3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B891EB551C297A8600E6420B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B891EB541C297A8600E6420B /* DistanceCalculation.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B891EB561C297A8600E6420B /* DistanceCalculation */ = {
+			isa = PBXGroup;
+			children = (
+				B891EB5A1C297A8600E6420B /* AppDelegate.h */,
+				B891EB5B1C297A8600E6420B /* AppDelegate.m */,
+				B891EB5D1C297A8600E6420B /* ViewController.h */,
+				B891EB5E1C297A8600E6420B /* ViewController.m */,
+				B891EB601C297A8600E6420B /* Main.storyboard */,
+				B891EB631C297A8600E6420B /* Assets.xcassets */,
+				B891EB651C297A8600E6420B /* LaunchScreen.storyboard */,
+				B891EB681C297A8600E6420B /* Info.plist */,
+				B891EB571C297A8600E6420B /* Supporting Files */,
+			);
+			path = DistanceCalculation;
+			sourceTree = "<group>";
+		};
+		B891EB571C297A8600E6420B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B891EB581C297A8600E6420B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D2F76F8FC56E5B8085FA0EE3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A173144D199E6F9C9C1C6D4 /* libPods-DistanceCalculation.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E12138CA39D6219CA3D4DCE5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9E80E2D7B7B81B6E98E62B48 /* Pods-DistanceCalculation.debug.xcconfig */,
+				128AE43B9A256B813B9235CA /* Pods-DistanceCalculation.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B891EB531C297A8600E6420B /* DistanceCalculation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B891EB6B1C297A8600E6420B /* Build configuration list for PBXNativeTarget "DistanceCalculation" */;
+			buildPhases = (
+				DE8B533520E17D8620AF896B /* Check Pods Manifest.lock */,
+				B891EB501C297A8600E6420B /* Sources */,
+				B891EB511C297A8600E6420B /* Frameworks */,
+				B891EB521C297A8600E6420B /* Resources */,
+				A97B94A5D21591488CFC1825 /* Embed Pods Frameworks */,
+				2641302038641DCF03DB2292 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DistanceCalculation;
+			productName = DistanceCalculation;
+			productReference = B891EB541C297A8600E6420B /* DistanceCalculation.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B891EB4C1C297A8600E6420B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Wen Tan";
+				TargetAttributes = {
+					B891EB531C297A8600E6420B = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 6QRWM94KKM;
+					};
+				};
+			};
+			buildConfigurationList = B891EB4F1C297A8600E6420B /* Build configuration list for PBXProject "DistanceCalculation" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B891EB4B1C297A8600E6420B;
+			productRefGroup = B891EB551C297A8600E6420B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B891EB531C297A8600E6420B /* DistanceCalculation */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B891EB521C297A8600E6420B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B891EB671C297A8600E6420B /* LaunchScreen.storyboard in Resources */,
+				B891EB641C297A8600E6420B /* Assets.xcassets in Resources */,
+				B891EB621C297A8600E6420B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2641302038641DCF03DB2292 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DistanceCalculation/Pods-DistanceCalculation-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A97B94A5D21591488CFC1825 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DistanceCalculation/Pods-DistanceCalculation-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE8B533520E17D8620AF896B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B891EB501C297A8600E6420B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B891EB5F1C297A8600E6420B /* ViewController.m in Sources */,
+				B891EB5C1C297A8600E6420B /* AppDelegate.m in Sources */,
+				B891EB591C297A8600E6420B /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B891EB601C297A8600E6420B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B891EB611C297A8600E6420B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B891EB651C297A8600E6420B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B891EB661C297A8600E6420B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B891EB691C297A8600E6420B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B891EB6A1C297A8600E6420B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B891EB6C1C297A8600E6420B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E80E2D7B7B81B6E98E62B48 /* Pods-DistanceCalculation.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = DistanceCalculation/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wentan.DistanceCalculation;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B891EB6D1C297A8600E6420B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 128AE43B9A256B813B9235CA /* Pods-DistanceCalculation.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = DistanceCalculation/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wentan.DistanceCalculation;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B891EB4F1C297A8600E6420B /* Build configuration list for PBXProject "DistanceCalculation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B891EB691C297A8600E6420B /* Debug */,
+				B891EB6A1C297A8600E6420B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B891EB6B1C297A8600E6420B /* Build configuration list for PBXNativeTarget "DistanceCalculation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B891EB6C1C297A8600E6420B /* Debug */,
+				B891EB6D1C297A8600E6420B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B891EB4C1C297A8600E6420B /* Project object */;
+}
