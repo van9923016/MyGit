@@ -20,6 +20,7 @@
 		B84005D71C270A2400F9163F /* AlbumView.m in Sources */ = {isa = PBXBuildFile; fileRef = B84005D61C270A2400F9163F /* AlbumView.m */; };
 		B84005DC1C27115600F9163F /* LibaryAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = B84005DB1C27115600F9163F /* LibaryAPI.m */; };
 		B84005DF1C2712AB00F9163F /* PersistencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B84005DE1C2712AB00F9163F /* PersistencyManager.m */; };
+		B8C18FF11C2A7E7A0012F44B /* Album+TableRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C18FF01C2A7E7A0012F44B /* Album+TableRepresentation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,8 @@
 		B84005DB1C27115600F9163F /* LibaryAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibaryAPI.m; sourceTree = "<group>"; };
 		B84005DD1C2712AB00F9163F /* PersistencyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistencyManager.h; sourceTree = "<group>"; };
 		B84005DE1C2712AB00F9163F /* PersistencyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistencyManager.m; sourceTree = "<group>"; };
+		B8C18FEF1C2A7E7A0012F44B /* Album+TableRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Album+TableRepresentation.h"; path = "Assets.xcassets/Album+TableRepresentation.h"; sourceTree = "<group>"; };
+		B8C18FF01C2A7E7A0012F44B /* Album+TableRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Album+TableRepresentation.m"; path = "Assets.xcassets/Album+TableRepresentation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 			children = (
 				B84005D11C2709FC00F9163F /* Album.h */,
 				B84005D21C2709FC00F9163F /* Album.m */,
+				B8C18FEF1C2A7E7A0012F44B /* Album+TableRepresentation.h */,
+				B8C18FF01C2A7E7A0012F44B /* Album+TableRepresentation.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 				B84005DF1C2712AB00F9163F /* PersistencyManager.m in Sources */,
 				B84005D71C270A2400F9163F /* AlbumView.m in Sources */,
 				B84005D01C2706EF00F9163F /* HTTPClient.m in Sources */,
+				B8C18FF11C2A7E7A0012F44B /* Album+TableRepresentation.m in Sources */,
 				B84005D31C2709FC00F9163F /* Album.m in Sources */,
 				B84005AE1C2705E600F9163F /* main.m in Sources */,
 			);
@@ -362,6 +368,7 @@
 				B84005C21C2705E600F9163F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
