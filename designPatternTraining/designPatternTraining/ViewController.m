@@ -35,6 +35,7 @@
 	[self.dataTable reloadData];
 }
 
+#pragma mark -- TableView delegate and data source implementation
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	NSLog(@"%lu",[self.currentAlbum[@"titles"] count]);
 	return [self.currentAlbum[@"titles"] count];
