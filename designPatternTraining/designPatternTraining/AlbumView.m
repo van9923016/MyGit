@@ -18,7 +18,7 @@
 
 @implementation AlbumView
 
-- (instancetype)initWithFrame:(CGRect)frame albumCover:(UIImage *)albumCover {
+- (instancetype)initWithFrame:(CGRect)frame albumCover:(NSString *)albumCover {
 	self = [super initWithFrame:frame];
 	if (self) {
 		self.backgroundColor = [UIColor blackColor];

@@ -9,13 +9,16 @@
 #import "ViewController.h"
 #import "LibaryAPI.h"
 #import "Album+TableRepresentation.h"
+#import "AlbumView.h"
+#import "HorizontalScroller.h"
 
-@interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface ViewController ()<UITableViewDelegate, UITableViewDataSource,HorizontalScrollerDelegate>
 
 @property (strong, nonatomic) UITableView	*dataTable;
 @property (assign, nonatomic) NSArray		*allAlbums;
 @property (strong, nonatomic) NSDictionary	*currentAlbum;
 @property (assign, nonatomic) int			currentAlbumIndex;
+@property (strong, nonatomic) HorizontalScroller *scroller;
 
 @end
 
@@ -28,16 +31,43 @@
 		Album *album = self.allAlbums[albumIndex];
 		//save album data to represent it in tableview
 		self.currentAlbum = [album tr_tableRepresentation];
-		NSLog(@"%@",self.currentAlbum);
+		
 	}else{
 		self.currentAlbum = nil;
 	}
 	[self.dataTable reloadData];
 }
 
+- (void)reloadScroller {
+	self.allAlbums = [[LibaryAPI sharedInstance] getAlbums];
+	if (self.currentAlbumIndex < 0) {
+		self.currentAlbumIndex = 0;
+	}else if (self.currentAlbumIndex >= self.allAlbums.count){
+		self.currentAlbumIndex = (int)self.allAlbums.count - 1;
+		[self.scroller reload];
+	}
+	[self showDataForAlbumAtIndex:self.currentAlbumIndex];
+}
+
+
+#pragma mark -- HorizontalScrollerDelegate methods
+
+- (void)horizontalScroller:(HorizontalScroller *)scroller clickedViewAtIndex:(int)index {
+	self.currentAlbumIndex = index;
+	[self showDataForAlbumAtIndex:index];
+}
+
+- (NSInteger)numberOfViewsForHorizontalScroller:(HorizontalScroller *)scroller {
+	return self.allAlbums.count;
+}
+
+- (UIView *)horizontalScroller:(HorizontalScroller *)scroller viewAtIndex:(int)index {
+	Album *album = self.allAlbums[index];
+	return [[AlbumView alloc] initWithFrame:CGRectMake(0, 0, 100, 100) albumCover:album.coverURL];
+}
+
 #pragma mark -- TableView delegate and data source implementation
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	NSLog(@"%lu",[self.currentAlbum[@"titles"] count]);
 	return [self.currentAlbum[@"titles"] count];
 }
 
@@ -73,6 +103,14 @@
 	self.dataTable.dataSource = self;
 	self.dataTable.backgroundView = nil;
 	[self.view addSubview:self.dataTable];
+	
+	self.scroller = [[HorizontalScroller alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, 120)];
+	self.scroller.backgroundColor = [UIColor colorWithRed:0.24f green:0.35f blue:0.49f alpha:1];
+	self.scroller.delegate = self;
+	[self.view addSubview:self.scroller];
+	[self reloadScroller];
+	
+	
 	
 	//fetch data and reload tableview
 	[self showDataForAlbumAtIndex:self.currentAlbumIndex];
