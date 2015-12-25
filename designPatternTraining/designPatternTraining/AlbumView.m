@@ -29,6 +29,13 @@
 		_indicator.center = self.center;
 		[_indicator startAnimating];
 		[self addSubview:_indicator];
+		
+		//post notification through NSNotificationCenter singleton
+		[[NSNotificationCenter defaultCenter] postNotificationName:@"BLDownloadImageNotification"
+															object:self
+														  userInfo:@{@"imageView" : _coverImgView,
+																	 @"coverURL"  : albumCover
+																	 }];
 	}
 	return self;
 }

@@ -6,6 +6,7 @@
 //  Copyright © 2015 Wen Tan. All rights reserved.
 //
 
+@import UIKit;
 #import <Foundation/Foundation.h>
 #import "Album.h"
 
@@ -14,5 +15,7 @@
 - (NSArray *)getAlbums;
 - (void)addAlbum:(Album *)album atIndex:(int)index;
 - (void)deleteAlbumAtIndex:(int)index;
+- (void)saveImage:(UIImage *)image filename:(NSString *)filename;
+- (UIImage *)getImage:(NSString *)filename;
 
 @end

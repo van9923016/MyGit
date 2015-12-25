@@ -10,9 +10,6 @@
 #import "HTTPClient.h"
 #import "PersistencyManager.h"
 
-
-
-
 @interface LibaryAPI()
 
 @property (nonatomic, strong) PersistencyManager *persistencyManager;
@@ -40,10 +37,15 @@
 		_persistencyManager = [[PersistencyManager alloc] init];
 		_httpClient			= [[HTTPClient alloc] init];
 		_isOnline			= NO;
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(downloadImage:) name:@"BLDownloadImageNotification" object:nil];
 	}
 	return self;
 }
 
+- (void)dealloc {
+	//add each observer must remove it at proper time
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 	//Facade design pattern
 - (NSArray *)getAlbums {
@@ -67,9 +69,25 @@
 	}
 }
 
-
-
-
+- (void)downloadImage:(NSNotification *)notification {
+	//get data from notification
+	UIImageView *imageView = notification.userInfo[@"imageView"];
+	NSString *coverURL = notification.userInfo[@"coverURL"];
+	
+	imageView.image = [self.persistencyManager getImage:[coverURL lastPathComponent]];
+	
+	if (imageView.image == nil) {
+		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
+			UIImage *image = [self.httpClient downloadImage:coverURL];
+			
+			dispatch_sync(dispatch_get_main_queue(), ^{
+				imageView.image = image;
+				[self.persistencyManager saveImage:image
+										  filename:[coverURL lastPathComponent]];
+			});
+		});
+	}
+}
 
 
 
