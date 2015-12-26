@@ -92,6 +92,9 @@
 	// he left it. In order to do this we need to save the currently displayed album.
 	// Since it's only one piece of information we can use NSUserDefaults.
 	[[NSUserDefaults standardUserDefaults] setInteger:self.currentAlbumIndex forKey:@"currentAlbumIndex"];
+	
+	//trigger the saving of album data whenever the ViewController saves its state.
+	[[LibaryAPI sharedInstance] saveAlbums];
 }
 
 //load last sate user quit app

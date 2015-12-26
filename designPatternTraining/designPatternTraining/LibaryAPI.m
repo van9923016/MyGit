@@ -91,7 +91,9 @@
 	}
 }
 
-
+- (void)saveAlbums {
+	[self.persistencyManager saveAlbums];
+}
 
 
 @end

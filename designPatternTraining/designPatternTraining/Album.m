@@ -23,4 +23,26 @@
 	return self;
 }
 
+// call encodeWithCoder archive an instance of this class
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+	[aCoder encodeObject:self.year forKey:@"year"];
+	[aCoder encodeObject:self.title forKey:@"album"];
+	[aCoder encodeObject:self.artist forKey:@"artist"];
+	[aCoder encodeObject:self.coverURL forKey:@"coverURL"];
+	[aCoder encodeObject:self.genre forKey:@"genre"];
+}
+
+//call initWithCoder when you unarchive an instance
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+	self = [super init];
+	if (self) {
+		_year = [aDecoder decodeObjectForKey:@"year"];
+		_title = [aDecoder decodeObjectForKey:@"title"];
+		_artist = [aDecoder decodeObjectForKey:@"artist"];
+		_coverURL = [aDecoder decodeObjectForKey:@"coverURL"];
+		_genre = [aDecoder decodeObjectForKey:@"genre"];
+	}
+	return self;
+}
+
 @end
