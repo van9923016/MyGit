@@ -37,6 +37,8 @@
 		_persistencyManager = [[PersistencyManager alloc] init];
 		_httpClient			= [[HTTPClient alloc] init];
 		_isOnline			= NO;
+		
+		//once someone post a notification named BOLDownloadImageNotification then trigger downloadImage method.
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(downloadImage:) name:@"BLDownloadImageNotification" object:nil];
 	}
 	return self;
