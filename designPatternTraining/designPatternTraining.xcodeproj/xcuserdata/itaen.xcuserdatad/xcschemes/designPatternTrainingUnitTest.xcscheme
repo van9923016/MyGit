@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B84005A81C2705E600F9163F"
-               BuildableName = "designPatternTraining.app"
-               BlueprintName = "designPatternTraining"
+               BlueprintIdentifier = "B855E8461C2FB910007F940A"
+               BuildableName = "designPatternTrainingUnitTest.app"
+               BlueprintName = "designPatternTrainingUnitTest"
                ReferencedContainer = "container:designPatternTraining.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B855E86F1C2FB97F007F940A"
-               BuildableName = "designPatternTrainingTests.xctest"
-               BlueprintName = "designPatternTrainingTests"
+               BlueprintIdentifier = "B855E85E1C2FB911007F940A"
+               BuildableName = "designPatternTrainingUnitTestTests.xctest"
+               BlueprintName = "designPatternTrainingUnitTestTests"
                ReferencedContainer = "container:designPatternTraining.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B84005A81C2705E600F9163F"
-            BuildableName = "designPatternTraining.app"
-            BlueprintName = "designPatternTraining"
+            BlueprintIdentifier = "B855E8461C2FB910007F940A"
+            BuildableName = "designPatternTrainingUnitTest.app"
+            BlueprintName = "designPatternTrainingUnitTest"
             ReferencedContainer = "container:designPatternTraining.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -65,9 +65,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B84005A81C2705E600F9163F"
-            BuildableName = "designPatternTraining.app"
-            BlueprintName = "designPatternTraining"
+            BlueprintIdentifier = "B855E8461C2FB910007F940A"
+            BuildableName = "designPatternTrainingUnitTest.app"
+            BlueprintName = "designPatternTrainingUnitTest"
             ReferencedContainer = "container:designPatternTraining.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -84,9 +84,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B84005A81C2705E600F9163F"
-            BuildableName = "designPatternTraining.app"
-            BlueprintName = "designPatternTraining"
+            BlueprintIdentifier = "B855E8461C2FB910007F940A"
+            BuildableName = "designPatternTrainingUnitTest.app"
+            BlueprintName = "designPatternTrainingUnitTest"
             ReferencedContainer = "container:designPatternTraining.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

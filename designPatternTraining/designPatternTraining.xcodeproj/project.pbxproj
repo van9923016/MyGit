@@ -20,9 +20,20 @@
 		B84005D71C270A2400F9163F /* AlbumView.m in Sources */ = {isa = PBXBuildFile; fileRef = B84005D61C270A2400F9163F /* AlbumView.m */; };
 		B84005DC1C27115600F9163F /* LibaryAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = B84005DB1C27115600F9163F /* LibaryAPI.m */; };
 		B84005DF1C2712AB00F9163F /* PersistencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B84005DE1C2712AB00F9163F /* PersistencyManager.m */; };
+		B855E8731C2FB97F007F940A /* designPatternTrainingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B855E8721C2FB97F007F940A /* designPatternTrainingTests.m */; };
 		B8C18FF11C2A7E7A0012F44B /* Album+TableRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C18FF01C2A7E7A0012F44B /* Album+TableRepresentation.m */; };
 		B8C18FF41C2A9DD20012F44B /* HorizontalScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C18FF31C2A9DD20012F44B /* HorizontalScroller.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B855E8751C2FB97F007F940A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B84005A11C2705E600F9163F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B84005A81C2705E600F9163F;
+			remoteInfo = designPatternTraining;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		B84005A91C2705E600F9163F /* designPatternTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = designPatternTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +58,9 @@
 		B84005DB1C27115600F9163F /* LibaryAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibaryAPI.m; sourceTree = "<group>"; };
 		B84005DD1C2712AB00F9163F /* PersistencyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistencyManager.h; sourceTree = "<group>"; };
 		B84005DE1C2712AB00F9163F /* PersistencyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistencyManager.m; sourceTree = "<group>"; };
+		B855E8701C2FB97F007F940A /* designPatternTrainingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = designPatternTrainingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B855E8721C2FB97F007F940A /* designPatternTrainingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = designPatternTrainingTests.m; sourceTree = "<group>"; };
+		B855E8741C2FB97F007F940A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8C18FEF1C2A7E7A0012F44B /* Album+TableRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Album+TableRepresentation.h"; path = "Assets.xcassets/Album+TableRepresentation.h"; sourceTree = "<group>"; };
 		B8C18FF01C2A7E7A0012F44B /* Album+TableRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Album+TableRepresentation.m"; path = "Assets.xcassets/Album+TableRepresentation.m"; sourceTree = "<group>"; };
 		B8C18FF21C2A9DD20012F44B /* HorizontalScroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalScroller.h; sourceTree = "<group>"; };
@@ -61,6 +75,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B855E86D1C2FB97F007F940A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -68,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				B84005AB1C2705E600F9163F /* designPatternTraining */,
+				B855E8711C2FB97F007F940A /* designPatternTrainingTests */,
 				B84005AA1C2705E600F9163F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				B84005A91C2705E600F9163F /* designPatternTraining.app */,
+				B855E8701C2FB97F007F940A /* designPatternTrainingTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,6 +175,15 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		B855E8711C2FB97F007F940A /* designPatternTrainingTests */ = {
+			isa = PBXGroup;
+			children = (
+				B855E8721C2FB97F007F940A /* designPatternTrainingTests.m */,
+				B855E8741C2FB97F007F940A /* Info.plist */,
+			);
+			path = designPatternTrainingTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -172,6 +204,24 @@
 			productReference = B84005A91C2705E600F9163F /* designPatternTraining.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B855E86F1C2FB97F007F940A /* designPatternTrainingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B855E8771C2FB97F007F940A /* Build configuration list for PBXNativeTarget "designPatternTrainingTests" */;
+			buildPhases = (
+				B855E86C1C2FB97F007F940A /* Sources */,
+				B855E86D1C2FB97F007F940A /* Frameworks */,
+				B855E86E1C2FB97F007F940A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B855E8761C2FB97F007F940A /* PBXTargetDependency */,
+			);
+			name = designPatternTrainingTests;
+			productName = designPatternTrainingTests;
+			productReference = B855E8701C2FB97F007F940A /* designPatternTrainingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -183,6 +233,10 @@
 				TargetAttributes = {
 					B84005A81C2705E600F9163F = {
 						CreatedOnToolsVersion = 7.2;
+					};
+					B855E86F1C2FB97F007F940A = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = B84005A81C2705E600F9163F;
 					};
 				};
 			};
@@ -200,6 +254,7 @@
 			projectRoot = "";
 			targets = (
 				B84005A81C2705E600F9163F /* designPatternTraining */,
+				B855E86F1C2FB97F007F940A /* designPatternTrainingTests */,
 			);
 		};
 /* End PBXProject section */
@@ -214,6 +269,13 @@
 				B84005CA1C2706B700F9163F /* Default.png in Resources */,
 				B84005CC1C2706B700F9163F /* Default-568h@2x.png in Resources */,
 				B84005B91C2705E600F9163F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B855E86E1C2FB97F007F940A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,7 +299,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B855E86C1C2FB97F007F940A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B855E8731C2FB97F007F940A /* designPatternTrainingTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B855E8761C2FB97F007F940A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B84005A81C2705E600F9163F /* designPatternTraining */;
+			targetProxy = B855E8751C2FB97F007F940A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B84005BA1C2705E600F9163F /* LaunchScreen.storyboard */ = {
@@ -355,6 +433,30 @@
 			};
 			name = Release;
 		};
+		B855E8781C2FB97F007F940A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = designPatternTrainingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wentan.designPatternTrainingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/designPatternTraining.app/designPatternTraining";
+			};
+			name = Debug;
+		};
+		B855E8791C2FB97F007F940A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = designPatternTrainingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wentan.designPatternTrainingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/designPatternTraining.app/designPatternTraining";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -375,6 +477,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		B855E8771C2FB97F007F940A /* Build configuration list for PBXNativeTarget "designPatternTrainingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B855E8781C2FB97F007F940A /* Debug */,
+				B855E8791C2FB97F007F940A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
