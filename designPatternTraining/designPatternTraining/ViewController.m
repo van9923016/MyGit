@@ -140,7 +140,6 @@
 	[undoAction setArgument:&deletedAlbum atIndex:2];
 	[undoAction setArgument:&_currentAlbumIndex atIndex:3];
 	[undoAction retainArguments];
-	
 	// 3
 	[self.undoStack addObject:undoAction];
 	
