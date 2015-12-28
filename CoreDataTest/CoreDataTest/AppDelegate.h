@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "ChoreMO.h"
+#import "ChoreLogMO.h"
+#import "PersonMO.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -20,6 +23,10 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
+//Create My Managed Object Method
+- (ChoreMO *)createChoreMO;
+- (ChoreLogMO *)createChoreLogMO;
+- (PersonMO *)createPersonMO;
 
 @end
 

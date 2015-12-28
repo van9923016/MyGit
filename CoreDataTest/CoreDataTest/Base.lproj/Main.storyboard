@@ -1,25 +1,78 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T95-Tt-VNM">
+                                <rect key="frame" x="16" y="28" width="160" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAm-22-KmF">
+                                <rect key="frame" x="50" y="66" width="85" height="30"/>
+                                <state key="normal" title="Add a Chore"/>
+                                <connections>
+                                    <action selector="addChoreTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tMB-Rn-2tP"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s1J-vB-0ai">
+                                <rect key="frame" x="16" y="386" width="343" height="273"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="273" id="jfO-ZF-x2A"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EdQ-Hm-Gk0">
+                                <rect key="frame" x="165" y="319" width="45" height="30"/>
+                                <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="deleteChoreTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CqJ-dJ-fqb"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vmT-qo-aWF">
+                                <rect key="frame" x="0.0" y="115" width="176" height="159"/>
+                            </pickerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="T95-Tt-VNM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="44m-hz-lpL"/>
+                            <constraint firstItem="FAm-22-KmF" firstAttribute="top" secondItem="T95-Tt-VNM" secondAttribute="bottom" constant="8" id="79z-61-zhV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="T95-Tt-VNM" secondAttribute="trailing" constant="183" id="BON-3E-XVO"/>
+                            <constraint firstItem="s1J-vB-0ai" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Svd-ck-ED0"/>
+                            <constraint firstItem="EdQ-Hm-Gk0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="WIV-SP-oWN"/>
+                            <constraint firstItem="EdQ-Hm-Gk0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bcM-yW-ElA"/>
+                            <constraint firstItem="FAm-22-KmF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="34" id="c1W-9p-GHn"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="s1J-vB-0ai" secondAttribute="bottom" constant="8" id="kbu-x7-hzb"/>
+                            <constraint firstItem="s1J-vB-0ai" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="mk5-i7-SAB"/>
+                            <constraint firstItem="T95-Tt-VNM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="r2q-5V-yiz"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="choreLogLabel" destination="s1J-vB-0ai" id="sPc-nD-JBb"/>
+                        <outlet property="chorefield" destination="T95-Tt-VNM" id="eRf-ie-FCs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="733.5" y="489.5"/>
         </scene>
     </scenes>
 </document>

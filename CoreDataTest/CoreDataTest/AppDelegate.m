@@ -7,9 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ChoreMO.h"
-#import "ChoreLogMO.h"
-#import "PersonMO.h"
+
 @interface AppDelegate ()
 
 @end

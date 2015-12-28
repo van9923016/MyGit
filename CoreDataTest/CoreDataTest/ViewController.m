@@ -1,4 +1,4 @@
-//
+ //
 //  ViewController.m
 //  CoreDataTest
 //
@@ -10,19 +10,77 @@
 #import "AppDelegate.h"
 
 @interface ViewController ()
-@property (strong, nonatomic) AppDelegate *delegate;
+
+@property (strong, nonatomic) AppDelegate *appDelegate;
+@property (weak, nonatomic) IBOutlet UITextField  *chorefield;
+@property (weak, nonatomic) IBOutlet UILabel	 *choreLogLabel;
+
 @end
 
 @implementation ViewController
 
+
+- (IBAction)addChoreTapped:(UIButton *)sender {
+	
+	ChoreMO *choreMO = [self.appDelegate createChoreMO];
+	choreMO.chore_name = self.chorefield.text;
+	
+	[self.appDelegate saveContext];
+	[self updateLogList];
+}
+
+- (IBAction)deleteChoreTapped:(UIButton *)sender {
+	
+	NSManagedObjectContext *moc = self.appDelegate.managedObjectContext;
+	NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Chore"];
+	
+	NSError *error = nil;
+	NSArray *results = [moc executeFetchRequest:request error:&error];
+	if (!results) {
+		NSLog(@"Error fetching Person objects: %@\n%@", [error localizedDescription], [error userInfo]);
+		abort();
+	}
+	
+	for (ChoreMO *choreMO in results) {
+		[moc deleteObject:choreMO];
+	}
+	[self.appDelegate saveContext];
+	[self updateLogList];
+	
+}
+
+
+- (void)updateLogList {
+	NSManagedObjectContext *moc = self.appDelegate.managedObjectContext;
+	NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Chore"];
+	NSError *error = nil;
+	NSArray *results = [moc executeFetchRequest:request error:&error];
+	if (!results) {
+		NSLog(@"Error fetching person objects: %@\n%@",[error localizedDescription], [error userInfo]);
+		abort();
+	}
+	
+	NSMutableString *buffer = [NSMutableString stringWithString:@""];
+	for (ChoreMO *choreMO in results) {
+		[buffer appendFormat:@"\n%@", choreMO.chore_name] ;
+	}
+	self.choreLogLabel.text = buffer;
+
+}
+
+
+
+
+
+
+#pragma mark - App Lifecycle
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	self.delegate = [[UIApplication sharedApplication] delegate];
+	self.appDelegate = [[UIApplication sharedApplication] delegate];
 }
 
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
-	// Dispose of any resources that can be recreated.
 }
 
 @end
