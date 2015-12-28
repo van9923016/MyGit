@@ -5,16 +5,16 @@
 //  Created by Wen Tan on 12/28/15.
 //  Copyright © 2015 Wen Tan. All rights reserved.
 //
+#import "ChoreMO.h"
+#import "PickViewController.h"
 
-#import "PickViewViewController.h"
-
-@interface PickViewViewController ()
+@interface PickViewController ()
 
 @property (nonatomic, copy) NSMutableArray *pickerData;
 
 @end
 
-@implementation PickViewViewController
+@implementation PickViewController
 
 //Helper method to set pickerData
 - (void)setArray:(NSArray *)incoming {
@@ -46,7 +46,12 @@
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-	return [[self.pickerData objectAtIndex:row] description];
+	
+	ChoreMO *choreMO = self.pickerData[row];
+	if (choreMO) {
+		return choreMO.chore_name;
+	}
+	return @"Error";
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {

@@ -20,7 +20,7 @@
 		B8CF90C41C30CF3800F7B67E /* ChoreMO.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CF90BC1C30CF3800F7B67E /* ChoreMO.m */; };
 		B8CF90C51C30CF3800F7B67E /* PersonMO+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CF90BE1C30CF3800F7B67E /* PersonMO+CoreDataProperties.m */; };
 		B8CF90C61C30CF3800F7B67E /* PersonMO.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CF90C01C30CF3800F7B67E /* PersonMO.m */; };
-		B8CF90CA1C3130BA00F7B67E /* PickViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CF90C91C3130BA00F7B67E /* PickViewViewController.m */; };
+		B8CF90CA1C3130BA00F7B67E /* PickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CF90C91C3130BA00F7B67E /* PickViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,8 +47,8 @@
 		B8CF90BE1C30CF3800F7B67E /* PersonMO+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PersonMO+CoreDataProperties.m"; sourceTree = "<group>"; };
 		B8CF90BF1C30CF3800F7B67E /* PersonMO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonMO.h; sourceTree = "<group>"; };
 		B8CF90C01C30CF3800F7B67E /* PersonMO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonMO.m; sourceTree = "<group>"; };
-		B8CF90C81C3130BA00F7B67E /* PickViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickViewViewController.h; sourceTree = "<group>"; };
-		B8CF90C91C3130BA00F7B67E /* PickViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickViewViewController.m; sourceTree = "<group>"; };
+		B8CF90C81C3130BA00F7B67E /* PickViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickViewController.h; sourceTree = "<group>"; };
+		B8CF90C91C3130BA00F7B67E /* PickViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +86,8 @@
 				B8CF909F1C30CA4900F7B67E /* AppDelegate.m */,
 				B8CF90A11C30CA4900F7B67E /* ViewController.h */,
 				B8CF90A21C30CA4900F7B67E /* ViewController.m */,
-				B8CF90C81C3130BA00F7B67E /* PickViewViewController.h */,
-				B8CF90C91C3130BA00F7B67E /* PickViewViewController.m */,
+				B8CF90C81C3130BA00F7B67E /* PickViewController.h */,
+				B8CF90C91C3130BA00F7B67E /* PickViewController.m */,
 				B8CF90A41C30CA4900F7B67E /* Main.storyboard */,
 				B8CF90AA1C30CA4900F7B67E /* Assets.xcassets */,
 				B8CF90AC1C30CA4900F7B67E /* LaunchScreen.storyboard */,
@@ -204,7 +204,7 @@
 				B8CF90A31C30CA4900F7B67E /* ViewController.m in Sources */,
 				B8CF90C11C30CF3800F7B67E /* ChoreLogMO+CoreDataProperties.m in Sources */,
 				B8CF90A01C30CA4900F7B67E /* AppDelegate.m in Sources */,
-				B8CF90CA1C3130BA00F7B67E /* PickViewViewController.m in Sources */,
+				B8CF90CA1C3130BA00F7B67E /* PickViewController.m in Sources */,
 				B8CF90C61C30CF3800F7B67E /* PersonMO.m in Sources */,
 				B8CF909D1C30CA4900F7B67E /* main.m in Sources */,
 			);

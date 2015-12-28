@@ -67,6 +67,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="choreLogLabel" destination="s1J-vB-0ai" id="sPc-nD-JBb"/>
+                        <outlet property="choreRoller" destination="vmT-qo-aWF" id="4Y3-iK-hbr"/>
                         <outlet property="chorefield" destination="T95-Tt-VNM" id="eRf-ie-FCs"/>
                     </connections>
                 </viewController>

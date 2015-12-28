@@ -8,14 +8,15 @@
 
 #import "ViewController.h"
 #import "AppDelegate.h"
-#import "PickViewViewController.h"
+#import "PickViewController.h"
 
 @interface ViewController ()
 
 @property (strong, nonatomic) AppDelegate *appDelegate;
 @property (weak, nonatomic) IBOutlet UITextField  *chorefield;
-@property (weak, nonatomic) IBOutlet UILabel	 *choreLogLabel;
-@property (strong, nonatomic) PickViewViewController *choreRollerVC;
+@property (weak, nonatomic) IBOutlet UILabel	  *choreLogLabel;
+@property (weak, nonatomic) IBOutlet UIPickerView *choreRoller;
+@property (strong, nonatomic) PickViewController *choreRollerHelper;
 
 @end
 
@@ -29,6 +30,7 @@
 	
 	[self.appDelegate saveContext];
 	[self updateLogList];
+	[self updateChoreRoller];
 }
 
 - (IBAction)deleteChoreTapped:(UIButton *)sender {
@@ -48,6 +50,7 @@
 	}
 	[self.appDelegate saveContext];
 	[self updateLogList];
+	[self updateChoreRoller];
 	
 }
 
@@ -80,7 +83,8 @@
 		abort();
 	}
 	NSMutableArray *choreData = [NSMutableArray arrayWithArray:results];
-	[self.choreRollerVC setArray: choreData];
+	[self.choreRollerHelper setArray: choreData];
+	[self.choreRoller reloadAllComponents];
 }
 
 
@@ -90,6 +94,12 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	self.appDelegate = [[UIApplication sharedApplication] delegate];
+	self.choreRollerHelper = [[PickViewController alloc] init];
+	self.choreRoller.delegate = self.choreRollerHelper;
+	self.choreRoller.dataSource = self.choreRollerHelper;
+	[self updateChoreRoller];
+	[self updateLogList];
+
 }
 
 - (void)didReceiveMemoryWarning {

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PickViewViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface PickViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 - (void)setArray:(NSArray *)incoming;
 - (void) addItemToArray:(NSObject *)thing;
