@@ -14,6 +14,12 @@
 		B8CF90A91C30CA4900F7B67E /* CoreDataTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B8CF90A71C30CA4900F7B67E /* CoreDataTest.xcdatamodeld */; };
 		B8CF90AB1C30CA4900F7B67E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8CF90AA1C30CA4900F7B67E /* Assets.xcassets */; };
 		B8CF90AE1C30CA4900F7B67E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8CF90AC1C30CA4900F7B67E /* LaunchScreen.storyboard */; };
+		B8CF90C11C30CF3800F7B67E /* ChoreLogMO+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CF90B61C30CF3800F7B67E /* ChoreLogMO+CoreDataProperties.m */; };
+		B8CF90C21C30CF3800F7B67E /* ChoreLogMO.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CF90B81C30CF3800F7B67E /* ChoreLogMO.m */; };
+		B8CF90C31C30CF3800F7B67E /* ChoreMO+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CF90BA1C30CF3800F7B67E /* ChoreMO+CoreDataProperties.m */; };
+		B8CF90C41C30CF3800F7B67E /* ChoreMO.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CF90BC1C30CF3800F7B67E /* ChoreMO.m */; };
+		B8CF90C51C30CF3800F7B67E /* PersonMO+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CF90BE1C30CF3800F7B67E /* PersonMO+CoreDataProperties.m */; };
+		B8CF90C61C30CF3800F7B67E /* PersonMO.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CF90C01C30CF3800F7B67E /* PersonMO.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +34,18 @@
 		B8CF90AA1C30CA4900F7B67E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8CF90AD1C30CA4900F7B67E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8CF90AF1C30CA4900F7B67E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8CF90B51C30CF3800F7B67E /* ChoreLogMO+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ChoreLogMO+CoreDataProperties.h"; sourceTree = "<group>"; };
+		B8CF90B61C30CF3800F7B67E /* ChoreLogMO+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ChoreLogMO+CoreDataProperties.m"; sourceTree = "<group>"; };
+		B8CF90B71C30CF3800F7B67E /* ChoreLogMO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoreLogMO.h; sourceTree = "<group>"; };
+		B8CF90B81C30CF3800F7B67E /* ChoreLogMO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoreLogMO.m; sourceTree = "<group>"; };
+		B8CF90B91C30CF3800F7B67E /* ChoreMO+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ChoreMO+CoreDataProperties.h"; sourceTree = "<group>"; };
+		B8CF90BA1C30CF3800F7B67E /* ChoreMO+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ChoreMO+CoreDataProperties.m"; sourceTree = "<group>"; };
+		B8CF90BB1C30CF3800F7B67E /* ChoreMO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoreMO.h; sourceTree = "<group>"; };
+		B8CF90BC1C30CF3800F7B67E /* ChoreMO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoreMO.m; sourceTree = "<group>"; };
+		B8CF90BD1C30CF3800F7B67E /* PersonMO+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PersonMO+CoreDataProperties.h"; sourceTree = "<group>"; };
+		B8CF90BE1C30CF3800F7B67E /* PersonMO+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PersonMO+CoreDataProperties.m"; sourceTree = "<group>"; };
+		B8CF90BF1C30CF3800F7B67E /* PersonMO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonMO.h; sourceTree = "<group>"; };
+		B8CF90C01C30CF3800F7B67E /* PersonMO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonMO.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +78,7 @@
 		B8CF909A1C30CA4900F7B67E /* CoreDataTest */ = {
 			isa = PBXGroup;
 			children = (
+				B8CF90C71C30CF4300F7B67E /* CoreDataProperties */,
 				B8CF909E1C30CA4900F7B67E /* AppDelegate.h */,
 				B8CF909F1C30CA4900F7B67E /* AppDelegate.m */,
 				B8CF90A11C30CA4900F7B67E /* ViewController.h */,
@@ -80,6 +99,25 @@
 				B8CF909C1C30CA4900F7B67E /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B8CF90C71C30CF4300F7B67E /* CoreDataProperties */ = {
+			isa = PBXGroup;
+			children = (
+				B8CF90B51C30CF3800F7B67E /* ChoreLogMO+CoreDataProperties.h */,
+				B8CF90B61C30CF3800F7B67E /* ChoreLogMO+CoreDataProperties.m */,
+				B8CF90B71C30CF3800F7B67E /* ChoreLogMO.h */,
+				B8CF90B81C30CF3800F7B67E /* ChoreLogMO.m */,
+				B8CF90B91C30CF3800F7B67E /* ChoreMO+CoreDataProperties.h */,
+				B8CF90BA1C30CF3800F7B67E /* ChoreMO+CoreDataProperties.m */,
+				B8CF90BB1C30CF3800F7B67E /* ChoreMO.h */,
+				B8CF90BC1C30CF3800F7B67E /* ChoreMO.m */,
+				B8CF90BD1C30CF3800F7B67E /* PersonMO+CoreDataProperties.h */,
+				B8CF90BE1C30CF3800F7B67E /* PersonMO+CoreDataProperties.m */,
+				B8CF90BF1C30CF3800F7B67E /* PersonMO.h */,
+				B8CF90C01C30CF3800F7B67E /* PersonMO.m */,
+			);
+			name = CoreDataProperties;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,9 +191,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8CF90C21C30CF3800F7B67E /* ChoreLogMO.m in Sources */,
+				B8CF90C41C30CF3800F7B67E /* ChoreMO.m in Sources */,
 				B8CF90A91C30CA4900F7B67E /* CoreDataTest.xcdatamodeld in Sources */,
+				B8CF90C51C30CF3800F7B67E /* PersonMO+CoreDataProperties.m in Sources */,
+				B8CF90C31C30CF3800F7B67E /* ChoreMO+CoreDataProperties.m in Sources */,
 				B8CF90A31C30CA4900F7B67E /* ViewController.m in Sources */,
+				B8CF90C11C30CF3800F7B67E /* ChoreLogMO+CoreDataProperties.m in Sources */,
 				B8CF90A01C30CA4900F7B67E /* AppDelegate.m in Sources */,
+				B8CF90C61C30CF3800F7B67E /* PersonMO.m in Sources */,
 				B8CF909D1C30CA4900F7B67E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

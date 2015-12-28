@@ -7,12 +7,39 @@
 //
 
 #import "AppDelegate.h"
-
+#import "ChoreMO.h"
+#import "ChoreLogMO.h"
+#import "PersonMO.h"
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
+
+#pragma mark - My Managed Object Code
+
+- (ChoreMO *)createChoreMO {
+
+	NSManagedObjectContext *moc = [self managedObjectContext];
+	ChoreMO *choreMO = [NSEntityDescription insertNewObjectForEntityForName:@"Chore"
+													 inManagedObjectContext:moc];
+	return choreMO;
+}
+
+- (ChoreLogMO *)createChoreLogMO {
+	NSManagedObjectContext *moc = [self managedObjectContext];
+	ChoreLogMO *choreLogMO = [NSEntityDescription insertNewObjectForEntityForName:@"ChoreLog"
+														   inManagedObjectContext:moc];
+	return choreLogMO;
+}
+
+- (PersonMO *)createPersonMO {
+	NSManagedObjectContext *moc = [self managedObjectContext];
+	PersonMO *personMO = [NSEntityDescription insertNewObjectForEntityForName:@"Person"
+													   inManagedObjectContext:moc];
+	return personMO;
+
+}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
