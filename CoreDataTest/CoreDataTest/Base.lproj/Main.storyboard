@@ -19,12 +19,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T95-Tt-VNM">
-                                <rect key="frame" x="16" y="28" width="160" height="30"/>
+                                <rect key="frame" x="12" y="28" width="168" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAm-22-KmF">
-                                <rect key="frame" x="50" y="66" width="85" height="30"/>
+                                <rect key="frame" x="46" y="66" width="85" height="30"/>
                                 <state key="normal" title="Add a Chore"/>
                                 <connections>
                                     <action selector="addChoreTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tMB-Rn-2tP"/>
@@ -47,21 +47,21 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vmT-qo-aWF">
-                                <rect key="frame" x="0.0" y="115" width="176" height="159"/>
+                                <rect key="frame" x="12" y="114" width="168" height="157"/>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="T95-Tt-VNM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="44m-hz-lpL"/>
                             <constraint firstItem="FAm-22-KmF" firstAttribute="top" secondItem="T95-Tt-VNM" secondAttribute="bottom" constant="8" id="79z-61-zhV"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="T95-Tt-VNM" secondAttribute="trailing" constant="183" id="BON-3E-XVO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="T95-Tt-VNM" secondAttribute="trailing" constant="179" id="BON-3E-XVO"/>
                             <constraint firstItem="s1J-vB-0ai" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Svd-ck-ED0"/>
                             <constraint firstItem="EdQ-Hm-Gk0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="WIV-SP-oWN"/>
                             <constraint firstItem="EdQ-Hm-Gk0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bcM-yW-ElA"/>
-                            <constraint firstItem="FAm-22-KmF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="34" id="c1W-9p-GHn"/>
+                            <constraint firstItem="FAm-22-KmF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="c1W-9p-GHn"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="s1J-vB-0ai" secondAttribute="bottom" constant="8" id="kbu-x7-hzb"/>
                             <constraint firstItem="s1J-vB-0ai" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="mk5-i7-SAB"/>
-                            <constraint firstItem="T95-Tt-VNM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="r2q-5V-yiz"/>
+                            <constraint firstItem="T95-Tt-VNM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-4" id="r2q-5V-yiz"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

@@ -6,15 +6,15 @@
 //  Copyright © 2015 Wen Tan. All rights reserved.
 //
 
-#import "PickViewHelperViewController.h"
+#import "PickViewViewController.h"
 
-@interface PickViewHelperViewController ()
+@interface PickViewViewController ()
 
 @property (nonatomic, copy) NSMutableArray *pickerData;
 
 @end
 
-@implementation PickViewHelperViewController
+@implementation PickViewViewController
 
 //Helper method to set pickerData
 - (void)setArray:(NSArray *)incoming {
@@ -30,8 +30,6 @@
 }
 
 
-
-
 - (instancetype)init {
 	self = [super init];
 	if (!self) {
@@ -41,7 +39,19 @@
 	return self;
 }
 
+#pragma mark - UIPickView delegate
 
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+	return [self.pickerData count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+	return [[self.pickerData objectAtIndex:row] description];
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+	return 1;
+}
 
 
 #pragma mark - PickerView Lifecycle

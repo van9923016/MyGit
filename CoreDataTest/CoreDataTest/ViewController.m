@@ -8,12 +8,14 @@
 
 #import "ViewController.h"
 #import "AppDelegate.h"
+#import "PickViewViewController.h"
 
 @interface ViewController ()
 
 @property (strong, nonatomic) AppDelegate *appDelegate;
 @property (weak, nonatomic) IBOutlet UITextField  *chorefield;
 @property (weak, nonatomic) IBOutlet UILabel	 *choreLogLabel;
+@property (strong, nonatomic) PickViewViewController *choreRollerVC;
 
 @end
 
@@ -68,7 +70,18 @@
 
 }
 
-
+- (void)updateChoreRoller {
+	NSManagedObjectContext *moc = self.appDelegate.managedObjectContext;
+	NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Chore"];
+	NSError *error = nil;
+	NSArray *results = [moc executeFetchRequest:request error:&error];
+	if (!results) {
+		NSLog(@"Error fetching data from Person objects: %@\n\%@", [error localizedDescription], [error userInfo]);
+		abort();
+	}
+	NSMutableArray *choreData = [NSMutableArray arrayWithArray:results];
+	[self.choreRollerVC setArray: choreData];
+}
 
 
 
