@@ -6,6 +6,7 @@
 //  Copyright © 2015 Wen Tan. All rights reserved.
 //
 #import "ChoreMO.h"
+#import "PersonMO.h"
 #import "PickViewController.h"
 
 @interface PickViewController ()
@@ -29,6 +30,18 @@
 	return [self.pickerData objectAtIndex:index];
 }
 
+//- (NSString *)getObjectName:(id )myObject {
+//	
+//	if ([myObject isKindOfClass:[ChoreMO class]]) {
+//		ChoreMO *choreMO = myObject;
+//		return choreMO.chore_name;
+//	}else if ([myObject isKindOfClass:[PersonMO class]]){
+//		PersonMO *personMO = myObject;
+//		return personMO.name;
+//	}else {
+//		return @"Error";
+//	}
+//}
 
 - (instancetype)init {
 	self = [super init];
@@ -39,25 +52,22 @@
 	return self;
 }
 
-#pragma mark - UIPickView delegate
+#pragma mark - PickView delegate
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
 	return [self.pickerData count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-	
-	ChoreMO *choreMO = self.pickerData[row];
-	if (choreMO) {
-		return choreMO.chore_name;
-	}
-	return @"Error";
+	return [self.pickerData[row] description];
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
 	return 1;
 }
 
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+}
 
 #pragma mark - PickerView Lifecycle
 - (void)viewDidLoad {

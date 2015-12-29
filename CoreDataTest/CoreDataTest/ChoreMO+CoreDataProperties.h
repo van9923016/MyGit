@@ -27,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)addChore_log:(NSSet<ChoreLogMO *> *)values;
 - (void)removeChore_log:(NSSet<ChoreLogMO *> *)values;
 
+- (NSString *)description;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -16,4 +16,8 @@
 @dynamic name;
 @dynamic chore_log;
 
+- (NSString *)description {
+	return self.name;
+}
+
 @end
