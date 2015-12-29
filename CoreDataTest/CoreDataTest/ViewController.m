@@ -23,7 +23,6 @@
 @property (weak, nonatomic) IBOutlet UIButton		*deleteChoreBtn;
 @property (weak, nonatomic) IBOutlet UITextView		*choreLogView;
 @property (weak, nonatomic) IBOutlet UIDatePicker	* datePicker;
-
 @property (strong, nonatomic) PickViewController  *choreRollerHelper;
 @property (strong, nonatomic) PickViewController  *personRollerHelper;
 @end
@@ -188,8 +187,6 @@
 	self.choreLogView.text = buffer;
 
 }
-
-
 
 #pragma mark - App Lifecycle
 - (void)viewDidLoad {
