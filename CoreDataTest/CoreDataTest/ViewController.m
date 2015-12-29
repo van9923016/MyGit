@@ -23,8 +23,9 @@
 @property (weak, nonatomic) IBOutlet UIButton		*deleteChoreBtn;
 @property (weak, nonatomic) IBOutlet UITextView		*choreLogView;
 @property (weak, nonatomic) IBOutlet UIDatePicker	* datePicker;
-@property (strong, nonatomic) PickViewController  *choreRollerHelper;
-@property (strong, nonatomic) PickViewController  *personRollerHelper;
+@property (weak, nonatomic) IBOutlet UILabel		*choreListLabel;
+@property (strong, nonatomic) PickViewController	*choreRollerHelper;
+@property (strong, nonatomic) PickViewController	*personRollerHelper;
 @end
 
 @implementation ViewController
@@ -54,6 +55,7 @@
 	choreMO.chore_name = self.chorefield.text;
 	[self.appDelegate saveContext];
 	[self updateChoreRoller];
+	[self updateLogList];
 }
 
 - (void)updateChoreRoller {
@@ -78,6 +80,7 @@
 	personMO.name = self.personfield.text;
 	[self.appDelegate saveContext];
 	[self updatePersonRoller];
+	[self updateLogList];
 }
 
 - (void)updatePersonRoller {
@@ -158,9 +161,6 @@
 		[self.appDelegate saveContext];
 		[self updateLogList];
 	}
-	
-;
-	
 }
 
 - (void)updateLogList {
@@ -169,7 +169,23 @@
 	NSError *error = nil;
 	
 	NSMutableString *buffer = [NSMutableString stringWithString:@""];
-
+	
+	//fetch Person data
+	NSFetchRequest *requestPerson = [NSFetchRequest fetchRequestWithEntityName:@"Person"];
+	NSArray *personResults = [moc executeFetchRequest:requestPerson error:&error];
+	if (!personResults) {
+		NSLog(@"Error fetching person objects: %@\n%@",[error localizedDescription], [error userInfo]);
+		abort();
+	}
+	
+	//fetch Chore data
+	NSFetchRequest *requestChore = [NSFetchRequest fetchRequestWithEntityName:@"Chore"];
+	NSArray *choreResults = [moc executeFetchRequest:requestChore error:&error];
+	if (!choreResults) {
+		NSLog(@"Error fetching chore objects: %@\n%@",[error localizedDescription], [error userInfo]);
+		abort();
+	}
+	
 	//fetch ChoreList data
 	NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"ChoreLog"];
 	NSArray *choreLists = [moc executeFetchRequest:request error:&error];
@@ -182,9 +198,10 @@
 		dateString = [NSDateFormatter localizedStringFromDate:choreLogMO.when
 															  dateStyle:NSDateFormatterShortStyle
 															  timeStyle:NSDateFormatterFullStyle];
-		[buffer appendFormat:@"%@ %@ on %@\n",choreLogMO.person_who_did_it, choreLogMO.chore_done, dateString];
+		[buffer appendFormat:@"(%@) (%@) on (%@)\n",choreLogMO.person_who_did_it, choreLogMO.chore_done, dateString];
 	}
 	self.choreLogView.text = buffer;
+	self.choreListLabel.text = [NSString stringWithFormat:@"There were %ld person %ld chores %ld lists stored.",(unsigned long)personResults.count,(unsigned long)choreResults.count,(unsigned long)choreLists.count];
 
 }
 
