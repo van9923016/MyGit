@@ -23,8 +23,6 @@
 	if ([self.password.text isEqualToString:@"abcd"]) {
 		self.label.text = @"Login success!";
 		self.label.textColor = [UIColor greenColor];
-		[self dismissViewControllerAnimated:YES
-														 completion:nil];
 	}else{
 		self.label.text = @"Wrong password, try again!";
 		self.label.textColor = [UIColor redColor];

@@ -11,7 +11,7 @@
 @interface PasswordInputWindow()
 
 @property (strong, nonatomic) UITextField *textfield;
-
+@property (strong, nonatomic) UILabel *label;
 @end
 
 @implementation PasswordInputWindow
@@ -51,17 +51,7 @@
 		
 		self.backgroundColor = [UIColor yellowColor];
 		self.textfield = textfield;
-		self.windowLevel = UIWindowLevelNormal;
-		
-		UIViewController *vc = self.rootViewController;
-		
-		while (vc.presentedViewController != nil)
-			vc = vc.presentedViewController;
-		
-		// Prevent double-presenting the tweaks view controller.
-		if (![vc isKindOfClass:[PasswordInputWindow class]]) {
-			NSLog(@"sdvasdfv");
-		}
+		self.label = label;
 	}
 	return self;
 }
@@ -76,22 +66,25 @@
 		[self.textfield resignFirstResponder];
 		[self resignKeyWindow];
 		self.hidden = YES;
+		self.textfield.text = nil;
 	}else{
+		self.label.text = @"重新输入";
+		self.label.textColor = [UIColor redColor];
 		[self showErrorAlert];
 	}
 }
 
 - (void)showErrorAlert {
-//	UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil
-//																																	 message:@"密码错误，重新输入！"
-//																														preferredStyle: UIAlertControllerStyleAlert];
-//	UIAlertAction *action = [UIAlertAction actionWithTitle:@"确认"
-//																									 style:UIAlertActionStyleCancel
-//																								 handler:nil];
-//	[alertVC addAction:action];
-//	UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
-//	[rootVC presentViewController:alertVC
-//											 animated:YES
-//										 completion:nil];
+	UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil
+																																	 message:@"密码错误，重新输入！"
+																														preferredStyle: UIAlertControllerStyleAlert];
+	UIAlertAction *action = [UIAlertAction actionWithTitle:@"确认"
+																									 style:UIAlertActionStyleCancel
+																								 handler:nil];
+	[alertVC addAction:action];
+	UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+	[rootVC presentViewController:alertVC
+											 animated:YES
+										 completion:nil];
 }
 @end

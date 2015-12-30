@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "ITWViewController.h"
+#import "PasswordProtecterVC.h"
+#import "PasswordInputWindow.h"
 
 @interface AppDelegate ()
 
@@ -20,7 +22,8 @@
 	
 	ITWViewController *mainVC = [[ITWViewController alloc]initWithNibName:@"ITWViewController" bundle:nil];
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen]bounds]];
-	self.window.rootViewController = mainVC;
+	UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:mainVC];
+	self.window.rootViewController = navigationVC;
 	[self.window makeKeyAndVisible];
 	return YES;
 }
@@ -36,7 +39,12 @@
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-	// Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+//	PasswordProtecterVC *passwordVC = [[PasswordProtecterVC alloc] initWithNibName:@"PasswordProtecterVC" bundle:nil];
+//	[(UINavigationController *)self.window.rootViewController setNavigationBarHidden:YES animated:NO];
+//	[(UINavigationController *)self.window.rootViewController pushViewController:passwordVC animated:NO];
+//	self.window.rootViewController = passwordVC;
+//	[self.window makeKeyAndVisible];
+	[[PasswordInputWindow sharedInstance] show];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

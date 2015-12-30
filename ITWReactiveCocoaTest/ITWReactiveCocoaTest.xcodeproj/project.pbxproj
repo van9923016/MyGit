@@ -17,6 +17,9 @@
 		B827EAF41C09961A008CB5A2 /* ITWSignUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B827EAF21C09961A008CB5A2 /* ITWSignUpVC.m */; };
 		B827EAF51C09961A008CB5A2 /* ITWSignUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B827EAF31C09961A008CB5A2 /* ITWSignUpVC.xib */; };
 		B827EAF81C0999C4008CB5A2 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B827EAF71C0999C4008CB5A2 /* APIClient.m */; };
+		B8BAA4A81C33EC2F00D47796 /* PasswordProtecterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B8BAA4A41C33EC2F00D47796 /* PasswordProtecterVC.m */; };
+		B8BAA4A91C33EC2F00D47796 /* PasswordProtecterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8BAA4A51C33EC2F00D47796 /* PasswordProtecterVC.xib */; };
+		B8BAA4AA1C33EC2F00D47796 /* PasswordInputWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = B8BAA4A71C33EC2F00D47796 /* PasswordInputWindow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,11 @@
 		B827EAF31C09961A008CB5A2 /* ITWSignUpVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ITWSignUpVC.xib; sourceTree = "<group>"; };
 		B827EAF61C0999C4008CB5A2 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
 		B827EAF71C0999C4008CB5A2 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
+		B8BAA4A31C33EC2F00D47796 /* PasswordProtecterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordProtecterVC.h; sourceTree = "<group>"; };
+		B8BAA4A41C33EC2F00D47796 /* PasswordProtecterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordProtecterVC.m; sourceTree = "<group>"; };
+		B8BAA4A51C33EC2F00D47796 /* PasswordProtecterVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PasswordProtecterVC.xib; sourceTree = "<group>"; };
+		B8BAA4A61C33EC2F00D47796 /* PasswordInputWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordInputWindow.h; sourceTree = "<group>"; };
+		B8BAA4A71C33EC2F00D47796 /* PasswordInputWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordInputWindow.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +108,11 @@
 				B827EAF11C09961A008CB5A2 /* ITWSignUpVC.h */,
 				B827EAF21C09961A008CB5A2 /* ITWSignUpVC.m */,
 				B827EAF31C09961A008CB5A2 /* ITWSignUpVC.xib */,
+				B8BAA4A31C33EC2F00D47796 /* PasswordProtecterVC.h */,
+				B8BAA4A41C33EC2F00D47796 /* PasswordProtecterVC.m */,
+				B8BAA4A51C33EC2F00D47796 /* PasswordProtecterVC.xib */,
+				B8BAA4A61C33EC2F00D47796 /* PasswordInputWindow.h */,
+				B8BAA4A71C33EC2F00D47796 /* PasswordInputWindow.m */,
 				B827EAD91C093FAD008CB5A2 /* Assets.xcassets */,
 				B827EADB1C093FAD008CB5A2 /* LaunchScreen.storyboard */,
 				B827EADE1C093FAD008CB5A2 /* Info.plist */,
@@ -179,6 +192,7 @@
 			files = (
 				B827EADD1C093FAD008CB5A2 /* LaunchScreen.storyboard in Resources */,
 				B827EADA1C093FAD008CB5A2 /* Assets.xcassets in Resources */,
+				B8BAA4A91C33EC2F00D47796 /* PasswordProtecterVC.xib in Resources */,
 				B827EAF01C0946ED008CB5A2 /* ITWViewController.xib in Resources */,
 				B827EAF51C09961A008CB5A2 /* ITWSignUpVC.xib in Resources */,
 			);
@@ -239,10 +253,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8BAA4AA1C33EC2F00D47796 /* PasswordInputWindow.m in Sources */,
 				B827EAF81C0999C4008CB5A2 /* APIClient.m in Sources */,
 				B827EAD21C093FAD008CB5A2 /* AppDelegate.m in Sources */,
 				B827EACF1C093FAD008CB5A2 /* main.m in Sources */,
 				B827EAEF1C0946ED008CB5A2 /* ITWViewController.m in Sources */,
+				B8BAA4A81C33EC2F00D47796 /* PasswordProtecterVC.m in Sources */,
 				B827EAF41C09961A008CB5A2 /* ITWSignUpVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
