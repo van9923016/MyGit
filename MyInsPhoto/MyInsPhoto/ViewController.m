@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <NXOAuth2.h>
+#import "PasswordInputWindow.h"
 
 NSString *const Instagram = @"Instagram";
 @interface ViewController ()
@@ -51,6 +52,8 @@ NSString *const Instagram = @"Instagram";
 	self.loginBtn.enabled = YES;
 	self.logOutBtn.enabled = NO;
 	self.refreshBtn.enabled = NO;
+	//add a new UIWindow
+	[[PasswordInputWindow sharedInstance] show];
 }
 
 - (IBAction)refreshInsImage:(UIButton *)sender {

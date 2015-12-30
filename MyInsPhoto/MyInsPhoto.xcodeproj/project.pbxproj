@@ -15,6 +15,7 @@
 		B84005941C2546D100F9163F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B84005931C2546D100F9163F /* Assets.xcassets */; };
 		B84005971C2546D100F9163F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84005951C2546D100F9163F /* LaunchScreen.storyboard */; };
 		B840059F1C254D7500F9163F /* Gingerbread Man.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B840059E1C254D7500F9163F /* Gingerbread Man.jpg */; };
+		B8BAA49D1C33C56300D47796 /* PasswordInputWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = B8BAA49C1C33C56300D47796 /* PasswordInputWindow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		B84005961C2546D100F9163F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B84005981C2546D100F9163F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B840059E1C254D7500F9163F /* Gingerbread Man.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Gingerbread Man.jpg"; sourceTree = "<group>"; };
+		B8BAA49B1C33C56300D47796 /* PasswordInputWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordInputWindow.h; sourceTree = "<group>"; };
+		B8BAA49C1C33C56300D47796 /* PasswordInputWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordInputWindow.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +96,8 @@
 				B84005951C2546D100F9163F /* LaunchScreen.storyboard */,
 				B84005981C2546D100F9163F /* Info.plist */,
 				B84005871C2546D100F9163F /* Supporting Files */,
+				B8BAA49B1C33C56300D47796 /* PasswordInputWindow.h */,
+				B8BAA49C1C33C56300D47796 /* PasswordInputWindow.m */,
 			);
 			path = MyInsPhoto;
 			sourceTree = "<group>";
@@ -232,6 +237,7 @@
 				B840058F1C2546D100F9163F /* ViewController.m in Sources */,
 				B840058C1C2546D100F9163F /* AppDelegate.m in Sources */,
 				B84005891C2546D100F9163F /* main.m in Sources */,
+				B8BAA49D1C33C56300D47796 /* PasswordInputWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

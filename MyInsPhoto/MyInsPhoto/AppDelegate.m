@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <NXOAuth2.h>
+#import "PasswordInputWindow.h"
 
 NSString *const clientID = @"d5f53a5eed3e48cda70e9124679bee39";
 NSString *const clientSecret = @"859726ff8f80400eb1ce9b3d81c5bc3e";
@@ -48,7 +49,8 @@ NSString *const accountType = @"Instagram";
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-	// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+//	[[PasswordInputWindow sharedInstance] show];
+	
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
