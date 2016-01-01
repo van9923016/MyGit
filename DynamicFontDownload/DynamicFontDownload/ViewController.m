@@ -63,20 +63,11 @@
 	// See CTFontDescriptor.h for the list of progress states and keys for progressParameter dictionary.
 	
 	CTFontDescriptorMatchFontDescriptorsWithProgressHandler((__bridge CFArrayRef)descs, NULL, ^bool(CTFontDescriptorMatchingState state, CFDictionaryRef  _Nonnull progressParameter) {
-//		NSLog( @"state %d - %@", state, progressParameter);
-		double progressValue = [[(__bridge NSDictionary *)progressParameter objectForKey:(id)kCTFontDescriptorMatchingPercentage] doubleValue];
-		if (state == kCTFontDescriptorMatchingDidBegin) {
-			dispatch_async(dispatch_get_main_queue(), ^{
-				// show indicator
-				self.indicator.hidden = NO;
-				[self.indicator startAnimating];
-				
-				self.textView.text = [NSString stringWithFormat:@"字体 %@ 下载中。",fontname];
-				self.textView.font = [UIFont systemFontOfSize:14.f];
-				NSLog(@"1.Dynamic Downloading begin.");
-			});
-		}
-		else if (state == kCTFontDescriptorMatchingWillBeginDownloading) {
+		NSLog( @"state %d - %@", state, progressParameter);
+		
+		double progressValue = [[(__bridge NSDictionary *)progressParameter
+								 objectForKey:(id)kCTFontDescriptorMatchingPercentage] doubleValue];
+		if(state == kCTFontDescriptorMatchingWillBeginDownloading) {
 			dispatch_async(dispatch_get_main_queue(), ^{
 				// show initial progress bar
 				self.progress.progress = 0.0;
@@ -84,6 +75,17 @@
 				NSLog(@"0.Begin downloading");
 			});
 		}
+		else if (state == kCTFontDescriptorMatchingDidBegin) {
+				dispatch_async(dispatch_get_main_queue(), ^{
+					// show indicator
+					self.indicator.hidden = NO;
+					[self.indicator startAnimating];
+					
+					self.textView.text = [NSString stringWithFormat:@"字体 %@ 下载中。",fontname];
+					self.textView.font = [UIFont systemFontOfSize:14.f];
+					NSLog(@"1.Dynamic Downloading begin.");
+				});
+			}
 		else if (state == kCTFontDescriptorMatchingDownloading) {
 			dispatch_async(dispatch_get_main_queue(), ^{
 				// use progress view to show indicator of progress of downloading
@@ -139,8 +141,7 @@
 		}
 
 		return (bool)YES;
-	});
-	
+	});	
 }
 
 
