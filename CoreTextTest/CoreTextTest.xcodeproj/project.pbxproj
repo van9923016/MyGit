@@ -14,6 +14,7 @@
 		B891B19A1C3791B3000A3036 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B891B1981C3791B3000A3036 /* ViewController.m */; };
 		B891B19B1C3791B3000A3036 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B891B1991C3791B3000A3036 /* ViewController.xib */; };
 		B891B19E1C379296000A3036 /* CoreTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B891B19D1C379296000A3036 /* CoreTextView.m */; };
+		B891B1A11C379DE1000A3036 /* MarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B891B1A01C379DE1000A3036 /* MarkupParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		B891B1991C3791B3000A3036 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		B891B19C1C379296000A3036 /* CoreTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTextView.h; sourceTree = "<group>"; };
 		B891B19D1C379296000A3036 /* CoreTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextView.m; sourceTree = "<group>"; };
+		B891B19F1C379DE1000A3036 /* MarkupParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkupParser.h; sourceTree = "<group>"; };
+		B891B1A01C379DE1000A3036 /* MarkupParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkupParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +68,8 @@
 				B891B1841C37918C000A3036 /* AppDelegate.m */,
 				B891B19C1C379296000A3036 /* CoreTextView.h */,
 				B891B19D1C379296000A3036 /* CoreTextView.m */,
+				B891B19F1C379DE1000A3036 /* MarkupParser.h */,
+				B891B1A01C379DE1000A3036 /* MarkupParser.m */,
 				B891B1971C3791B3000A3036 /* ViewController.h */,
 				B891B1981C3791B3000A3036 /* ViewController.m */,
 				B891B1991C3791B3000A3036 /* ViewController.xib */,
@@ -157,6 +162,7 @@
 				B891B19A1C3791B3000A3036 /* ViewController.m in Sources */,
 				B891B1851C37918C000A3036 /* AppDelegate.m in Sources */,
 				B891B19E1C379296000A3036 /* CoreTextView.m in Sources */,
+				B891B1A11C379DE1000A3036 /* MarkupParser.m in Sources */,
 				B891B1821C37918C000A3036 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

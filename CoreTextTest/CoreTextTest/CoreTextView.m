@@ -8,6 +8,7 @@
 
 @import CoreText;
 #import "CoreTextView.h"
+#import "MarkupParser.h"
 
 @implementation CoreTextView
 
@@ -27,7 +28,11 @@
 	CGPathAddRect(path, NULL, self.bounds);
 	
 	//2.core text world, using NSAttributedString to represent string
-	NSAttributedString *attString = [[NSAttributedString alloc] initWithString:@"Hello core text world!"];
+	//NSAttributedString *attString = [[NSAttributedString alloc] initWithString:@"Hello core text world!"];
+	
+	//2.using parser to create different color text 
+	MarkupParser *parser = [[MarkupParser alloc] init];
+	NSAttributedString *attString = [parser attrStringFromMarkup:@"Hello <fontcolor=\"red\"> core text <font color=\"blue\">world!"];
 	
 	//3.Manage font reference and text drawing frames
 	//covert NSAttributedString to CFAttributedStringRef
