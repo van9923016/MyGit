@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,16 +19,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAo-Ew-pJb">
-                                <rect key="frame" x="164" y="319" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="132" y="319" width="110" height="30"/>
+                                <state key="normal" title="In app purchase"/>
                                 <connections>
                                     <action selector="purchaseButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jb7-lr-YZA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5V-2H-wX6">
+                                <rect key="frame" x="135" y="380" width="105" height="30"/>
+                                <state key="normal" title="Load webview"/>
+                                <connections>
+                                    <action selector="loadWebview:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IlQ-Xn-SP0"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="u5V-2H-wX6" secondAttribute="trailing" constant="119" id="7Cf-Qp-Qzh"/>
+                            <constraint firstItem="u5V-2H-wX6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="119" id="9od-2E-Ddq"/>
                             <constraint firstItem="bAo-Ew-pJb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Hbj-tF-9gO"/>
+                            <constraint firstItem="u5V-2H-wX6" firstAttribute="top" secondItem="bAo-Ew-pJb" secondAttribute="bottom" constant="31" id="ZS6-b9-sZs"/>
                             <constraint firstItem="bAo-Ew-pJb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mMC-YW-cNj"/>
                         </constraints>
                     </view>

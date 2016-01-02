@@ -63,6 +63,17 @@
 	}
 }
 
+- (IBAction)loadWebview:(UIButton *)sender {
+	
+}
+
+- (void)loadHTMLString:(NSString *)string baseURL:(nullable NSURL *)baseURL {
+	
+}
+
+
+
+
 #pragma mark -- SKProductRequestDelegate
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response {
 	NSArray *myProduct = response.products;
