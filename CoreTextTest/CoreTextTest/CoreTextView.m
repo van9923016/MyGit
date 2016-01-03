@@ -63,9 +63,12 @@
 	
 	//2.create CGpath and CTFramesetter
 	CGMutablePathRef path = CGPathCreateMutable();
+	//Returns a rectangle that is smaller or larger than the source rectangle, with the same center point.
+	//positive decreased, negative increased
 	CGRect textFrame = CGRectInset(self.bounds, self.frameXOffset, self.frameYOffset);
+
 	CGPathAddRect(path, nil, textFrame);
-	
+	//Creates an immutable framesetter object from an attributed string.
 	CTFramesetterRef frameSetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)self.attString);
 	
 	//3.initial text position and column index
@@ -83,7 +86,7 @@
 		//use the column path
 		CTFrameRef frame = CTFramesetterCreateFrame(frameSetter, CFRangeMake(textPosition, 0), path, nil);
 
-		//5.
+		//5.get the frame maximum contains character's number
 		CFRange frameRange = CTFrameGetVisibleStringRange(frame);
 		
 		//create an empty column view
@@ -111,5 +114,10 @@
 	int totalPages = (columnIndex+1) / 2;
 	self.contentSize = CGSizeMake(totalPages*self.bounds.size.width, textFrame.size.height);
 	
+}
+
+- (void)setAttString:(NSAttributedString *)attString withImages:(NSArray *)imgs {
+	self.attString = attString;
+	self.images = imgs;
 }
 @end

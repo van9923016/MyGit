@@ -23,7 +23,8 @@
 	NSString *text = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
 	MarkupParser *parser = [[MarkupParser alloc] init];
 	NSAttributedString *attString = [parser attrStringFromMarkup:text];
-	[(CoreTextView *)self.view setAttString:attString];
+//	[(CoreTextView *)self.view setAttString:attString];
+	[(CoreTextView *)self.view setAttString:attString withImages:parser.images];
 	[(CoreTextView *)self.view buildFrames];
 }
 
