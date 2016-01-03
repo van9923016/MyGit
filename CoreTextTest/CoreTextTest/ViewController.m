@@ -8,6 +8,8 @@
 
 
 #import "ViewController.h"
+#import "CoreTextView.h"
+#import "MarkupParser.h"
 
 @interface ViewController ()
 
@@ -17,7 +19,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+	NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"txt"];
+	NSString *text = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+	MarkupParser *parser = [[MarkupParser alloc] init];
+	NSAttributedString *attString = [parser attrStringFromMarkup:text];
+	[(CoreTextView *)self.view setAttString:attString];
+	[(CoreTextView *)self.view buildFrames];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CoreTextView : UIView
+@interface CoreTextView : UIScrollView<UIScrollViewDelegate>
 
+@property (assign, nonatomic) float frameXOffset;
+@property (assign, nonatomic) float frameYOffset;
+@property (strong, nonatomic) NSAttributedString *attString;
+@property (strong, nonatomic) NSMutableArray *frames;
+
+
+- (void)buildFrames;
 @end
