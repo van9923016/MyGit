@@ -7,6 +7,7 @@
 //
 
 #import "MarkupParser.h"
+
 //Callbacks
 
 static CGFloat ascentCallback(void *ref) {
@@ -34,7 +35,7 @@ static CGFloat widthCallback(void *ref) {
 }
 
 - (NSAttributedString *)attrStringFromMarkup:(NSString *)markup {
-	//1.
+	//1.init an empty string
 	NSMutableAttributedString *aString = [[NSMutableAttributedString alloc] initWithString:@""];
 	
 	//2.
@@ -65,113 +66,123 @@ static CGFloat widthCallback(void *ref) {
 		//handle new formatting
 		if ([parts count] > 1) {
 			NSString *tag = (NSString *)[parts objectAtIndex:1];
+			
 			//font parsing
-			if ([tag hasPrefix:@"font"]) {
-				
-				//stroke color
-				NSRegularExpression *scolorRegex = [[NSRegularExpression alloc]
-													initWithPattern:@"(?<=strokeColor=\")\\w+"
-													options:0
-													error:nil];
-				
-				[scolorRegex enumerateMatchesInString:tag
-											  options:0
-												range:NSMakeRange(0, [tag length])
-										   usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
-											   if ([[tag substringWithRange:result.range] isEqualToString:@"none"]) {
-												   self.strokeWidth = 0.0;
-											   }else{
-												   self.strokeWidth = -3.0;
-												   SEL colorSel = NSSelectorFromString([NSString stringWithFormat:@"%@Color", [tag substringWithRange:result.range]]);
-												   self.strokeColor = [UIColor performSelector: colorSel];
-											   }
-										   }];
-				
-				//color
-				NSRegularExpression *colorRegex = [[NSRegularExpression alloc]
-													initWithPattern:@"(?<=color=\")\\w+"
-													options:0
-													error:nil];
-				[colorRegex enumerateMatchesInString:tag
-											  options:0
-												range:NSMakeRange(0, [tag length])
-										   usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
-											   SEL colorSel = NSSelectorFromString([NSString stringWithFormat:@"%@Color", [tag substringWithRange:result.range]]);
-											   self.color = [UIColor performSelector: colorSel];
-										   }];
-				
-				//face
-				NSRegularExpression *faceRegex = [[NSRegularExpression alloc]
-												   initWithPattern:@"(?<=face=\")[^\"]+"
-												   options:0
-												   error:nil];
-				[faceRegex enumerateMatchesInString:tag
-											 options:0
-											   range:NSMakeRange(0, [tag length])
-										  usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
-											  self.aFont = [tag substringWithRange:result.range];
-										  }];
-			}//end of font parsing
+			[self parsingFontWithTag:tag];
 			//img parsing
-			if ([tag hasPrefix:@"img"]) {
-				__block NSNumber *width = [NSNumber numberWithInt:0];
-				__block NSNumber *height = [NSNumber numberWithInt:0];
-				__block NSString *filename = @"";
-				
-				//width
-				NSRegularExpression *widthRegex = [[NSRegularExpression alloc] initWithPattern:@"(?<=width=\")[^\"]+" options:0 error:nil];
-				[widthRegex enumerateMatchesInString:tag options:0 range:NSMakeRange(0, [tag length]) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
-					width = [NSNumber numberWithInt:[[tag substringWithRange:result.range]intValue]];
-				}];
-				
-				//height
-				NSRegularExpression *heightRegex = [[NSRegularExpression alloc] initWithPattern:@"(?<=height=\")[^\"]+" options:0 error:nil];
-				[heightRegex enumerateMatchesInString:tag options:0 range:NSMakeRange(0, [tag length]) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
-					height = [NSNumber numberWithInt:[[tag substringWithRange:result.range]intValue]];
-				}];
-				
-				//image
-				NSRegularExpression *srcRegex = [[NSRegularExpression alloc] initWithPattern:@"(?<=src=\")[^\"]+" options:0 error:nil];
-				[srcRegex enumerateMatchesInString:tag options:0 range:NSMakeRange(0, [tag length]) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
-					filename = [tag substringWithRange:result.range];
-				}];
-				
-				//add image for drawing
-				[self.images addObject:[NSDictionary dictionaryWithObjectsAndKeys:
-										width,@"width",
-										height, @"height",
-										filename,@"filename",
-										[NSNumber numberWithInt:(int)[aString length]],@"location",
-										nil]];
-				
-				//render empty space for drawing image
-				CTRunDelegateCallbacks callbacks;
-				callbacks.version = kCTRunDelegateVersion1;
-				callbacks.getAscent = ascentCallback;
-				callbacks.getDescent = descentCallback;
-				callbacks.getWidth = widthCallback;
-//				callbacks.dealloc = deallocCallback;
-				
-				NSDictionary *imgAttrs = [NSDictionary dictionaryWithObjectsAndKeys:
-										   width, @"width",
-										   height, @"height",
-										   nil];
-				
-				//create ctrun delegate
-				CTRunDelegateRef delegate = CTRunDelegateCreate(&callbacks, (__bridge void * _Nullable)(imgAttrs));
-				//set delegate
-				NSDictionary *attrDictionaryDelegate = [NSDictionary dictionaryWithObjectsAndKeys:
-														(__bridge id)delegate,(NSString *)kCTRunDelegateAttributeName, nil];
-				
-				//add a space to the text so that it can call delegate
-				[aString appendAttributedString:[[NSAttributedString alloc]
-												 initWithString:@" "
-												 attributes:attrDictionaryDelegate]];
-			}
+			[self parsingImageWithTag:tag andString:aString];
+
 		}
 	}
 	return (NSAttributedString *)aString;
 }
 
+- (void)parsingFontWithTag:(NSString *)tag {
+	
+	if ([tag hasPrefix:@"font"]) {
+		//stroke color
+		NSRegularExpression *scolorRegex = [[NSRegularExpression alloc]
+											initWithPattern:@"(?<=strokeColor=\")\\w+"
+											options:0
+											error:nil];
+		
+		[scolorRegex enumerateMatchesInString:tag
+									  options:0
+										range:NSMakeRange(0, [tag length])
+								   usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
+									   
+									   if ([[tag substringWithRange:result.range] isEqualToString:@"none"]) {
+										   self.strokeWidth = 0.0;
+									   }else{
+										   self.strokeWidth = -3.0;
+										   SEL colorSel = NSSelectorFromString([NSString stringWithFormat:@"%@Color", [tag substringWithRange:result.range]]);
+										   self.strokeColor = [UIColor performSelector: colorSel];
+									   }
+								   }];
+		
+		//color
+		NSRegularExpression *colorRegex = [[NSRegularExpression alloc]
+													initWithPattern:@"(?<=color=\")\\w+"
+													options:0
+													error:nil];
+		[colorRegex enumerateMatchesInString:tag
+									 options:0
+												range:NSMakeRange(0, [tag length])
+								  usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
+									  SEL colorSel = NSSelectorFromString([NSString stringWithFormat:@"%@Color", [tag substringWithRange:result.range]]);
+									  self.color = [UIColor performSelector: colorSel];
+								  }];
+		
+		//face
+		NSRegularExpression *faceRegex = [[NSRegularExpression alloc]
+										  initWithPattern:@"(?<=face=\")[^\"]+"
+										  options:0
+										  error:nil];
+		[faceRegex enumerateMatchesInString:tag
+									options:0
+									  range:NSMakeRange(0, [tag length])
+								 usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
+									 self.aFont = [tag substringWithRange:result.range];
+								 }];
+	}
+
+}
+
+- (void)parsingImageWithTag:(NSString *)tag andString:(NSMutableAttributedString *)aString {
+	if ([tag hasPrefix:@"img"]) {
+		__block NSNumber *width = [NSNumber numberWithInt:0];
+		__block NSNumber *height = [NSNumber numberWithInt:0];
+		__block NSString *filename = @"";
+		
+		//width
+		NSRegularExpression *widthRegex = [[NSRegularExpression alloc] initWithPattern:@"(?<=width=\")[^\"]+" options:0 error:nil];
+		[widthRegex enumerateMatchesInString:tag options:0 range:NSMakeRange(0, [tag length]) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
+			width = [NSNumber numberWithInt:[[tag substringWithRange:result.range]intValue]];
+		}];
+		
+		//height
+		NSRegularExpression *heightRegex = [[NSRegularExpression alloc] initWithPattern:@"(?<=height=\")[^\"]+" options:0 error:nil];
+		[heightRegex enumerateMatchesInString:tag options:0 range:NSMakeRange(0, [tag length]) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
+			height = [NSNumber numberWithInt:[[tag substringWithRange:result.range]intValue]];
+		}];
+		
+		//image
+		NSRegularExpression *srcRegex = [[NSRegularExpression alloc] initWithPattern:@"(?<=src=\")[^\"]+" options:0 error:nil];
+		[srcRegex enumerateMatchesInString:tag options:0 range:NSMakeRange(0, [tag length]) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
+			filename = [tag substringWithRange:result.range];
+		}];
+		
+		//add image for drawing
+		[self.images addObject:[NSDictionary dictionaryWithObjectsAndKeys:
+								width,@"width",
+								height, @"height",
+								filename,@"filename",
+								[NSNumber numberWithInt:(int)[aString length]],@"location",
+								nil]];
+		
+		//render empty space for drawing image
+		CTRunDelegateCallbacks callbacks;
+		callbacks.version = kCTRunDelegateVersion1;
+		callbacks.getAscent = ascentCallback;
+		callbacks.getDescent = descentCallback;
+		callbacks.getWidth = widthCallback;
+		
+		NSDictionary *imgAttrs = [NSDictionary dictionaryWithObjectsAndKeys:
+								  width, @"width",
+								  height, @"height",
+								  nil];
+		
+		//create ctrun delegate
+		CTRunDelegateRef delegate = CTRunDelegateCreate(&callbacks, (__bridge void * _Nullable)(imgAttrs));
+		//set delegate
+		NSDictionary *attrDictionaryDelegate = [NSDictionary dictionaryWithObjectsAndKeys:
+												(__bridge id)delegate,(NSString *)kCTRunDelegateAttributeName, nil];
+		
+		//add a space to the text so that it can call delegate
+		[aString appendAttributedString:[[NSAttributedString alloc]
+										 initWithString:@" "
+										 attributes:attrDictionaryDelegate]];
+	}
+}
 
 @end

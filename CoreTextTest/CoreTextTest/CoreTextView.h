@@ -6,15 +6,17 @@
 //  Copyright © 2016 Wen Tan. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import CoreText;
+@import UIKit;
 #import "CTColumnView.h"
+
 @interface CoreTextView : UIScrollView<UIScrollViewDelegate>
 
-@property (assign, nonatomic) float frameXOffset;
-@property (assign, nonatomic) float frameYOffset;
+@property (assign, nonatomic) float              frameXOffset;
+@property (assign, nonatomic) float              frameYOffset;
 @property (strong, nonatomic) NSAttributedString *attString;
-@property (strong, nonatomic) NSMutableArray *frames;
-@property (strong, nonatomic) NSArray		*images;
+@property (strong, nonatomic) NSMutableArray     *frames;
+@property (strong, nonatomic) NSArray            *images;
 
 
 - (void)buildFrames;

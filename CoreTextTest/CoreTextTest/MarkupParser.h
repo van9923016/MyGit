@@ -6,9 +6,9 @@
 //  Copyright © 2016 Wen Tan. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 @import CoreText;
 @import UIKit;
+@import Foundation;
 
 @interface MarkupParser : NSObject
 

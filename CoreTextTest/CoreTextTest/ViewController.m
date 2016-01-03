@@ -11,10 +11,6 @@
 #import "CoreTextView.h"
 #import "MarkupParser.h"
 
-@interface ViewController ()
-
-@end
-
 @implementation ViewController
 
 - (void)viewDidLoad {
@@ -23,14 +19,13 @@
 	NSString *text = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
 	MarkupParser *parser = [[MarkupParser alloc] init];
 	NSAttributedString *attString = [parser attrStringFromMarkup:text];
-//	[(CoreTextView *)self.view setAttString:attString];
+	//[(CoreTextView *)self.view setAttString:attString];
 	[(CoreTextView *)self.view setAttString:attString withImages:parser.images];
 	[(CoreTextView *)self.view buildFrames];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

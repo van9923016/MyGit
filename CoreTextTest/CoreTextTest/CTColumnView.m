@@ -8,11 +8,6 @@
 
 #import "CTColumnView.h"
 
-@interface CTColumnView ()
-
-
-@end
-
 @implementation CTColumnView
 
 - (void)drawRect:(CGRect)rect {

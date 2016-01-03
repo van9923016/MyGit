@@ -6,20 +6,12 @@
 //  Copyright © 2016 Wen Tan. All rights reserved.
 //
 
-@import CoreText;
 #import "CoreTextView.h"
 #import "MarkupParser.h"
 #import "CTColumnView.h"
 
 @implementation CoreTextView
 
-- (instancetype)initWithFrame:(CGRect)frame {
-	self = [super initWithFrame:frame];
-	if (self) {
-		//Init
-	}
-	return self;
-}
 - (void)drawRect:(CGRect)rect {
 	[super drawRect:rect];
 //	[self basicDrawRect];
@@ -59,6 +51,12 @@
 	CFRelease(path);
 	CFRelease(frameSetter);
 }
+
+- (void)setAttString:(NSAttributedString *)attString withImages:(NSArray *)imgs {
+	self.attString = attString;
+	self.images = imgs;
+}
+
 
 - (void)buildFrames {
 	//1.basic setup of offset and delegate and more
@@ -126,12 +124,6 @@
 	self.contentSize = CGSizeMake(totalPages*self.bounds.size.width, textFrame.size.height);
 	
 }
-
-- (void)setAttString:(NSAttributedString *)attString withImages:(NSArray *)imgs {
-	self.attString = attString;
-	self.images = imgs;
-}
-
 - (void)attachImagesWithframe:(CTFrameRef)ref inColumnView:(CTColumnView *)col {
 	//1.drawing images
 	NSArray *lines = (NSArray *)CTFrameGetLines(ref);
@@ -201,13 +193,18 @@
 		}
 		lineIndex++;
 	}
-	
+	[self justifiedText];
+}
+
+- (void)justifiedText {
 	//make the text in columns justified so fill the entire width of the column.
 	
 	CTTextAlignment alignment = kCTTextAlignmentCenter;
 	CTParagraphStyleSetting settings[] = {
 		{
-			kCTParagraphStyleSpecifierAlignment, sizeof(alignment), &alignment
+			kCTParagraphStyleSpecifierAlignment,
+			sizeof(alignment),
+			&alignment
 		},
 	};
 	CTParagraphStyleRef paragraphStyle = CTParagraphStyleCreate(settings, sizeof(settings)/sizeof(settings[0]));
@@ -216,9 +213,8 @@
 									nil];
 	NSMutableAttributedString *stringCopy = [[NSMutableAttributedString alloc] initWithAttributedString:self.attString];
 	[stringCopy addAttributes:attrDictionary range:NSMakeRange(0, [self.attString length])];
-	self.attString = (NSAttributedString *)stringCopy;
 	
+	self.attString = (NSAttributedString *)stringCopy;
 }
-
 
 @end
