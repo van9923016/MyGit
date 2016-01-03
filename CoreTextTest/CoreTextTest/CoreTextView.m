@@ -201,6 +201,23 @@
 		}
 		lineIndex++;
 	}
+	
+	//make the text in columns justified so fill the entire width of the column.
+	
+	CTTextAlignment alignment = kCTTextAlignmentCenter;
+	CTParagraphStyleSetting settings[] = {
+		{
+			kCTParagraphStyleSpecifierAlignment, sizeof(alignment), &alignment
+		},
+	};
+	CTParagraphStyleRef paragraphStyle = CTParagraphStyleCreate(settings, sizeof(settings)/sizeof(settings[0]));
+	NSDictionary *attrDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+									(__bridge id)paragraphStyle, (NSString *)kCTParagraphStyleAttributeName,
+									nil];
+	NSMutableAttributedString *stringCopy = [[NSMutableAttributedString alloc] initWithAttributedString:self.attString];
+	[stringCopy addAttributes:attrDictionary range:NSMakeRange(0, [self.attString length])];
+	self.attString = (NSAttributedString *)stringCopy;
+	
 }
 
 
