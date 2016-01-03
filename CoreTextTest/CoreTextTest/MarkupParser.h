@@ -16,6 +16,7 @@
 @property (strong, nonatomic) UIColor        *color;
 @property (strong, nonatomic) UIColor        *strokeColor;
 @property (assign, nonatomic) float          strokeWidth;
+//store image filename width height and location
 @property (strong, nonatomic) NSMutableArray *images;
 
 - (NSAttributedString *)attrStringFromMarkup:(NSString *)markup;

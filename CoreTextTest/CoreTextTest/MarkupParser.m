@@ -8,8 +8,17 @@
 
 #import "MarkupParser.h"
 
-//Callbacks
+//Regex expression
+//const pointer, while NSString const *xxx means const object, static is using for local avoid conflicts
+static NSString *const regexSTR       = @"(.*?)(<[^>]+>|\\Z)";
+static NSString *const sColorRegexSTR = @"(?<=strokeColor=\")\\w+";
+static NSString *const colorRegexSTR  = @"(?<=color=\")\\w+";
+static NSString *const faceRegexSTR   = @"(?<=face=\")[^\"]+";
+static NSString *const widthRegexSTR  = @"(?<=width=\")[^\"]+";
+static NSString *const heightRegexSTR = @"(?<=height=\")[^\"]+";
+static NSString *const imgRegexSTR    = @"(?<=src=\")[^\"]+";
 
+//Callbacks
 static CGFloat ascentCallback(void *ref) {
 	return [(NSString *)[(__bridge NSDictionary *)ref objectForKey:@"height"] floatValue];
 }
@@ -19,6 +28,7 @@ static CGFloat descentCallback(void *ref) {
 static CGFloat widthCallback(void *ref) {
 	return [(NSString *)[(__bridge NSDictionary *)ref objectForKey:@"width"] floatValue];
 }
+
 @implementation MarkupParser
 
 - (instancetype)init {
@@ -38,18 +48,21 @@ static CGFloat widthCallback(void *ref) {
 	//1.init an empty string
 	NSMutableAttributedString *aString = [[NSMutableAttributedString alloc] initWithString:@""];
 	
-	//2.
-	NSRegularExpression *regex = [[NSRegularExpression alloc]
-								  initWithPattern:@"(.*?)(<[^>]+>|\\Z)"
+	//2.using NSRegularExpression to seperate string to proper format
+	NSRegularExpression *normalRegex = [[NSRegularExpression alloc]
+								  initWithPattern:regexSTR
 								  options:NSRegularExpressionCaseInsensitive|NSRegularExpressionDotMatchesLineSeparators
 								  error:nil];
 	
-	NSArray *chunks = [regex matchesInString:markup options:0 range:NSMakeRange(0, [markup length])];
+	NSArray *chunks = [normalRegex matchesInString:markup
+										   options:0
+											 range:NSMakeRange(0, [markup length])];
 	
 	for (NSTextCheckingResult *result in chunks) {
+		
 		NSArray *parts = [[markup substringWithRange:result.range] componentsSeparatedByString:@"<"];
 		
-		CTFontRef fontRef = CTFontCreateWithName((CFStringRef)self.aFont, 24.0f, NULL);
+		CTFontRef fontRef = CTFontCreateWithName((CFStringRef)self.aFont, 24.0f, nil);
 		
 		//apply the current text style
 		NSDictionary *attrs = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -59,6 +72,7 @@ static CGFloat widthCallback(void *ref) {
 							   (id)[NSNumber numberWithFloat:self.strokeWidth],(__bridge NSString *)kCTStrokeWidthAttributeName,
 							   nil];
 		[aString appendAttributedString:[[NSAttributedString alloc]
+										 //decorate first part of string
 										 initWithString:[parts objectAtIndex:0]
 										 attributes:attrs]];
 		CFRelease(fontRef);
@@ -71,7 +85,6 @@ static CGFloat widthCallback(void *ref) {
 			[self parsingFontWithTag:tag];
 			//img parsing
 			[self parsingImageWithTag:tag andString:aString];
-
 		}
 	}
 	return (NSAttributedString *)aString;
@@ -82,7 +95,7 @@ static CGFloat widthCallback(void *ref) {
 	if ([tag hasPrefix:@"font"]) {
 		//stroke color
 		NSRegularExpression *scolorRegex = [[NSRegularExpression alloc]
-											initWithPattern:@"(?<=strokeColor=\")\\w+"
+											initWithPattern:sColorRegexSTR
 											options:0
 											error:nil];
 		
@@ -102,12 +115,12 @@ static CGFloat widthCallback(void *ref) {
 		
 		//color
 		NSRegularExpression *colorRegex = [[NSRegularExpression alloc]
-													initWithPattern:@"(?<=color=\")\\w+"
+													initWithPattern:colorRegexSTR
 													options:0
 													error:nil];
 		[colorRegex enumerateMatchesInString:tag
 									 options:0
-												range:NSMakeRange(0, [tag length])
+									   range:NSMakeRange(0, [tag length])
 								  usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
 									  SEL colorSel = NSSelectorFromString([NSString stringWithFormat:@"%@Color", [tag substringWithRange:result.range]]);
 									  self.color = [UIColor performSelector: colorSel];
@@ -115,7 +128,7 @@ static CGFloat widthCallback(void *ref) {
 		
 		//face
 		NSRegularExpression *faceRegex = [[NSRegularExpression alloc]
-										  initWithPattern:@"(?<=face=\")[^\"]+"
+										  initWithPattern:faceRegexSTR
 										  options:0
 										  error:nil];
 		[faceRegex enumerateMatchesInString:tag
@@ -129,28 +142,47 @@ static CGFloat widthCallback(void *ref) {
 }
 
 - (void)parsingImageWithTag:(NSString *)tag andString:(NSMutableAttributedString *)aString {
+	
 	if ([tag hasPrefix:@"img"]) {
 		__block NSNumber *width = [NSNumber numberWithInt:0];
 		__block NSNumber *height = [NSNumber numberWithInt:0];
 		__block NSString *filename = @"";
 		
 		//width
-		NSRegularExpression *widthRegex = [[NSRegularExpression alloc] initWithPattern:@"(?<=width=\")[^\"]+" options:0 error:nil];
-		[widthRegex enumerateMatchesInString:tag options:0 range:NSMakeRange(0, [tag length]) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
-			width = [NSNumber numberWithInt:[[tag substringWithRange:result.range]intValue]];
-		}];
+		NSRegularExpression *widthRegex = [[NSRegularExpression alloc] initWithPattern:widthRegexSTR
+																			   options:0
+																				 error:nil];
+		
+		[widthRegex enumerateMatchesInString:tag
+									 options:0
+									   range:NSMakeRange(0, [tag length])
+								  usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
+									  width = [NSNumber numberWithInt:[[tag substringWithRange:result.range]intValue]];
+								  }];
 		
 		//height
-		NSRegularExpression *heightRegex = [[NSRegularExpression alloc] initWithPattern:@"(?<=height=\")[^\"]+" options:0 error:nil];
-		[heightRegex enumerateMatchesInString:tag options:0 range:NSMakeRange(0, [tag length]) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
-			height = [NSNumber numberWithInt:[[tag substringWithRange:result.range]intValue]];
-		}];
+		NSRegularExpression *heightRegex = [[NSRegularExpression alloc] initWithPattern:heightRegexSTR
+																				options:0
+																				  error:nil];
+		
+		[heightRegex enumerateMatchesInString:tag
+									  options:0
+										range:NSMakeRange(0, [tag length])
+								   usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
+									   height = [NSNumber numberWithInt:[[tag substringWithRange:result.range]intValue]];
+								   }];
 		
 		//image
-		NSRegularExpression *srcRegex = [[NSRegularExpression alloc] initWithPattern:@"(?<=src=\")[^\"]+" options:0 error:nil];
-		[srcRegex enumerateMatchesInString:tag options:0 range:NSMakeRange(0, [tag length]) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
-			filename = [tag substringWithRange:result.range];
-		}];
+		NSRegularExpression *srcRegex = [[NSRegularExpression alloc] initWithPattern:imgRegexSTR
+																			 options:0
+																			   error:nil];
+		
+		[srcRegex enumerateMatchesInString:tag
+								   options:0
+									 range:NSMakeRange(0, [tag length])
+								usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
+									filename = [tag substringWithRange:result.range];
+								}];
 		
 		//add image for drawing
 		[self.images addObject:[NSDictionary dictionaryWithObjectsAndKeys:
@@ -162,10 +194,10 @@ static CGFloat widthCallback(void *ref) {
 		
 		//render empty space for drawing image
 		CTRunDelegateCallbacks callbacks;
-		callbacks.version = kCTRunDelegateVersion1;
-		callbacks.getAscent = ascentCallback;
-		callbacks.getDescent = descentCallback;
-		callbacks.getWidth = widthCallback;
+        callbacks.version    = kCTRunDelegateVersion1;
+        callbacks.getAscent  = ascentCallback;
+        callbacks.getDescent = descentCallback;
+        callbacks.getWidth   = widthCallback;
 		
 		NSDictionary *imgAttrs = [NSDictionary dictionaryWithObjectsAndKeys:
 								  width, @"width",

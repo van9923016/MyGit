@@ -166,14 +166,14 @@
 				CGFloat descent;//height below the baseline
 				
 				//8.
-				runBounds.size.width = CTRunGetTypographicBounds(run, CFRangeMake(0, 0), &ascent, &descent, nil);
-				runBounds.size.height = ascent + descent;
+                runBounds.size.width  = CTRunGetTypographicBounds(run, CFRangeMake(0, 0), &ascent, &descent, nil);
+                runBounds.size.height = ascent + descent;
 				
 				//9.
-				CGFloat xOffset = CTLineGetOffsetForStringIndex(line, CTRunGetStringRange(run).location, nil);
-				runBounds.origin.x = origins[lineIndex].x + self.frame.origin.x + xOffset + self.frameXOffset;
-				runBounds.origin.y = origins[lineIndex].y + self.frame.origin.y + self.frameYOffset;
-				runBounds.origin.y -= descent;
+                CGFloat xOffset    = CTLineGetOffsetForStringIndex(line, CTRunGetStringRange(run).location, nil);
+                runBounds.origin.x = origins[lineIndex].x + self.frame.origin.x + xOffset + self.frameXOffset;
+                runBounds.origin.y = origins[lineIndex].y + self.frame.origin.y + self.frameYOffset;
+                runBounds.origin.y -= descent;
 				
 				UIImage *img = [UIImage imageNamed:[nextImage objectForKey:@"filename"]];
 				
