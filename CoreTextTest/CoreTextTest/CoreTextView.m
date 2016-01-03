@@ -134,8 +134,8 @@
 	
 	//3.
 	int imgIndex = 0;
-	NSDictionary *nextImage = [self.images objectAtIndex:imgIndex];
-	int imgLocation = [[nextImage objectForKey:@"location"] intValue];
+	NSDictionary *nextImageDict = [self.images objectAtIndex:imgIndex];
+	int imgLocation = [[nextImageDict objectForKey:@"location"] intValue];
 	
 	//4.find images for the current column
 	CFRange frameRange = CTFrameGetVisibleStringRange(ref);
@@ -144,8 +144,8 @@
 		if (imgIndex >= [self.images count]) {
 			return;//quit if no images for this column
 		}
-		nextImage = [self.images objectAtIndex:imgIndex];
-		imgLocation = [[nextImage objectForKey:@"location"] intValue];
+		nextImageDict = [self.images objectAtIndex:imgIndex];
+		imgLocation = [[nextImageDict objectForKey:@"location"] intValue];
 	}
 	
 	NSUInteger lineIndex = 0;
@@ -175,7 +175,7 @@
                 runBounds.origin.y = origins[lineIndex].y + self.frame.origin.y + self.frameYOffset;
                 runBounds.origin.y -= descent;
 				
-				UIImage *img = [UIImage imageNamed:[nextImage objectForKey:@"filename"]];
+				UIImage *img = [UIImage imageNamed:[nextImageDict objectForKey:@"filename"]];
 				
 				//10.
 				CGPathRef pathRef = CTFrameGetPath(ref);
@@ -186,8 +186,8 @@
 
 				imgIndex++;
 				if (imgIndex < [self.images count]) {
-					nextImage = [self.images objectAtIndex:imgIndex];
-					imgLocation = [[nextImage objectForKey:@"location"] intValue];
+					nextImageDict = [self.images objectAtIndex:imgIndex];
+					imgLocation = [[nextImageDict objectForKey:@"location"] intValue];
 				}
 			}
 		}
