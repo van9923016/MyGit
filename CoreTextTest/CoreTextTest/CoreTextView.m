@@ -13,6 +13,13 @@
 
 @implementation CoreTextView
 
+- (instancetype)initWithFrame:(CGRect)frame {
+	self = [super initWithFrame:frame];
+	if (self) {
+		//Init
+	}
+	return self;
+}
 - (void)drawRect:(CGRect)rect {
 	[super drawRect:rect];
 //	[self basicDrawRect];
@@ -97,6 +104,10 @@
 		//set the column view contents and add it as subview
 		//6.
 		[content setCtFrame:(__bridge id)frame];
+		
+		//add image content
+		[self attachImagesWithframe:frame inColumnView:content];
+		
 		[self.frames addObject:(__bridge id)frame];
 		[self addSubview:content];
 		
@@ -120,4 +131,77 @@
 	self.attString = attString;
 	self.images = imgs;
 }
+
+- (void)attachImagesWithframe:(CTFrameRef)ref inColumnView:(CTColumnView *)col {
+	//1.drawing images
+	NSArray *lines = (NSArray *)CTFrameGetLines(ref);
+	
+	CGPoint origins[[lines count]];
+	//2.
+	CTFrameGetLineOrigins(ref, CFRangeMake(0, 0), origins);
+	
+	//3.
+	int imgIndex = 0;
+	NSDictionary *nextImage = [self.images objectAtIndex:imgIndex];
+	int imgLocation = [[nextImage objectForKey:@"location"] intValue];
+	
+	//4.find images for the current column
+	CFRange frameRange = CTFrameGetVisibleStringRange(ref);
+	while (imgLocation < frameRange.location) {
+		imgIndex++;
+		if (imgIndex >= [self.images count]) {
+			return;//quit if no images for this column
+		}
+		nextImage = [self.images objectAtIndex:imgIndex];
+		imgLocation = [[nextImage objectForKey:@"location"] intValue];
+	}
+	
+	NSUInteger lineIndex = 0;
+	
+	//5.
+	for (id lineObj in lines) {
+		CTLineRef line = (__bridge CTLineRef)lineObj;
+		
+		for (id runObj in (NSArray *)CTLineGetGlyphRuns(line)) {
+			//6.
+			CTRunRef run = (__bridge CTRunRef)runObj;
+			CFRange runRange = CTRunGetStringRange(run);
+			
+			if (runRange.location <= imgLocation && runRange.location+runRange.length > imgLocation) {
+				//7.
+				CGRect runBounds;
+				CGFloat ascent;//height above the baseline
+				CGFloat descent;//height below the baseline
+				
+				//8.
+				runBounds.size.width = CTRunGetTypographicBounds(run, CFRangeMake(0, 0), &ascent, &descent, nil);
+				runBounds.size.height = ascent + descent;
+				
+				//9.
+				CGFloat xOffset = CTLineGetOffsetForStringIndex(line, CTRunGetStringRange(run).location, nil);
+				runBounds.origin.x = origins[lineIndex].x + self.frame.origin.x + xOffset + self.frameXOffset;
+				runBounds.origin.y = origins[lineIndex].y + self.frame.origin.y + self.frameYOffset;
+				runBounds.origin.y -= descent;
+				
+				UIImage *img = [UIImage imageNamed:[nextImage objectForKey:@"filename"]];
+				
+				//10.
+				CGPathRef pathRef = CTFrameGetPath(ref);
+				CGRect colRect = CGPathGetBoundingBox(pathRef);
+				
+				CGRect imgBounds = CGRectOffset(runBounds, colRect.origin.x - self.frameXOffset - self.contentOffset.x, colRect.origin.y - self.frameYOffset - self.frame.origin.y);
+				[col.images addObject:[NSArray arrayWithObjects:img, NSStringFromCGRect(imgBounds), nil]];
+
+				imgIndex++;
+				if (imgIndex < [self.images count]) {
+					nextImage = [self.images objectAtIndex:imgIndex];
+					imgLocation = [[nextImage objectForKey:@"location"] intValue];
+				}
+			}
+		}
+		lineIndex++;
+	}
+}
+
+
 @end

@@ -17,6 +17,10 @@
 		B891B1A11C379DE1000A3036 /* MarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B891B1A01C379DE1000A3036 /* MarkupParser.m */; };
 		B891B1A31C37AD19000A3036 /* test.txt in Resources */ = {isa = PBXBuildFile; fileRef = B891B1A21C37AD19000A3036 /* test.txt */; };
 		B891B1A81C37B1D6000A3036 /* CTColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = B891B1A71C37B1D6000A3036 /* CTColumnView.m */; };
+		B891B1AD1C38F91A000A3036 /* zombies.txt in Resources */ = {isa = PBXBuildFile; fileRef = B891B1A91C38F91A000A3036 /* zombies.txt */; };
+		B891B1AE1C38F91A000A3036 /* zombie1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B891B1AA1C38F91A000A3036 /* zombie1.jpg */; };
+		B891B1AF1C38F91A000A3036 /* zombie2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B891B1AB1C38F91A000A3036 /* zombie2.jpg */; };
+		B891B1B01C38F91A000A3036 /* zombie3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B891B1AC1C38F91A000A3036 /* zombie3.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +41,10 @@
 		B891B1A21C37AD19000A3036 /* test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.txt; sourceTree = "<group>"; };
 		B891B1A61C37B1D6000A3036 /* CTColumnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTColumnView.h; sourceTree = "<group>"; };
 		B891B1A71C37B1D6000A3036 /* CTColumnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTColumnView.m; sourceTree = "<group>"; };
+		B891B1A91C38F91A000A3036 /* zombies.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zombies.txt; sourceTree = "<group>"; };
+		B891B1AA1C38F91A000A3036 /* zombie1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zombie1.jpg; sourceTree = "<group>"; };
+		B891B1AB1C38F91A000A3036 /* zombie2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zombie2.jpg; sourceTree = "<group>"; };
+		B891B1AC1C38F91A000A3036 /* zombie3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zombie3.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +100,10 @@
 			isa = PBXGroup;
 			children = (
 				B891B1A21C37AD19000A3036 /* test.txt */,
+				B891B1A91C38F91A000A3036 /* zombies.txt */,
+				B891B1AA1C38F91A000A3036 /* zombie1.jpg */,
+				B891B1AB1C38F91A000A3036 /* zombie2.jpg */,
+				B891B1AC1C38F91A000A3036 /* zombie3.jpg */,
 				B891B1811C37918C000A3036 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -155,9 +167,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B891B1901C37918C000A3036 /* LaunchScreen.storyboard in Resources */,
+				B891B1AE1C38F91A000A3036 /* zombie1.jpg in Resources */,
 				B891B19B1C3791B3000A3036 /* ViewController.xib in Resources */,
+				B891B1B01C38F91A000A3036 /* zombie3.jpg in Resources */,
+				B891B1AF1C38F91A000A3036 /* zombie2.jpg in Resources */,
 				B891B1A31C37AD19000A3036 /* test.txt in Resources */,
 				B891B18D1C37918C000A3036 /* Assets.xcassets in Resources */,
+				B891B1AD1C38F91A000A3036 /* zombies.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

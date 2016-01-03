@@ -167,15 +167,9 @@ static CGFloat widthCallback(void *ref) {
 				[aString appendAttributedString:[[NSAttributedString alloc]
 												 initWithString:@" "
 												 attributes:attrDictionaryDelegate]];
-				
-				
-				
 			}
 		}
 	}
-	
-	
-	
 	return (NSAttributedString *)aString;
 }
 

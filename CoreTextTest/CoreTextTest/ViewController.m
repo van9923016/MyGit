@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"txt"];
+	NSString *path = [[NSBundle mainBundle] pathForResource:@"zombies" ofType:@"txt"];
 	NSString *text = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
 	MarkupParser *parser = [[MarkupParser alloc] init];
 	NSAttributedString *attString = [parser attrStringFromMarkup:text];

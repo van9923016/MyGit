@@ -25,6 +25,20 @@
 	
 	CTFrameDraw((CTFrameRef)_ctFrame, context);
 	
+	for (NSArray *imgData in self.images) {
+		UIImage *img = [imgData objectAtIndex:0];
+		CGRect imgBounds = CGRectFromString([imgData objectAtIndex:1]);
+		CGContextDrawImage(context, imgBounds, img.CGImage);
+	}
+	
+}
+
+- (instancetype)initWithFrame:(CGRect)frame {
+	self = [super initWithFrame:frame];
+	if (self) {
+		self.images = [NSMutableArray array];
+	}
+	return self;
 }
 
 @end
