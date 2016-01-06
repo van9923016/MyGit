@@ -56,4 +56,6 @@
 		[self.indicator stopAnimating];
 	}
 }
+
+
 @end

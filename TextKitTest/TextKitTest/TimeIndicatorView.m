@@ -18,7 +18,6 @@
         // Initialization code
         self.backgroundColor = [UIColor clearColor];
         self.clipsToBounds = NO;
-        
         _label = [[UILabel alloc] init];
         _label.textAlignment = NSTextAlignmentRight;
         
