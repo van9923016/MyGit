@@ -108,6 +108,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="outlineBtn" destination="Cxb-c5-QPJ" id="xC2-Dj-LHq"/>
                         <outlet property="textView" destination="o9C-9Y-5MV" id="ZuG-ce-vTf"/>
                         <outlet property="titleLabel" destination="Znt-oT-bma" id="frd-OP-bwR"/>
                     </connections>
