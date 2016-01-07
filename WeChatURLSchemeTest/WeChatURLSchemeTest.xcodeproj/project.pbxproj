@@ -15,6 +15,7 @@
 		B8FC14601C3E726800F11613 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8FC145E1C3E726800F11613 /* LaunchScreen.storyboard */; };
 		B8FC146B1C3E726800F11613 /* WeChatURLSchemeTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FC146A1C3E726800F11613 /* WeChatURLSchemeTestTests.m */; };
 		B8FC14761C3E726800F11613 /* WeChatURLSchemeTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FC14751C3E726800F11613 /* WeChatURLSchemeTestUITests.m */; };
+		B8FC14851C3E7CC300F11613 /* URLSchemeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FC14841C3E7CC300F11613 /* URLSchemeModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		B8FC14711C3E726800F11613 /* WeChatURLSchemeTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeChatURLSchemeTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8FC14751C3E726800F11613 /* WeChatURLSchemeTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeChatURLSchemeTestUITests.m; sourceTree = "<group>"; };
 		B8FC14771C3E726800F11613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8FC14831C3E7CC300F11613 /* URLSchemeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLSchemeModel.h; sourceTree = "<group>"; };
+		B8FC14841C3E7CC300F11613 /* URLSchemeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLSchemeModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				B8FC145E1C3E726800F11613 /* LaunchScreen.storyboard */,
 				B8FC14611C3E726800F11613 /* Info.plist */,
 				B8FC14501C3E726700F11613 /* Supporting Files */,
+				B8FC14831C3E7CC300F11613 /* URLSchemeModel.h */,
+				B8FC14841C3E7CC300F11613 /* URLSchemeModel.m */,
 			);
 			path = WeChatURLSchemeTest;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 				TargetAttributes = {
 					B8FC144C1C3E726700F11613 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 6QRWM94KKM;
 					};
 					B8FC14651C3E726800F11613 = {
 						CreatedOnToolsVersion = 7.2;
@@ -270,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8FC14851C3E7CC300F11613 /* URLSchemeModel.m in Sources */,
 				B8FC14581C3E726700F11613 /* ViewController.m in Sources */,
 				B8FC14551C3E726700F11613 /* AppDelegate.m in Sources */,
 				B8FC14521C3E726700F11613 /* main.m in Sources */,
@@ -413,6 +420,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = WeChatURLSchemeTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wentan.WeChatURLSchemeTest;
@@ -424,6 +432,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = WeChatURLSchemeTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wentan.WeChatURLSchemeTest;
