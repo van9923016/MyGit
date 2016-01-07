@@ -38,6 +38,15 @@
 										 range:self.textView.selectedRange];
 }
 
+- (void)preferredFontsChanged:(NSNotification *)notification {
+	[self usePreferredFonts];
+}
+
+- (void)usePreferredFonts {
+	self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+	self.titleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
+}
+
 
 #pragma mark - View Geometry changed
 //this will automatically handled with autolayout
@@ -94,6 +103,12 @@
 //It's okay code about geometry in here if it is changed often
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
+	[self usePreferredFonts];
+	//NSNotification test, no specific object means observer everyone
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(preferredFontsChanged:)
+												 name:UIContentSizeCategoryDidChangeNotification
+											   object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -107,6 +122,9 @@
 //kick off a thread to do what needs doing here
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
+	[[NSNotificationCenter defaultCenter] removeObserver:self
+													name:UIContentSizeCategoryDidChangeNotification
+												  object:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
