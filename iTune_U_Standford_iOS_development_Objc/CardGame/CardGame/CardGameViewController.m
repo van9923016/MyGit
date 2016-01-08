@@ -11,25 +11,40 @@
 #import "PlayingCardDeck.h"
 #import "CardMatching.h"
 
+static const NSUInteger MODEEASY = 2;
+static const NSUInteger MODEHARD = 3;
+
 @interface CardGameViewController ()
 
 @property (strong, nonatomic) Deck *deck;
 @property (strong, nonatomic) CardMatching *matchingGame;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *cardModeSeg;
+@property (weak, nonatomic) IBOutlet UISwitch *switchButton;
+
+@property (weak, nonatomic) IBOutlet UILabel *matchStateLabel;
 //view create by xib and IBOutCollection should be strong
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *cardModeSeg;
-@property (weak, nonatomic) IBOutlet UISwitch			*switchButton;
-@property (weak, nonatomic) IBOutlet UILabel *matchStateLabel;
-
+@property (strong, nonatomic) NSMutableArray *cardTitleStack;//each showed card title adds in
+@property (assign, nonatomic) NSUInteger gameMode;
 @end
 
 @implementation CardGameViewController
 
+- (NSMutableArray *)cardStack {
+	
+	if (_cardTitleStack) {
+		if (self.cardModeSeg.selectedSegmentIndex == 0) {
+			_cardTitleStack = [[NSMutableArray alloc] initWithCapacity:MODEEASY];
+		}else{
+			_cardTitleStack = [[NSMutableArray alloc] initWithCapacity:MODEHARD];
+		}
+	}
+	return _cardTitleStack;
+}
 - (Deck *)creatDeck {
 	return [[PlayingCardDeck alloc] init];;
 }
-
 
 - (CardMatching *)matchingGame {
 	if (!_matchingGame) {
@@ -39,10 +54,9 @@
 	return _matchingGame;
 }
 
-
-
 - (IBAction)cardButtonPressed:(UIButton *)sender {
 	NSInteger index = [self.cardButtons indexOfObject:sender];
+	//FIXME: card match status!!!
 	[self.matchingGame chooseCardAtIndex:index];
 	[self updateUI];
 }
@@ -55,7 +69,15 @@
 	return [UIImage imageNamed:(card.isChosen) ? @"cardFront" : @"cardBack"];
 }
 
-
+- (void)updateGameMode {
+	self.gameMode = (self.cardModeSeg.selectedSegmentIndex == 0) ? MODEEASY : MODEHARD;
+}
+- (void)updateScoreLabel {
+	self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", self.matchingGame.score];
+}
+- (void)updateMatchingLabelStatus {
+	
+}
 - (void)updateUI {
 
 	for (UIButton *cardButton in self.cardButtons) {
@@ -68,17 +90,31 @@
 							  forState:UIControlStateNormal];
 		cardButton.enabled = !card.isMatched;
 	}
-	self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", self.matchingGame.score];
-	
-	//TODO: Update Matching label status
+	[self updateScoreLabel];
+	[self updateMatchingLabelStatus];
 }
 
 - (IBAction)resetScore:(UIButton *)sender {
-	//TODO: Reset score, add warning alert
+	
+	UIAlertController *resetAlertVC = [UIAlertController alertControllerWithTitle:@"清零分数吗？"
+																		  message:@"这将重置您的积分，且不可恢复"
+																   preferredStyle:UIAlertControllerStyleAlert];
+	UIAlertAction *resetAction = [UIAlertAction actionWithTitle:@"确定"
+														  style:UIAlertActionStyleDefault
+														handler:^(UIAlertAction * _Nonnull action) {
+															[self.matchingGame resetScore];
+															[self updateScoreLabel];
+														}];
+	UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消"
+														   style:UIAlertActionStyleCancel
+														 handler:nil];
+	[resetAlertVC addAction:resetAction];
+	[resetAlertVC addAction:cancelAction];
+	[self presentViewController:resetAlertVC animated:YES completion:nil];
 }
 
 - (IBAction)switchButtonPressed:(UISwitch *)sender {
-	//TODO: UISwitch pressed
+	self.cardModeSeg.enabled = sender.isOn ? YES : NO;
 }
 
 - (IBAction)segmentChanged:(UISegmentedControl *)sender {
@@ -88,8 +124,11 @@
 #pragma mark - view lifecycle
 - (void)viewDidLoad {
 	[super viewDidLoad];
+	[self updateGameMode];
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+}
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
 }

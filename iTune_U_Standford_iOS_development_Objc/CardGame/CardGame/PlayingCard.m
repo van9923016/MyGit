@@ -16,7 +16,7 @@
 
 //class method for creating things or  utilities
 + (NSArray *)validSuits {
-	return @[@"♥︎", @"♦︎", @"♠︎", @"♣︎"];
+	return @[@"❤️", @"♦️", @"♠️", @"♣️"];
 }
 
 + (NSArray *)rankStrings {
