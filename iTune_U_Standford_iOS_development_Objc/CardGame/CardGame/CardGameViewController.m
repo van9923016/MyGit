@@ -18,6 +18,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 //view create by xib and IBOutCollection should be strong
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *cardModeSeg;
+@property (weak, nonatomic) IBOutlet UISwitch			*switchButton;
+@property (weak, nonatomic) IBOutlet UILabel *matchStateLabel;
 
 @end
 
@@ -66,6 +69,20 @@
 		cardButton.enabled = !card.isMatched;
 	}
 	self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", self.matchingGame.score];
+	
+	//TODO: Update Matching label status
+}
+
+- (IBAction)resetScore:(UIButton *)sender {
+	//TODO: Reset score, add warning alert
+}
+
+- (IBAction)switchButtonPressed:(UISwitch *)sender {
+	//TODO: UISwitch pressed
+}
+
+- (IBAction)segmentChanged:(UISegmentedControl *)sender {
+	//TODO: Segment changed action
 }
 
 #pragma mark - view lifecycle
