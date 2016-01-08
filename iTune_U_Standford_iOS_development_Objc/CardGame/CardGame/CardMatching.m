@@ -14,7 +14,7 @@ static const int COST_TO_CHOOSE = 1;
 
 @interface CardMatching ()
 
-@property (nonatomic, readwrite) NSInteger *score;
+@property (nonatomic, readwrite) NSInteger score;
 @property (nonatomic, strong) NSMutableArray *cards;//of Cards
 @end
 
@@ -25,11 +25,12 @@ static const int COST_TO_CHOOSE = 1;
 	return _cards;
 }
 
-
 - (instancetype)initWithCardCount:(NSUInteger)count deck:(Deck *)deck {
+	
 	self = [super init];
 	
 	if (self) {
+		self.score = 0;
 		for (int i = 0; i < count; i++) {
 			Card *card = [deck drawRandomCard];
 			if (card) {
@@ -46,12 +47,16 @@ static const int COST_TO_CHOOSE = 1;
 
 
 - (void)chooseCardAtIndex:(NSUInteger)index {
+	
 	Card *card = [self cardAtIndex:index];
+	
 	if (!card.isMatched) {
+		
 		if (card.isChosen) {
 			card.chosen = NO;
 		}else{
-			//match against other card
+			//match against other card in deck
+			
 			for (Card *otherCard in self.cards) {
 				if (otherCard.isChosen && !otherCard.isMatched) {
 					//
@@ -68,7 +73,9 @@ static const int COST_TO_CHOOSE = 1;
 					break;
 				}
 			}
+			NSLog(@"%ld",(long)self.score);
 			self.score -= COST_TO_CHOOSE;
+			NSLog(@"%ld",(long)self.score);
 			card.chosen = YES;
 		}
 	}

@@ -15,9 +15,9 @@
 
 @property (strong, nonatomic) Deck *deck;
 @property (strong, nonatomic) CardMatching *matchingGame;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 //view create by xib and IBOutCollection should be strong
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
-@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 
 @end
 
@@ -54,17 +54,19 @@
 
 
 - (void)updateUI {
+
 	for (UIButton *cardButton in self.cardButtons) {
+		
 		NSInteger index = [self.cardButtons indexOfObject:cardButton];
 		Card *card = [self.matchingGame cardAtIndex:index];
-		[cardButton setTitle:[self titleForCard:card] forState:UIControlStateNormal];
-		[cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
+		[cardButton setTitle:[self titleForCard:card]
+					forState:UIControlStateNormal];
+		[cardButton setBackgroundImage:[self backgroundImageForCard:card]
+							  forState:UIControlStateNormal];
 		cardButton.enabled = !card.isMatched;
 	}
-	self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", (long)self.matchingGame.score];
+	self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", self.matchingGame.score];
 }
-
-
 
 #pragma mark - view lifecycle
 - (void)viewDidLoad {

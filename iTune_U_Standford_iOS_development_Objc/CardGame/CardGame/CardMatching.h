@@ -11,11 +11,10 @@
 #import "Card.h"
 @interface CardMatching : NSObject
 
-@property (nonatomic, readonly) NSInteger *score;
+@property (nonatomic, readonly) NSInteger score;
 
 //designated initializer
 - (instancetype)initWithCardCount:(NSUInteger)count deck:(Deck *)deck;
-
 - (void)chooseCardAtIndex:(NSUInteger)index;
 - (Card *)cardAtIndex:(NSUInteger)index;
 
