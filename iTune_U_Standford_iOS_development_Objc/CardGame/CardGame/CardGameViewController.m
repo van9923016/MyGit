@@ -9,23 +9,30 @@
 #import "CardGameViewController.h"
 #import "Deck.h"
 #import "PlayingCardDeck.h"
+#import "CardMatching.h"
 
 @interface CardGameViewController ()
 
-@property (weak, nonatomic) IBOutlet UIButton *cardBtn;
+@property (weak, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel  *countLabel;
 @property (assign, nonatomic) int flipCount;
 @property (strong, nonatomic) Deck *deck;
+@property (strong, nonatomic) CardMatching *matchingGame;
 
 @end
 
 @implementation CardGameViewController
 
+- (void)setFlipCount:(int)flipCount {
+	//lazy loading
+	_flipCount = flipCount;
+	self.countLabel.text = [NSString stringWithFormat:@"Flip count: %d", self.flipCount];
+}
+
 -(Deck *)deck {
 	if (!_deck) {
 		_deck = [self creatDeck];
 	}
-	[_deck.cards count];
 	return _deck;
 }
 
@@ -34,9 +41,24 @@
 }
 
 
+- (CardMatching *)matchingGame {
+	if (!_matchingGame) {
+		_matchingGame = [[CardMatching alloc] initWithCardCount:self.cardButtons.count
+														   deck:[self creatDeck]];
+	}
+	
+	return _matchingGame;
+}
+
+
 
 - (IBAction)cardButtonPressed:(UIButton *)sender {
+	NSInteger index = [self.cardButtons indexOfObject:sender];
+	[self.matchingGame chooseCardAtIndex:index];
+	[self updateUI];
 	
+	
+	//flip one card action
 	if ([sender.currentTitle length]) {
 		[sender setBackgroundImage:[UIImage imageNamed:@"cardBack"]
 						  forState:UIControlStateNormal];
@@ -56,21 +78,34 @@
 	}	
 }
 
-- (void)setFlipCount:(int)flipCount {
-	//lazy loading
-	_flipCount = flipCount;
-	self.countLabel.text = [NSString stringWithFormat:@"Flip count: %d", self.flipCount];
+- (NSString *)titleForCard:(Card *)card {
+	return card.isChosen ? card.contents : @"";
 }
+
+- (UIImage *)backgroundImageForCard:(Card *)card {
+	return [UIImage imageNamed:(card.isChosen) ? @"cardFront" : @"cardBack"];
+}
+
+
+- (void)updateUI {
+	for (UIButton *cardButton  in self.cardButtons) {
+		NSInteger index = [self.cardButtons indexOfObject:cardButton];
+		Card *card = [self.matchingGame cardAtIndex:index];
+		[cardButton setTitle:[self titleForCard:card] forState:UIControlStateNormal];
+		[cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
+		cardButton.enabled = !card.isMatched;
+	}
+}
+
+
 
 #pragma mark - view lifecycle
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
-	// Dispose of any resources that can be recreated.
 }
 
 @end
