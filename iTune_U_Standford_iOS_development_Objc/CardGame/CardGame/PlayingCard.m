@@ -49,8 +49,6 @@
 - (void)setRank:(NSUInteger)rank {
 	if (rank <= [PlayingCard maxRank]) {
 		_rank = rank;
-	}else{
-		_rank = [PlayingCard maxRank];
 	}
 	
 }
