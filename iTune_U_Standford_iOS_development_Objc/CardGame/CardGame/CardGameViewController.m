@@ -13,28 +13,15 @@
 
 @interface CardGameViewController ()
 
-@property (weak, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
-@property (weak, nonatomic) IBOutlet UILabel  *countLabel;
-@property (assign, nonatomic) int flipCount;
 @property (strong, nonatomic) Deck *deck;
 @property (strong, nonatomic) CardMatching *matchingGame;
+//view create by xib and IBOutCollection should be strong
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 
 @end
 
 @implementation CardGameViewController
-
-- (void)setFlipCount:(int)flipCount {
-	//lazy loading
-	_flipCount = flipCount;
-	self.countLabel.text = [NSString stringWithFormat:@"Flip count: %d", self.flipCount];
-}
-
--(Deck *)deck {
-	if (!_deck) {
-		_deck = [self creatDeck];
-	}
-	return _deck;
-}
 
 - (Deck *)creatDeck {
 	return [[PlayingCardDeck alloc] init];;
@@ -46,7 +33,6 @@
 		_matchingGame = [[CardMatching alloc] initWithCardCount:self.cardButtons.count
 														   deck:[self creatDeck]];
 	}
-	
 	return _matchingGame;
 }
 
@@ -56,26 +42,6 @@
 	NSInteger index = [self.cardButtons indexOfObject:sender];
 	[self.matchingGame chooseCardAtIndex:index];
 	[self updateUI];
-	
-	
-	//flip one card action
-	if ([sender.currentTitle length]) {
-		[sender setBackgroundImage:[UIImage imageNamed:@"cardBack"]
-						  forState:UIControlStateNormal];
-		[sender setTitle:@""
-				forState:UIControlStateNormal];
-		self.flipCount++;
-	}else{
-		//put card init in here or right below sender action is not same!!!
-		Card *card = [self.deck drawRandomCard];
-		if (card) {
-			[sender setBackgroundImage:[UIImage imageNamed:@"cardFront"]
-							  forState:UIControlStateNormal];
-			[sender setTitle:card.contents
-					forState:UIControlStateNormal];
-			self.flipCount++;
-		}
-	}	
 }
 
 - (NSString *)titleForCard:(Card *)card {
@@ -88,13 +54,14 @@
 
 
 - (void)updateUI {
-	for (UIButton *cardButton  in self.cardButtons) {
+	for (UIButton *cardButton in self.cardButtons) {
 		NSInteger index = [self.cardButtons indexOfObject:cardButton];
 		Card *card = [self.matchingGame cardAtIndex:index];
 		[cardButton setTitle:[self titleForCard:card] forState:UIControlStateNormal];
 		[cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
 		cardButton.enabled = !card.isMatched;
 	}
+	self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", (long)self.matchingGame.score];
 }
 
 
