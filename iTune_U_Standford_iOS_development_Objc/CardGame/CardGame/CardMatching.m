@@ -73,9 +73,7 @@ static const int COST_TO_CHOOSE = 1;
 					break;
 				}
 			}
-			NSLog(@"%ld",(long)self.score);
 			self.score -= COST_TO_CHOOSE;
-			NSLog(@"%ld",(long)self.score);
 			card.chosen = YES;
 		}
 	}

@@ -21,27 +21,14 @@ static const NSUInteger MODEHARD = 3;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *cardModeSeg;
 @property (weak, nonatomic) IBOutlet UISwitch *switchButton;
-
 @property (weak, nonatomic) IBOutlet UILabel *matchStateLabel;
 //view create by xib and IBOutCollection should be strong
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
-@property (strong, nonatomic) NSMutableArray *cardTitleStack;//each showed card title adds in
-@property (assign, nonatomic) NSUInteger gameMode;
+
 @end
 
 @implementation CardGameViewController
 
-- (NSMutableArray *)cardStack {
-	
-	if (_cardTitleStack) {
-		if (self.cardModeSeg.selectedSegmentIndex == 0) {
-			_cardTitleStack = [[NSMutableArray alloc] initWithCapacity:MODEEASY];
-		}else{
-			_cardTitleStack = [[NSMutableArray alloc] initWithCapacity:MODEHARD];
-		}
-	}
-	return _cardTitleStack;
-}
 - (Deck *)creatDeck {
 	return [[PlayingCardDeck alloc] init];;
 }
@@ -69,9 +56,6 @@ static const NSUInteger MODEHARD = 3;
 	return [UIImage imageNamed:(card.isChosen) ? @"cardFront" : @"cardBack"];
 }
 
-- (void)updateGameMode {
-	self.gameMode = (self.cardModeSeg.selectedSegmentIndex == 0) ? MODEEASY : MODEHARD;
-}
 - (void)updateScoreLabel {
 	self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", self.matchingGame.score];
 }
@@ -94,10 +78,20 @@ static const NSUInteger MODEHARD = 3;
 	[self updateMatchingLabelStatus];
 }
 
+
+
+- (IBAction)switchButtonPressed:(UISwitch *)sender {
+	self.cardModeSeg.enabled = sender.isOn ? YES : NO;
+}
+
+- (IBAction)segmentChanged:(UISegmentedControl *)sender {
+	//TODO: Segment changed action
+}
+
 - (IBAction)resetScore:(UIButton *)sender {
 	
-	UIAlertController *resetAlertVC = [UIAlertController alertControllerWithTitle:@"清零分数吗？"
-																		  message:@"这将重置您的积分，且不可恢复"
+	UIAlertController *resetAlertVC = [UIAlertController alertControllerWithTitle:@"清零分数？"
+																		  message:@"将重置您的积分，且不可恢复"
 																   preferredStyle:UIAlertControllerStyleAlert];
 	UIAlertAction *resetAction = [UIAlertAction actionWithTitle:@"确定"
 														  style:UIAlertActionStyleDefault
@@ -113,18 +107,9 @@ static const NSUInteger MODEHARD = 3;
 	[self presentViewController:resetAlertVC animated:YES completion:nil];
 }
 
-- (IBAction)switchButtonPressed:(UISwitch *)sender {
-	self.cardModeSeg.enabled = sender.isOn ? YES : NO;
-}
-
-- (IBAction)segmentChanged:(UISegmentedControl *)sender {
-	//TODO: Segment changed action
-}
-
 #pragma mark - view lifecycle
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	[self updateGameMode];
 }
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
