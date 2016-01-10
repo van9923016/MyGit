@@ -7,10 +7,10 @@
 //
 
 #import "ViewController.h"
+#import "TextStatsViewController.h"
 
 @interface ViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UIButton	*outlineBtn;
 
@@ -20,7 +20,9 @@
 
 - (IBAction)changeBodySelectionColorToBackroundOfButton:(UIButton *)sender {
 	//add foreground color to attributestring in selected range
-	[self.textView.textStorage addAttribute:NSForegroundColorAttributeName value:sender.backgroundColor range:self.textView.selectedRange];
+	[self.textView.textStorage addAttribute:NSForegroundColorAttributeName
+									  value:sender.backgroundColor
+									  range:self.textView.selectedRange];
 }
 
 - (IBAction)outlinePressed:(UIButton *)sender {
@@ -44,7 +46,6 @@
 
 - (void)usePreferredFonts {
 	self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-	self.titleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
 }
 
 
@@ -135,4 +136,14 @@
 	[super didReceiveMemoryWarning];
 }
 
+#pragma mark - segue to detail view
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+	
+	if ([segue.identifier isEqualToString:@"AnalyzeText"]) {
+		if ([segue.destinationViewController isKindOfClass:[TextStatsViewController class]]) {
+			TextStatsViewController *vc = (TextStatsViewController *)segue.destinationViewController;
+			vc.textToAnalyze = self.textView.textStorage;
+		}
+	}
+}
 @end
