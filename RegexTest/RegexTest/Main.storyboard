@@ -135,7 +135,7 @@ To begin, open RageIAPHelper.m and add the new product identifier you jsut creat
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1179" y="-193"/>
+            <point key="canvasLocation" x="1053" y="-433"/>
         </scene>
         <!--Sign up-->
         <scene sceneID="tYA-1e-c5S">
@@ -270,7 +270,7 @@ To begin, open RageIAPHelper.m and add the new product identifier you jsut creat
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ckf-pk-3si" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1179" y="498"/>
+            <point key="canvasLocation" x="1053" y="180"/>
         </scene>
         <!--Search-->
         <scene sceneID="DSr-EU-Hig">
@@ -439,7 +439,7 @@ To begin, open RageIAPHelper.m and add the new product identifier you jsut creat
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PfS-7X-bgm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2090" y="-193"/>
+            <point key="canvasLocation" x="1906" y="-433"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="15">
@@ -478,7 +478,7 @@ To begin, open RageIAPHelper.m and add the new product identifier you jsut creat
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wKQ-xE-oyn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="653" y="-193"/>
+            <point key="canvasLocation" x="599" y="-433"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vHp-BU-Sd8">
@@ -496,7 +496,7 @@ To begin, open RageIAPHelper.m and add the new product identifier you jsut creat
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyu-H8-buj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1594" y="-193"/>
+            <point key="canvasLocation" x="1467" y="-433"/>
         </scene>
         <!--Second-->
         <scene sceneID="ynI-8m-3st">
@@ -515,7 +515,7 @@ To begin, open RageIAPHelper.m and add the new product identifier you jsut creat
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zmK-mN-ce5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="653" y="498"/>
+            <point key="canvasLocation" x="599" y="180"/>
         </scene>
         <!--Third-->
         <scene sceneID="I3z-4H-NOy">
@@ -534,7 +534,7 @@ To begin, open RageIAPHelper.m and add the new product identifier you jsut creat
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h3c-Mg-W3S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="653" y="1238"/>
+            <point key="canvasLocation" x="599" y="935"/>
         </scene>
         <!--Verfication-->
         <scene sceneID="dKh-KD-axP">
@@ -589,7 +589,7 @@ To begin, open RageIAPHelper.m and add the new product identifier you jsut creat
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OCM-WX-l5x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1179" y="1238"/>
+            <point key="canvasLocation" x="1053" y="935"/>
         </scene>
     </scenes>
     <resources>

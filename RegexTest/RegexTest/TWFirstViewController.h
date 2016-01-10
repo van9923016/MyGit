@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "TWSearchTableVC.h"
 
-@interface TWFirstViewController : UIViewController<TWSearchTableVCDelegate>
+@interface TWFirstViewController : UIViewController
 
 @end

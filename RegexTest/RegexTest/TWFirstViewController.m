@@ -9,7 +9,7 @@
 #import "TWFirstViewController.h"
 
 
-@interface TWFirstViewController ()
+@interface TWFirstViewController ()<TWSearchTableVCDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
@@ -30,6 +30,7 @@
 	NSString *segueIdentifier = segue.identifier;
 	if ([segueIdentifier isEqualToString:@"TWSearchTableVCSegue"]){
 		UINavigationController *navigationController = (UINavigationController *)segue.destinationViewController;
+		//set searchVC to show after segue
 		TWSearchTableVC *controller = [navigationController.viewControllers objectAtIndex:0];
 		controller.delegate = self;
 		controller.searchString = self.lastSearchString;
@@ -53,8 +54,7 @@
 - (void)controller:(TWSearchTableVC *)controller didFinishWithSearchString:(NSString *)string options:(NSDictionary *)options replacement:(NSString *)replacement {
 	if (![string isEqualToString:self.lastSearchString] ||
 		![options isEqual:self.lastSearchOptions] ||
-		![replacement isEqualToString:self.lastReplacementString])
-	{
+		![replacement isEqualToString:self.lastReplacementString]) {
 		// Keep a reference
 		self.lastSearchString = string;
 		self.lastReplacementString = replacement;
@@ -88,7 +88,20 @@
 #pragma mark - Helper methods
 // Create a regular expression with given string and options
 - (NSRegularExpression *)regularExpressionWithString:(NSString *)string options:(NSDictionary *)options {
-	return nil;
+	//create regular expression
+	BOOL isCaseSensitvie = [[options objectForKey:kTWSearchCaseSensitiveKey] boolValue];
+	BOOL isWholeWords = [[options objectForKey:kTWSearchWholeWordsKey] boolValue];
+	
+	NSError *error = nil;
+	NSRegularExpressionOptions regexOptions = isCaseSensitvie ? 0 : NSRegularExpressionCaseInsensitive;
+	
+	NSString *placeHolder = isWholeWords ? @"\\b%@\\b" : @"%@";
+	NSString *pattern = [NSString stringWithFormat:placeHolder, string];
+	NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:regexOptions error:&error];
+	if (error) {
+		NSLog(@"Couldn't create regex with given string and options");
+	}
+	return regex;
 }
 
 // Return range of text in text view that is visible
