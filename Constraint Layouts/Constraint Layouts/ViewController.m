@@ -6,9 +6,16 @@
 //  Copyright © 2016 Wen Tan. All rights reserved.
 //
 
+@import MapKit;
 #import "ViewController.h"
 
+static NSString *webURL = @"https://www.apple.com";
+
 @interface ViewController ()
+
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+
 
 @end
 
@@ -16,7 +23,8 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:webURL]];
+	[self.webView loadRequest:request];
 }
 
 - (void)didReceiveMemoryWarning {
