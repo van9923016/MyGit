@@ -11,6 +11,7 @@
 
 @interface ViewController ()
 @property (nonatomic, copy) NSArray *data;
+@property (nonatomic, copy) NSArray *data2;
 @end
 
 @implementation ViewController
@@ -25,6 +26,9 @@
 	
 	//Objects operators
 	[self objectOperatorExample];
+	
+	//Array operators
+	[self arrayOperatorExample];
 	
 }
 
@@ -47,7 +51,8 @@
 	Product *iPad = [[Product alloc] initWithName:@"iPad" price:4888.0 launchedDate:[dateFormatter dateFromString:iPadDate]];
 	Product *appleWatch = [[Product alloc] initWithName:@"appleWatch" price:3888.0 launchedDate:[dateFormatter dateFromString:appleWatchDate]];
 	
-	self.data = @[iPod,iPhone,iPhone,iPad,appleWatch];
+	self.data = @[iPod,iPhone,iPhone,iPad];
+	self.data2 = @[iPad, iPhone, appleWatch];
 	
 }
 
@@ -77,5 +82,12 @@
 	NSLog(@"%@",[self.data valueForKeyPath:@"@distinctUnionOfObjects.name"]);
 }
 
+#pragma mark - Array Operator Example
+- (void)arrayOperatorExample {
+	//show in array list
+	NSLog(@"%@", [@[self.data, self.data2] valueForKeyPath:@"@unionOfObjects.name"]);
+	NSLog(@"%@", [@[self.data, self.data2] valueForKeyPath:@"@distinctUnionOfObjects.name"]);
+	
+}
 
 @end
