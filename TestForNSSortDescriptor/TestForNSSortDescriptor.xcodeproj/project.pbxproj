@@ -13,7 +13,7 @@
 		B837CFEC1C5EF967002F220A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B837CFEA1C5EF967002F220A /* Main.storyboard */; };
 		B837CFEE1C5EF967002F220A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B837CFED1C5EF967002F220A /* Assets.xcassets */; };
 		B837CFF11C5EF967002F220A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B837CFEF1C5EF967002F220A /* LaunchScreen.storyboard */; };
-		B837CFFA1C5EF975002F220A /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = B837CFF91C5EF975002F220A /* Person.m */; };
+		B837CFFD1C5EFF0A002F220A /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = B837CFFC1C5EFF0A002F220A /* Person.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +27,8 @@
 		B837CFED1C5EF967002F220A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B837CFF01C5EF967002F220A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B837CFF21C5EF967002F220A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B837CFF81C5EF975002F220A /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Person.h; path = ../Person.h; sourceTree = "<group>"; };
-		B837CFF91C5EF975002F220A /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Person.m; path = ../Person.m; sourceTree = "<group>"; };
+		B837CFFB1C5EFF0A002F220A /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		B837CFFC1C5EFF0A002F220A /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +63,8 @@
 			children = (
 				B837CFE41C5EF967002F220A /* AppDelegate.h */,
 				B837CFE51C5EF967002F220A /* AppDelegate.m */,
-				B837CFF81C5EF975002F220A /* Person.h */,
-				B837CFF91C5EF975002F220A /* Person.m */,
+				B837CFFB1C5EFF0A002F220A /* Person.h */,
+				B837CFFC1C5EFF0A002F220A /* Person.m */,
 				B837CFE71C5EF967002F220A /* ViewController.h */,
 				B837CFE81C5EF967002F220A /* ViewController.m */,
 				B837CFEA1C5EF967002F220A /* Main.storyboard */,
@@ -156,7 +156,7 @@
 			files = (
 				B837CFE91C5EF967002F220A /* ViewController.m in Sources */,
 				B837CFE61C5EF967002F220A /* AppDelegate.m in Sources */,
-				B837CFFA1C5EF975002F220A /* Person.m in Sources */,
+				B837CFFD1C5EFF0A002F220A /* Person.m in Sources */,
 				B837CFE31C5EF967002F220A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,6 +306,7 @@
 				B837CFF71C5EF967002F220A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
