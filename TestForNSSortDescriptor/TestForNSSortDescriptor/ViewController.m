@@ -36,6 +36,16 @@
 	NSLog(@"By firstName ascending order: %@",[people sortedArrayUsingDescriptors:@[firstNameSortDescriptor]]);
 	NSLog(@"By lastName ascending order: %@",[people sortedArrayUsingDescriptors:@[lastNameSortDescriptor]]);
 	NSLog(@"By age %@",[people sortedArrayUsingDescriptors:@[ageSortDescriptor]]);
+	
+	//NSPredicate
+	NSPredicate *alicePredicate = [NSPredicate predicateWithFormat:@"firstName = 'Alice'"];
+	NSPredicate *smithPredicate = [NSPredicate predicateWithFormat:@"lastName = %@",@"Smith"];
+	NSPredicate *agePredicate = [NSPredicate predicateWithFormat:@"age >= 30",@13];
+	NSLog(@"Filter by firstname: %@",[people filteredArrayUsingPredicate:alicePredicate]);
+	NSLog(@"Filter by lastname: %@",[people filteredArrayUsingPredicate:smithPredicate]);
+	NSLog(@"Filter by age: %@",[people filteredArrayUsingPredicate:agePredicate]);
+	
+	
 }
 
 - (void)viewDidLoad {
