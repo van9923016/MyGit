@@ -13,6 +13,8 @@
 		B82A5AEB1C638AE60085070A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B82A5AE91C638AE60085070A /* Main.storyboard */; };
 		B82A5AED1C638AE60085070A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B82A5AEC1C638AE60085070A /* Assets.xcassets */; };
 		B82A5AF01C638AE60085070A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B82A5AEE1C638AE60085070A /* LaunchScreen.storyboard */; };
+		B82A5AF81C638CD70085070A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82A5AF71C638CD70085070A /* MapKit.framework */; };
+		B82A5AFB1C638FC80085070A /* TWLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = B82A5AFA1C638FC80085070A /* TWLocation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,9 @@
 		B82A5AEC1C638AE60085070A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B82A5AEF1C638AE60085070A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B82A5AF11C638AE60085070A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B82A5AF71C638CD70085070A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B82A5AF91C638FC80085070A /* TWLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWLocation.h; sourceTree = "<group>"; };
+		B82A5AFA1C638FC80085070A /* TWLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWLocation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B82A5AF81C638CD70085070A /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +66,8 @@
 			children = (
 				B82A5AE31C638AE60085070A /* AppDelegate.h */,
 				B82A5AE41C638AE60085070A /* AppDelegate.m */,
+				B82A5AF91C638FC80085070A /* TWLocation.h */,
+				B82A5AFA1C638FC80085070A /* TWLocation.m */,
 				B82A5AE61C638AE60085070A /* ViewController.h */,
 				B82A5AE71C638AE60085070A /* ViewController.m */,
 				B82A5AE91C638AE60085070A /* Main.storyboard */,
@@ -74,6 +82,7 @@
 		B82A5AE01C638AE60085070A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B82A5AF71C638CD70085070A /* MapKit.framework */,
 				B82A5AE11C638AE60085070A /* main.m */,
 			);
 			name = "Supporting Files";
@@ -152,6 +161,7 @@
 				B82A5AE81C638AE60085070A /* ViewController.m in Sources */,
 				B82A5AE51C638AE60085070A /* AppDelegate.m in Sources */,
 				B82A5AE21C638AE60085070A /* main.m in Sources */,
+				B82A5AFB1C638FC80085070A /* TWLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +310,7 @@
 				B82A5AF61C638AE60085070A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
