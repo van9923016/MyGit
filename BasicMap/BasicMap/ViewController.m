@@ -10,7 +10,7 @@
 #import "TWLocation.h"
 @import MapKit;
 
-static const NSUInteger distancScale = 50000;
+//static const NSUInteger distancScale = 50000;
 
 @interface ViewController ()<MKMapViewDelegate,CLLocationManagerDelegate>
 
@@ -25,21 +25,10 @@ static const NSUInteger distancScale = 50000;
 @implementation ViewController
 
 #pragma mark - Basic data initialize
-//Default location annotation
-- (void)showDefaultLocationAnnotation {
-	//1.make default map annotation:South China Argriculture Univercity
-	//same as first toolbar pressed
-	TWLocation *colleageLoc = self.locationArray[0];
-	MKPointAnnotation *myColleage = [[MKPointAnnotation alloc] init];
-	myColleage.coordinate = CLLocationCoordinate2DMake(colleageLoc.latitude, colleageLoc.longitude);
-	myColleage.title = colleageLoc.name;
-	myColleage.subtitle = colleageLoc.details;
-	[self.mapView addAnnotation:myColleage];
-	self.mapView.centerCoordinate = myColleage.coordinate;
-}
-
 - (void)showLocationFromTag:(NSUInteger)tag {
 	TWLocation *taggedLocation = self.locationArray[tag];
+	self.navController.title = taggedLocation.name;
+	
 	MKPointAnnotation *myColleage = [[MKPointAnnotation alloc] init];
 	myColleage.coordinate = CLLocationCoordinate2DMake(taggedLocation.latitude, taggedLocation.longitude);
 	myColleage.title = taggedLocation.name;
@@ -47,7 +36,7 @@ static const NSUInteger distancScale = 50000;
 	[self.mapView removeAnnotations:self.mapView.annotations];
 	[self.mapView addAnnotation:myColleage];
 	self.mapView.centerCoordinate = myColleage.coordinate;
-	self.navController.title = taggedLocation.name;
+
 }
 
 //Initial location data
@@ -65,6 +54,13 @@ static const NSUInteger distancScale = 50000;
 	return _locationArray;
 }
 
+- (CLLocationManager *)locationManager {
+	if (!_locationManager) {
+		_locationManager = [[CLLocationManager alloc] init];
+		_locationManager.delegate = self;
+	}
+	return _locationManager;
+}
 
 
 #pragma mark - Toolbar action
@@ -76,10 +72,12 @@ static const NSUInteger distancScale = 50000;
 	
 	self.mapView.showsUserLocation = sender.isOn;
 	if (sender.isOn) {
+		self.navController.title = self.mapView.userLocation.title;
+		
 		[self.locationManager requestAlwaysAuthorization];
 		[self.locationManager startUpdatingLocation];
 		[self.mapView setCenterCoordinate:self.mapView.userLocation.coordinate animated:YES];
-		self.navController.title = self.mapView.userLocation.title;
+		
 	}else{
 		self.navController.title = @"Basic Map";
 		[self.locationManager stopUpdatingLocation];
@@ -94,16 +92,17 @@ static const NSUInteger distancScale = 50000;
 //	MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(noLocation, distancScale, distancScale);
 //	MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:viewRegion];
 //	[self.mapView setRegion:adjustedRegion animated:YES];
-	[self showDefaultLocationAnnotation];
 	
-	self.locationManager = [[CLLocationManager alloc] init];
-	self.locationManager.delegate = self;
+	//show default location
+	[self showLocationFromTag:0];
+	
 }
 
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
 }
 
+#pragma mark - CLLocationManager Delegate
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
 	[self.mapView setCenterCoordinate:locations.firstObject.coordinate animated:YES];
 }
