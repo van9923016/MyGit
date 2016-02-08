@@ -10,10 +10,15 @@
 #import "TWLocation.h"
 @import MapKit;
 
-@interface ViewController ()<MKMapViewDelegate>
+static const NSUInteger distancScale = 50000;
+
+@interface ViewController ()<MKMapViewDelegate,CLLocationManagerDelegate>
 
 @property (nonatomic, weak) IBOutlet MKMapView *mapView;
 @property (nonatomic, copy) NSArray *locationArray;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navController;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+
 
 @end
 
@@ -32,6 +37,19 @@
 	[self.mapView addAnnotation:myColleage];
 	self.mapView.centerCoordinate = myColleage.coordinate;
 }
+
+- (void)showLocationFromTag:(NSUInteger)tag {
+	TWLocation *taggedLocation = self.locationArray[tag];
+	MKPointAnnotation *myColleage = [[MKPointAnnotation alloc] init];
+	myColleage.coordinate = CLLocationCoordinate2DMake(taggedLocation.latitude, taggedLocation.longitude);
+	myColleage.title = taggedLocation.name;
+	myColleage.subtitle = taggedLocation.details;
+	[self.mapView removeAnnotations:self.mapView.annotations];
+	[self.mapView addAnnotation:myColleage];
+	self.mapView.centerCoordinate = myColleage.coordinate;
+	self.navController.title = taggedLocation.name;
+}
+
 //Initial location data
 - (NSMutableArray *)createLocationExample {
 	TWLocation *myColleage = [[TWLocation alloc] initWithName:@"SCAU" details:@"South China Argriculture Univercity" latitude:23.1553899 longitude:113.3514445];
@@ -47,24 +65,46 @@
 	return _locationArray;
 }
 
+
+
 #pragma mark - Toolbar action
-- (IBAction)toolBarButtonPressed:(id)sender {
-	
+- (IBAction)toolBarButtonPressed:(UIButton *)sender {
+	[self showLocationFromTag:sender.tag];
 }
 
-- (IBAction)switchButtonPressed:(id)sender {
-
+- (IBAction)switchButtonPressed:(UISwitch *)sender {
+	
+	self.mapView.showsUserLocation = sender.isOn;
+	if (sender.isOn) {
+		[self.locationManager requestAlwaysAuthorization];
+		[self.locationManager startUpdatingLocation];
+		[self.mapView setCenterCoordinate:self.mapView.userLocation.coordinate animated:YES];
+		self.navController.title = self.mapView.userLocation.title;
+	}else{
+		self.navController.title = @"Basic Map";
+		[self.locationManager stopUpdatingLocation];
+	}
 }
 
 #pragma mark - View life cycle
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	self.mapView.delegate = self;
+//	CLLocationCoordinate2D noLocation;
+//	MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(noLocation, distancScale, distancScale);
+//	MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:viewRegion];
+//	[self.mapView setRegion:adjustedRegion animated:YES];
 	[self showDefaultLocationAnnotation];
+	
+	self.locationManager = [[CLLocationManager alloc] init];
+	self.locationManager.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
 }
 
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+	[self.mapView setCenterCoordinate:locations.firstObject.coordinate animated:YES];
+}
 @end

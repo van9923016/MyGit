@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RLA-Od-fvg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RLA-Od-fvg">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--Located in GuangZhou-->
+        <!--SCAU-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -20,32 +20,32 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jie-ee-kXy">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem title="Item" id="df9-dg-jD2">
+                                    <barButtonItem title="SCAU" id="df9-dg-jD2">
                                         <connections>
                                             <action selector="toolBarButtonPressed:" destination="BYZ-38-t0r" id="CZ2-LQ-pHh"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="hNG-bc-L4F"/>
-                                    <barButtonItem title="Item" id="2c9-Xn-MFf">
+                                    <barButtonItem tag="1" title="Station A" id="2c9-Xn-MFf">
                                         <connections>
                                             <action selector="toolBarButtonPressed:" destination="BYZ-38-t0r" id="6wx-MD-oNq"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Ke0-e3-b2W"/>
-                                    <barButtonItem title="Item" id="A9d-gz-ufh">
+                                    <barButtonItem tag="2" title="Station B" id="A9d-gz-ufh" userLabel="Station B">
                                         <connections>
                                             <action selector="toolBarButtonPressed:" destination="BYZ-38-t0r" id="fda-Tx-mhq"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="4R0-Bn-96U"/>
                                     <barButtonItem style="plain" id="XiC-kt-BtH">
-                                        <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="yvo-D8-MZK">
+                                        <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="yvo-D8-MZK">
                                             <rect key="frame" x="531" y="7" width="51" height="31"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <connections>
+                                                <action selector="switchButtonPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="zUP-gR-HJb"/>
+                                            </connections>
                                         </switch>
-                                        <connections>
-                                            <action selector="switchButtonPressed:" destination="BYZ-38-t0r" id="8E6-VE-ABx"/>
-                                        </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
@@ -64,9 +64,10 @@
                             <constraint firstItem="knz-KZ-UMF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ycd-1Z-4Fe"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Located in GuangZhou" id="Zg1-v2-0IH"/>
+                    <navigationItem key="navigationItem" title="SCAU" id="Zg1-v2-0IH"/>
                     <connections>
                         <outlet property="mapView" destination="knz-KZ-UMF" id="3Sw-8l-DTc"/>
+                        <outlet property="navController" destination="Zg1-v2-0IH" id="YO7-a6-3mM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
