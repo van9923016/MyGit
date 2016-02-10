@@ -7,7 +7,16 @@
 //
 
 #import "NSLayoutConstraint+SelfInstall.h"
+#import "NSLayoutConstraint+ViewHierarchy.h"
 
 @implementation NSLayoutConstraint (SelfInstall)
+
+- (BOOL)install {
+	//handle Unary constraint
+	if (self.isUnary) {
+		[self.firstView addConstraint:self];
+		return YES;
+	}
+}
 
 @end
