@@ -20,19 +20,19 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jie-ee-kXy">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem title="College" id="df9-dg-jD2">
+                                    <barButtonItem title="天安门" id="df9-dg-jD2">
                                         <connections>
                                             <action selector="toolBarButtonPressed:" destination="BYZ-38-t0r" id="CZ2-LQ-pHh"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="hNG-bc-L4F"/>
-                                    <barButtonItem tag="1" title="Station A" id="2c9-Xn-MFf">
+                                    <barButtonItem tag="1" title="东方明珠" id="2c9-Xn-MFf">
                                         <connections>
                                             <action selector="toolBarButtonPressed:" destination="BYZ-38-t0r" id="6wx-MD-oNq"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Ke0-e3-b2W"/>
-                                    <barButtonItem tag="2" title="Station B" id="A9d-gz-ufh" userLabel="Station B">
+                                    <barButtonItem tag="2" title="西湖" id="A9d-gz-ufh" userLabel="Station B">
                                         <connections>
                                             <action selector="toolBarButtonPressed:" destination="BYZ-38-t0r" id="fda-Tx-mhq"/>
                                         </connections>

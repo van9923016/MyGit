@@ -10,7 +10,7 @@
 #import "TWLocation.h"
 @import MapKit;
 
-//static const NSUInteger distancScale = 50000;
+//static const NSUInteger distancScale = 5000;
 
 @interface ViewController ()<MKMapViewDelegate,CLLocationManagerDelegate>
 
@@ -33,7 +33,15 @@
 	myColleage.coordinate = CLLocationCoordinate2DMake(taggedLocation.latitude, taggedLocation.longitude);
 	myColleage.title = taggedLocation.name;
 	myColleage.subtitle = taggedLocation.details;
-	[self.mapView removeAnnotations:self.mapView.annotations];
+//	[self.mapView removeAnnotations:self.mapView.annotations];
+	//remove duplicate annotation
+	[self.mapView.annotations enumerateObjectsUsingBlock:^(id<MKAnnotation>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+		MKPointAnnotation *annotation = obj;
+		if ([annotation.title isEqualToString:myColleage.title]) {
+			[self.mapView removeAnnotation:obj];
+		}
+	}];
+
 	[self.mapView addAnnotation:myColleage];
 	self.mapView.centerCoordinate = myColleage.coordinate;
 
@@ -41,9 +49,9 @@
 
 //Initial location data
 - (NSMutableArray *)createLocationExample {
-	TWLocation *myColleage = [[TWLocation alloc] initWithName:@"SCAU" details:@"South China Argriculture Univercity" latitude:23.1553899 longitude:113.3514445];
-	TWLocation *trainStaion = [[TWLocation alloc] initWithName:@"广州火车东站" details:@"Guangzhou East Railway station" latitude:23.1554333 longitude:113.3361236];
-	TWLocation *anqingXiStation = [[TWLocation alloc] initWithName:@"安庆西火车站" details:@"AnQingXi train station" latitude:30.7615456 longitude:116.8173543];
+	TWLocation *myColleage = [[TWLocation alloc] initWithName:@"天安门" details:@"北京天安门广场" latitude:39.9087461 longitude:116.3798794];
+	TWLocation *trainStaion = [[TWLocation alloc] initWithName:@"东方明珠" details:@"东方明珠电视塔" latitude:31.2396935 longitude:121.4975666];
+	TWLocation *anqingXiStation = [[TWLocation alloc] initWithName:@"西湖" details:@"浙江杭州西湖风景区" latitude:30.2430814 longitude:120.1258992];
 	return [NSMutableArray arrayWithObjects:myColleage,trainStaion,anqingXiStation, nil];
 }
 //lazy loading of location data
