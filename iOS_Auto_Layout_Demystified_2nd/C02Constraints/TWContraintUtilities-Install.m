@@ -1,13 +1,13 @@
 //
-//  TWViewClass+HierarchySupport.m
+//  TWContraintUtilities-Install.m
 //  C02Constraints
 //
 //  Created by Wen Tan on 2/10/16.
 //  Copyright © 2016 Wen Tan. All rights reserved.
 //
 
-#import "TWViewClass+HierarchySupport.h"
+#import "TWContraintUtilities-Install.h"
 
-@implementation TWViewClass (HierarchySupport)
+@implementation TWContraintUtilities_Install
 
 @end

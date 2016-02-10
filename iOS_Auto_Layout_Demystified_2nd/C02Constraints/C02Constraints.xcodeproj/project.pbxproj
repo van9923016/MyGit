@@ -12,8 +12,7 @@
 		B87C02A11C6B1A3200CF5739 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87C02A01C6B1A3200CF5739 /* ViewController.m */; };
 		B87C02A61C6B1A3200CF5739 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B87C02A51C6B1A3200CF5739 /* Assets.xcassets */; };
 		B87C02A91C6B1A3200CF5739 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B87C02A71C6B1A3200CF5739 /* LaunchScreen.storyboard */; };
-		B87C02B61C6B1E5200CF5739 /* NSLayoutConstraint+ViewHierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = B87C02B51C6B1E5200CF5739 /* NSLayoutConstraint+ViewHierarchy.m */; };
-		B87C02CB1C6B238A00CF5739 /* TWViewClass+HierarchySupport.m in Sources */ = {isa = PBXBuildFile; fileRef = B87C02CA1C6B238A00CF5739 /* TWViewClass+HierarchySupport.m */; };
+		B87C02D81C6B2E6F00CF5739 /* TWContraintUtilities-Install.m in Sources */ = {isa = PBXBuildFile; fileRef = B87C02D71C6B2E6F00CF5739 /* TWContraintUtilities-Install.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,10 +25,8 @@
 		B87C02A51C6B1A3200CF5739 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B87C02A81C6B1A3200CF5739 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B87C02AA1C6B1A3200CF5739 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B87C02B41C6B1E5200CF5739 /* NSLayoutConstraint+ViewHierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+ViewHierarchy.h"; sourceTree = "<group>"; };
-		B87C02B51C6B1E5200CF5739 /* NSLayoutConstraint+ViewHierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+ViewHierarchy.m"; sourceTree = "<group>"; };
-		B87C02C91C6B238A00CF5739 /* TWViewClass+HierarchySupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TWViewClass+HierarchySupport.h"; path = "../TWViewClass+HierarchySupport.h"; sourceTree = "<group>"; };
-		B87C02CA1C6B238A00CF5739 /* TWViewClass+HierarchySupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "TWViewClass+HierarchySupport.m"; path = "../TWViewClass+HierarchySupport.m"; sourceTree = "<group>"; };
+		B87C02D61C6B2E6F00CF5739 /* TWContraintUtilities-Install.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TWContraintUtilities-Install.h"; path = "../TWContraintUtilities-Install.h"; sourceTree = "<group>"; };
+		B87C02D71C6B2E6F00CF5739 /* TWContraintUtilities-Install.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "TWContraintUtilities-Install.m"; path = "../TWContraintUtilities-Install.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,10 +75,8 @@
 			isa = PBXGroup;
 			children = (
 				B87C029A1C6B1A3200CF5739 /* main.m */,
-				B87C02C91C6B238A00CF5739 /* TWViewClass+HierarchySupport.h */,
-				B87C02CA1C6B238A00CF5739 /* TWViewClass+HierarchySupport.m */,
-				B87C02B41C6B1E5200CF5739 /* NSLayoutConstraint+ViewHierarchy.h */,
-				B87C02B51C6B1E5200CF5739 /* NSLayoutConstraint+ViewHierarchy.m */,
+				B87C02D61C6B2E6F00CF5739 /* TWContraintUtilities-Install.h */,
+				B87C02D71C6B2E6F00CF5739 /* TWContraintUtilities-Install.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -155,10 +150,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B87C02CB1C6B238A00CF5739 /* TWViewClass+HierarchySupport.m in Sources */,
 				B87C02A11C6B1A3200CF5739 /* ViewController.m in Sources */,
 				B87C029E1C6B1A3200CF5739 /* AppDelegate.m in Sources */,
-				B87C02B61C6B1E5200CF5739 /* NSLayoutConstraint+ViewHierarchy.m in Sources */,
+				B87C02D81C6B2E6F00CF5739 /* TWContraintUtilities-Install.m in Sources */,
 				B87C029B1C6B1A3200CF5739 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
