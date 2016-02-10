@@ -1,0 +1,19 @@
+//
+//  PrefixHeader.pch
+//  C02Constraints
+//
+//  Created by Wen Tan on 2/10/16.
+//  Copyright © 2016 Wen Tan. All rights reserved.
+//
+#pragma mark - Cross platform
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#if TARGET_OS_IPHONE
+	#define TW_VIEW_CLASS UIView
+#elif TARGET_OS_MAC
+	#define TW_VIEW_CLASS NSView
+#endif
+
+#endif /* PrefixHeader_pch */
