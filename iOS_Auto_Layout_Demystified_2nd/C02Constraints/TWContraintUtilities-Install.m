@@ -15,12 +15,10 @@
 @implementation TW_VIEW_CLASS (HierarchySupport)
 
 // Return an array of all superviews
-- (NSArray *) superviews
-{
+- (NSArray *) superviews {
 	NSMutableArray *array = [NSMutableArray array];
 	TW_VIEW_CLASS *view = self.superview;
-	while (view)
-	{
+	while (view) {
 		[array addObject:view];
 		view = view.superview;
 	}
@@ -29,12 +27,10 @@
 }
 
 // Return an array of all subviews
-- (NSArray *) allSubviews
-{
+- (NSArray *) allSubviews {
 	NSMutableArray *array = [NSMutableArray array];
 	
-	for (TW_VIEW_CLASS *view in self.subviews)
-	{
+	for (TW_VIEW_CLASS *view in self.subviews) {
 		[array addObject:view];
 		[array addObjectsFromArray:[view allSubviews]];
 	}
@@ -43,14 +39,12 @@
 }
 
 // Test if the current view has a superview relationship to a view
-- (BOOL) isAncestorOf: (TW_VIEW_CLASS *) aView
-{
+- (BOOL) isAncestorOf: (TW_VIEW_CLASS *) aView {
 	return [aView.superviews containsObject:self];
 }
 
 // Return the nearest common ancestor between self and another view
-- (TW_VIEW_CLASS *) nearestCommonAncestor: (TW_VIEW_CLASS *) aView
-{
+- (TW_VIEW_CLASS *) nearestCommonAncestor: (TW_VIEW_CLASS *) aView {
 	// Check for same view
 	if (self == aView)
 		return self;
@@ -75,8 +69,7 @@
 
 #pragma mark - Constraint-Ready Views
 @implementation TW_VIEW_CLASS (ConstraintReadyViews)
-+ (instancetype) view
-{
++ (instancetype) view {
 	TW_VIEW_CLASS *newView = [[TW_VIEW_CLASS alloc] initWithFrame:CGRectZero];
 	newView.translatesAutoresizingMaskIntoConstraints = NO;
 	return newView;
@@ -87,27 +80,23 @@
 
 #pragma mark - View Hierarchy
 @implementation NSLayoutConstraint (ViewHierarchy)
-// Cast the first item to a view
-- (TW_VIEW_CLASS *) firstView
-{
+// Cast the first item(id type) to a view
+- (TW_VIEW_CLASS *) firstView {
 	return self.firstItem;
 }
 
 // Cast the second item to a view
-- (TW_VIEW_CLASS *) secondView
-{
+- (TW_VIEW_CLASS *) secondView {
 	return self.secondItem;
 }
 
 // Are two items involved or not
-- (BOOL) isUnary
-{
+- (BOOL) isUnary {
 	return self.secondItem == nil;
 }
 
 // Return NCA
-- (TW_VIEW_CLASS *) likelyOwner
-{
+- (TW_VIEW_CLASS *) likelyOwner {
 	if (self.isUnary)
 		return self.firstView;
 	
@@ -117,11 +106,9 @@
 
 #pragma mark - Self Install
 @implementation NSLayoutConstraint (SelfInstall)
-- (BOOL) install
-{
+- (BOOL) install {
 	// Handle Unary constraint
-	if (self.isUnary)
-	{
+	if (self.isUnary) {
 		// Add weak owner reference
 		[self.firstView addConstraint:self];
 		return YES;
@@ -129,8 +116,7 @@
 	
 	// Install onto nearest common ancestor
 	TW_VIEW_CLASS *view = [self.firstView nearestCommonAncestor:self.secondView];
-	if (!view)
-	{
+	if (!view) {
 		NSLog(@"Error: Constraint cannot be installed. No common ancestor between items.");
 		return NO;
 	}
@@ -140,22 +126,18 @@
 }
 
 // Set priority and install
-- (BOOL) install: (float) priority
-{
+- (BOOL) install: (float) priority {
 	self.priority = priority;
 	return [self install];
 }
 
-- (void) remove
-{
-	if (![self.class isEqual:[NSLayoutConstraint class]])
-	{
+- (void) remove {
+	if (![self.class isEqual:[NSLayoutConstraint class]]) {
 		NSLog(@"Error: Can only uninstall NSLayoutConstraint. %@ is an invalid class.", self.class.description);
 		return;
 	}
 	
-	if (self.isUnary)
-	{
+	if (self.isUnary) {
 		TW_VIEW_CLASS *view = self.firstView;
 		[view removeConstraint:self];
 		return;
