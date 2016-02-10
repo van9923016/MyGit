@@ -20,9 +20,9 @@ typedef enum : NSUInteger {
 	LayoutPriorityHigh = 750,
 	LayoutPriorityDragResizingWindow = 510,//for mac
 	LayoutPriorityMedium = 501,
-	LayoutPriorityFixedWindowSize = 500,
+	LayoutPriorityFixedWindowSize = 500,//for mac
 	LayoutPriorityLow = 250,
-	LayoutPriorityFittingSize = 50,
+	LayoutPriorityFittingSize = 50,//for mac
 	LayoutPriorityMildSuggestion = 1,
 } ConstraintLayoutPriority;
 
