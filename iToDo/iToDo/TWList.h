@@ -22,6 +22,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) NSDate *editedDate;
 @property (nonatomic, strong) NSDate *alarmDate;
 @property (nonatomic, copy) NSString *notes;
+@property (nonatomic, assign, getter = isChecked) BOOL checked;
 
 - (instancetype)initWithTitle:(NSString *)title priority:(ListPriority)priority alarmDate:(NSDate *)date notes:(NSString *)notes;
 
