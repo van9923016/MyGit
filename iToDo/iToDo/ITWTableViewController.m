@@ -71,16 +71,17 @@
 	return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	[self performSegueWithIdentifier:@"showDetail" sender:self];
+	//Set sender to sender, when use prepareForSegue cast sender to indexPath then pass selected row to new ViewController
+	[self performSegueWithIdentifier:@"showDetail" sender:indexPath];
 }
 
 //Preparing data for destinationViewController
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-	
+	NSIndexPath *indexPath = sender;
 	if ([[segue identifier] isEqualToString:@"showDetail"]) {
 		TWListEditingView *editingVC = [segue destinationViewController];
 		//TODO: Passing data to ViewController
-		editingVC.editingList = self.dataArray[2];
+		editingVC.editingList = self.dataArray[indexPath.row];
 	}
 }
 
