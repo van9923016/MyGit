@@ -15,6 +15,8 @@
 		B86CF4751C6CB780001F6925 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B86CF4731C6CB780001F6925 /* LaunchScreen.storyboard */; };
 		B86CF47E1C6CB875001F6925 /* ITWTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B86CF47D1C6CB875001F6925 /* ITWTableViewController.m */; };
 		B894F9011C6D7B7B00C46C1E /* Checked-48.png in Resources */ = {isa = PBXBuildFile; fileRef = B894F9001C6D7B7B00C46C1E /* Checked-48.png */; };
+		B894F9041C6D8E9D00C46C1E /* TWList.m in Sources */ = {isa = PBXBuildFile; fileRef = B894F9031C6D8E9D00C46C1E /* TWList.m */; };
+		B894F9071C6D9ABC00C46C1E /* TWListEditingView.m in Sources */ = {isa = PBXBuildFile; fileRef = B894F9061C6D9ABC00C46C1E /* TWListEditingView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,10 @@
 		B86CF47C1C6CB875001F6925 /* ITWTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITWTableViewController.h; sourceTree = "<group>"; };
 		B86CF47D1C6CB875001F6925 /* ITWTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITWTableViewController.m; sourceTree = "<group>"; };
 		B894F9001C6D7B7B00C46C1E /* Checked-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked-48.png"; sourceTree = "<group>"; };
+		B894F9021C6D8E9D00C46C1E /* TWList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWList.h; sourceTree = "<group>"; };
+		B894F9031C6D8E9D00C46C1E /* TWList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWList.m; sourceTree = "<group>"; };
+		B894F9051C6D9ABC00C46C1E /* TWListEditingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWListEditingView.h; sourceTree = "<group>"; };
+		B894F9061C6D9ABC00C46C1E /* TWListEditingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWListEditingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,10 @@
 				B86CF4661C6CB780001F6925 /* AppDelegate.m */,
 				B86CF47C1C6CB875001F6925 /* ITWTableViewController.h */,
 				B86CF47D1C6CB875001F6925 /* ITWTableViewController.m */,
+				B894F9051C6D9ABC00C46C1E /* TWListEditingView.h */,
+				B894F9061C6D9ABC00C46C1E /* TWListEditingView.m */,
+				B894F9021C6D8E9D00C46C1E /* TWList.h */,
+				B894F9031C6D8E9D00C46C1E /* TWList.m */,
 				B86CF46B1C6CB780001F6925 /* Main.storyboard */,
 				B86CF4711C6CB780001F6925 /* Assets.xcassets */,
 				B86CF4731C6CB780001F6925 /* LaunchScreen.storyboard */,
@@ -157,7 +167,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B894F9041C6D8E9D00C46C1E /* TWList.m in Sources */,
 				B86CF4701C6CB780001F6925 /* iToDo.xcdatamodeld in Sources */,
+				B894F9071C6D9ABC00C46C1E /* TWListEditingView.m in Sources */,
 				B86CF4671C6CB780001F6925 /* AppDelegate.m in Sources */,
 				B86CF47E1C6CB875001F6925 /* ITWTableViewController.m in Sources */,
 				B86CF4641C6CB780001F6925 /* main.m in Sources */,

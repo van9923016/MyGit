@@ -45,6 +45,25 @@
                             <outlet property="delegate" destination="h0C-LX-jzP" id="dpj-zv-GqT"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Newest" id="aTx-9h-yei">
+                            <connections>
+                                <action selector="newestAtTop:" destination="h0C-LX-jzP" id="e7N-g6-bAY"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="xdy-K3-NEX"/>
+                        <barButtonItem title="Oldest" id="5rR-hD-5vo">
+                            <connections>
+                                <action selector="oldestAtTop:" destination="h0C-LX-jzP" id="GEc-D0-89Y"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="beM-IQ-slC"/>
+                        <barButtonItem title="Most important" id="1hV-rR-Byl">
+                            <connections>
+                                <action selector="mostImportantAtTop:" destination="h0C-LX-jzP" id="TDR-lh-FLA"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="List View" id="k3q-Rg-teN">
                         <barButtonItem key="backBarButtonItem" title="Back" id="HN9-ci-UGA"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="LuV-EI-nNa">
@@ -61,7 +80,7 @@
         <!--Editing List-->
         <scene sceneID="kWi-nl-51N">
             <objects>
-                <viewController title="Editing List" id="DD1-8i-LeO" sceneMemberID="viewController">
+                <viewController title="Editing List" id="DD1-8i-LeO" customClass="TWListEditingView" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kap-od-JIa"/>
                         <viewControllerLayoutGuide type="bottom" id="ufB-Hf-PxI"/>
@@ -71,11 +90,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RM-DM-IQr">
-                                <rect key="frame" x="88" y="558" width="492" height="34"/>
+                                <rect key="frame" x="20" y="558" width="560" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Delete this list">
                                     <color key="titleColor" red="1" green="0.06479849268" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="deleteList:" destination="DD1-8i-LeO" eventType="touchUpInside" id="U4K-dX-hUV"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fYh-Tm-Mmf">
                                 <rect key="frame" x="88" y="129" width="492" height="29"/>
@@ -115,10 +137,12 @@
                                     <!--2016-02-12 01:52:57 +0000-->
                                 </date>
                             </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAr-7s-Snq">
-                                <rect key="frame" x="532" y="73" width="48" height="48"/>
-                                <state key="normal" backgroundImage="Checked-48.png"/>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1K-nu-an9">
+                                <rect key="frame" x="29" y="344" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wo-P3-I0N">
                                 <rect key="frame" x="29" y="83" width="51" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
@@ -141,12 +165,10 @@
                                     <constraint firstAttribute="height" constant="1" id="w0q-Zi-9UJ"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1K-nu-an9">
-                                <rect key="frame" x="29" y="344" width="51" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAr-7s-Snq">
+                                <rect key="frame" x="538" y="73" width="48" height="48"/>
+                                <state key="normal" backgroundImage="Checked-48.png"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -154,6 +176,7 @@
                             <constraint firstItem="0RM-DM-IQr" firstAttribute="leading" secondItem="4KH-RM-jAb" secondAttribute="leading" constant="20" id="5Qo-q9-mvE"/>
                             <constraint firstItem="ZH2-Ab-na1" firstAttribute="top" secondItem="SPX-8W-3f7" secondAttribute="bottom" id="8Tb-Bv-F7U"/>
                             <constraint firstItem="ZH2-Ab-na1" firstAttribute="width" secondItem="SPX-8W-3f7" secondAttribute="width" id="9Nv-M4-zPx"/>
+                            <constraint firstItem="0RM-DM-IQr" firstAttribute="leading" secondItem="4KH-RM-jAb" secondAttribute="leading" constant="20" id="DdF-Ri-2CQ"/>
                             <constraint firstItem="0RM-DM-IQr" firstAttribute="leading" secondItem="0oD-Wa-Elu" secondAttribute="leading" id="DyD-Sv-amf"/>
                             <constraint firstItem="ZH2-Ab-na1" firstAttribute="leading" secondItem="SPX-8W-3f7" secondAttribute="leading" id="FiS-bx-35S"/>
                             <constraint firstItem="H1K-nu-an9" firstAttribute="top" secondItem="0oD-Wa-Elu" secondAttribute="top" id="Fis-7t-uHb"/>
@@ -161,12 +184,12 @@
                             <constraint firstItem="W4v-eJ-1yT" firstAttribute="leading" secondItem="4KH-RM-jAb" secondAttribute="leadingMargin" constant="68" id="J9X-sW-SBz"/>
                             <constraint firstItem="0oD-Wa-Elu" firstAttribute="leading" secondItem="4KH-RM-jAb" secondAttribute="leadingMargin" constant="68" id="LU9-8c-eni"/>
                             <constraint firstItem="0Wo-P3-I0N" firstAttribute="centerY" secondItem="SPX-8W-3f7" secondAttribute="centerY" id="M1L-ZL-FqR"/>
-                            <constraint firstAttribute="trailing" secondItem="kAr-7s-Snq" secondAttribute="trailing" constant="20" id="NCx-rb-uCp"/>
+                            <constraint firstAttribute="trailing" secondItem="kAr-7s-Snq" secondAttribute="trailing" constant="14" id="NCx-rb-uCp"/>
                             <constraint firstItem="SPX-8W-3f7" firstAttribute="leading" secondItem="0Wo-P3-I0N" secondAttribute="trailing" constant="14" id="Nhb-eF-OKM"/>
                             <constraint firstAttribute="trailing" secondItem="W4v-eJ-1yT" secondAttribute="trailing" constant="20" id="P2P-nF-i6U"/>
                             <constraint firstAttribute="trailing" secondItem="0RM-DM-IQr" secondAttribute="trailing" constant="20" id="PqB-ip-R5x"/>
                             <constraint firstItem="pd1-kq-2gz" firstAttribute="centerY" secondItem="fYh-Tm-Mmf" secondAttribute="centerY" id="Q6f-zD-siD"/>
-                            <constraint firstItem="kAr-7s-Snq" firstAttribute="leading" secondItem="SPX-8W-3f7" secondAttribute="trailing" constant="2" id="Vj1-Hm-d4Y"/>
+                            <constraint firstItem="kAr-7s-Snq" firstAttribute="leading" secondItem="SPX-8W-3f7" secondAttribute="trailing" constant="8" id="Vj1-Hm-d4Y"/>
                             <constraint firstItem="fYh-Tm-Mmf" firstAttribute="top" secondItem="kap-od-JIa" secondAttribute="bottom" constant="65" id="blc-MV-9PC"/>
                             <constraint firstItem="0oD-Wa-Elu" firstAttribute="top" secondItem="W4v-eJ-1yT" secondAttribute="bottom" constant="8" id="dv2-ZP-RVE"/>
                             <constraint firstItem="H1K-nu-an9" firstAttribute="trailing" secondItem="0Wo-P3-I0N" secondAttribute="trailing" id="eIo-QG-fuD"/>
@@ -192,14 +215,26 @@
                                 <exclude reference="dv2-ZP-RVE"/>
                                 <exclude reference="nxS-oZ-qxz"/>
                                 <exclude reference="5Qo-q9-mvE"/>
+                                <exclude reference="DyD-Sv-amf"/>
                             </mask>
                         </variation>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Editing List" id="WrT-Wk-1e7">
                         <barButtonItem key="backBarButtonItem" title="Back" id="NBT-vs-hbt"/>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="Lwm-Em-xFt"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Lwm-Em-xFt">
+                            <connections>
+                                <action selector="saveList:" destination="DD1-8i-LeO" id="Ail-Eb-fPs"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="datePicker" destination="W4v-eJ-1yT" id="cQk-g8-Fta"/>
+                        <outlet property="notesField" destination="0oD-Wa-Elu" id="6SY-gn-yJc"/>
+                        <outlet property="prioritySeg" destination="fYh-Tm-Mmf" id="oUb-Z7-QPh"/>
+                        <outlet property="titleField" destination="SPX-8W-3f7" id="m7J-Em-miM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6K-45-qWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -208,13 +243,18 @@
         <!--Navigation Controller-->
         <scene sceneID="GkW-OI-tuK">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gh5-d1-X6U" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="gh5-d1-X6U" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hWR-zr-SR3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="x5v-dc-72Q">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="h0C-LX-jzP" kind="relationship" relationship="rootViewController" id="QeW-Q2-zP9"/>
                     </connections>
