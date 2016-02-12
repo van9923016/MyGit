@@ -8,6 +8,7 @@
 
 #import "ITWTableViewController.h"
 #import "TWList.h"
+#import "TWListEditingView.h"
 
 @interface ITWTableViewController ()
 
@@ -40,6 +41,8 @@
 - (IBAction)mostImportantAtTop:(UIBarButtonItem *)sender {
 	
 }
+
+
 #pragma mark - View lifecycles
 - (void)viewDidLoad {
 	[self testExample];
@@ -49,10 +52,13 @@
 	[super viewWillAppear:animated];
 }
 
+
 #pragma mark - TableView delegate
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	return self.dataArray.count;
 }
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	UITableViewCell *cell =	[tableView dequeueReusableCellWithIdentifier:@"cell"];
 	if (!cell) {
@@ -65,6 +71,18 @@
 	return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	
+	[self performSegueWithIdentifier:@"showDetail" sender:self];
 }
+
+//Preparing data for destinationViewController
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+	
+	if ([[segue identifier] isEqualToString:@"showDetail"]) {
+		TWListEditingView *editingVC = [segue destinationViewController];
+		//TODO: Passing data to ViewController
+		editingVC.editingList = self.dataArray[2];
+	}
+}
+
+
 @end

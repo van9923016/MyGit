@@ -70,18 +70,9 @@
 			children = (
 				B86CF4651C6CB780001F6925 /* AppDelegate.h */,
 				B86CF4661C6CB780001F6925 /* AppDelegate.m */,
-				B86CF47C1C6CB875001F6925 /* ITWTableViewController.h */,
-				B86CF47D1C6CB875001F6925 /* ITWTableViewController.m */,
-				B894F9051C6D9ABC00C46C1E /* TWListEditingView.h */,
-				B894F9061C6D9ABC00C46C1E /* TWListEditingView.m */,
-				B894F9021C6D8E9D00C46C1E /* TWList.h */,
-				B894F9031C6D8E9D00C46C1E /* TWList.m */,
+				B894F9091C6E1B2F00C46C1E /* ListModel */,
+				B894F90A1C6E1B3E00C46C1E /* ListViewController */,
 				B86CF46B1C6CB780001F6925 /* Main.storyboard */,
-				B86CF4711C6CB780001F6925 /* Assets.xcassets */,
-				B86CF4731C6CB780001F6925 /* LaunchScreen.storyboard */,
-				B86CF4761C6CB780001F6925 /* Info.plist */,
-				B894F9001C6D7B7B00C46C1E /* Checked-48.png */,
-				B86CF46E1C6CB780001F6925 /* iToDo.xcdatamodeld */,
 				B86CF4621C6CB780001F6925 /* Supporting Files */,
 			);
 			path = iToDo;
@@ -90,9 +81,42 @@
 		B86CF4621C6CB780001F6925 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B86CF4711C6CB780001F6925 /* Assets.xcassets */,
+				B894F9081C6E1AF900C46C1E /* assets */,
+				B86CF46E1C6CB780001F6925 /* iToDo.xcdatamodeld */,
 				B86CF4631C6CB780001F6925 /* main.m */,
+				B86CF4731C6CB780001F6925 /* LaunchScreen.storyboard */,
+				B86CF4761C6CB780001F6925 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B894F9081C6E1AF900C46C1E /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				B894F9001C6D7B7B00C46C1E /* Checked-48.png */,
+			);
+			name = assets;
+			sourceTree = "<group>";
+		};
+		B894F9091C6E1B2F00C46C1E /* ListModel */ = {
+			isa = PBXGroup;
+			children = (
+				B894F9021C6D8E9D00C46C1E /* TWList.h */,
+				B894F9031C6D8E9D00C46C1E /* TWList.m */,
+			);
+			name = ListModel;
+			sourceTree = "<group>";
+		};
+		B894F90A1C6E1B3E00C46C1E /* ListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B86CF47C1C6CB875001F6925 /* ITWTableViewController.h */,
+				B86CF47D1C6CB875001F6925 /* ITWTableViewController.m */,
+				B894F9051C6D9ABC00C46C1E /* TWListEditingView.h */,
+				B894F9061C6D9ABC00C46C1E /* TWListEditingView.m */,
+			);
+			name = ListViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
