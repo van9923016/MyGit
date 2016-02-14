@@ -74,6 +74,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:YES];
+	self.notesField.layer.borderWidth = 2.0f;
+	self.notesField.layer.cornerRadius = 8.0f;
+	self.notesField.layer.borderColor = [UIColor grayColor].CGColor;
 	
 	if (self.editingList) {
 		self.titleField.text = self.editingList.title;

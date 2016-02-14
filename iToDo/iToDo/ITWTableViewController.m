@@ -7,7 +7,6 @@
 //
 
 #import "ITWTableViewController.h"
-
 #import "TWListEditingView.h"
 #import "AppDelegate.h"
 
@@ -42,6 +41,21 @@
 	return [dateFormatter stringFromDate:date];
 }
 
+- (NSString *)getPriorityTag: (NSNumber *)number {
+	switch ([number integerValue]) {
+		case 0:
+			return @"";
+		case 1:
+			return @"★";
+		case 2:
+			return @"★★";
+		case 3:
+			return @"★★★";
+		default:
+			return @"";
+	}
+}
+
 - (void)deleteObjectAtIndex:(NSUInteger)row {
 	NSError *error = nil;
 	NSArray *dataArray = [[[AppDelegate sharedInstance] managedObjectContext] executeFetchRequest:[NSFetchRequest fetchRequestWithEntityName:@"List"] error:nil];
@@ -54,25 +68,39 @@
 
 }
 
+- (NSArray *)sortDateArray:(NSArray *)array Ascending:(BOOL)ascending {
+	NSSortDescriptor *listSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"edittingTime" ascending:ascending selector:@selector(compare:)];
+	return [array sortedArrayUsingDescriptors:@[listSortDescriptor]];
+}
+
 #pragma mark - List Order Function
 - (IBAction)newestAtTop:(UIBarButtonItem *)sender {
-	
+	self.dataLists = [NSMutableArray arrayWithArray:[self sortDateArray:self.dataLists Ascending:NO]];
+	[self.tableView reloadData];
 }
 - (IBAction)oldestAtTop:(UIBarButtonItem *)sender {
+	self.dataLists = [NSMutableArray arrayWithArray:[self sortDateArray:self.dataLists Ascending:YES]];
+	[self.tableView reloadData];
 	
 }
 - (IBAction)mostImportantAtTop:(UIBarButtonItem *)sender {
-	
+	NSSortDescriptor *listSortDescripter = [NSSortDescriptor sortDescriptorWithKey:@"priority" ascending:NO selector:@selector(compare:)];
+	NSArray *array = [self.dataLists sortedArrayUsingDescriptors:@[listSortDescripter]];
+	self.dataLists = [NSMutableArray arrayWithArray:array];
+	[self.tableView reloadData];
 }
 
 
 #pragma mark - View lifecycles
 - (void)viewDidLoad {
-
 }
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
+	UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background_2"]];
+	[tempImageView setFrame:self.tableView.frame];
+	
+	self.tableView.backgroundView = tempImageView;
 	[self fetchData];
 }
 
@@ -90,7 +118,7 @@
 	}
 		List *list = self.dataLists[indexPath.row];
 		cell.textLabel.text = list.title;
-	    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ Notes: %@",[self getDateInFormat:list.edittingTime], list.notes];
+		cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@ Notes: %@",[self getPriorityTag:list.priority],[self getDateInFormat:list.edittingTime], list.notes];
 		cell.accessoryType = [list.isChecked boolValue] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 	
 	return cell;

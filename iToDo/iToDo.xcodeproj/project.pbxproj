@@ -18,6 +18,7 @@
 		B86E52CE1C7018A2008FD73F /* Unchecked Checkbox_4.png in Resources */ = {isa = PBXBuildFile; fileRef = B86E52CD1C7018A2008FD73F /* Unchecked Checkbox_4.png */; };
 		B86E52D31C7021F4008FD73F /* List+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B86E52D01C7021F4008FD73F /* List+CoreDataProperties.m */; };
 		B86E52D41C7021F4008FD73F /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = B86E52D21C7021F4008FD73F /* List.m */; };
+		B86E52D81C7050C0008FD73F /* background_2.png in Resources */ = {isa = PBXBuildFile; fileRef = B86E52D71C7050C0008FD73F /* background_2.png */; };
 		B894F9071C6D9ABC00C46C1E /* TWListEditingView.m in Sources */ = {isa = PBXBuildFile; fileRef = B894F9061C6D9ABC00C46C1E /* TWListEditingView.m */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		B86E52D01C7021F4008FD73F /* List+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "List+CoreDataProperties.m"; sourceTree = "<group>"; };
 		B86E52D11C7021F4008FD73F /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
 		B86E52D21C7021F4008FD73F /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
+		B86E52D71C7050C0008FD73F /* background_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_2.png; sourceTree = "<group>"; };
 		B894F9051C6D9ABC00C46C1E /* TWListEditingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWListEditingView.h; sourceTree = "<group>"; };
 		B894F9061C6D9ABC00C46C1E /* TWListEditingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWListEditingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +103,7 @@
 			children = (
 				B86E52C11C701243008FD73F /* Checked Checkbox 2.png */,
 				B86E52CD1C7018A2008FD73F /* Unchecked Checkbox_4.png */,
+				B86E52D71C7050C0008FD73F /* background_2.png */,
 			);
 			name = assets;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 			files = (
 				B86CF4751C6CB780001F6925 /* LaunchScreen.storyboard in Resources */,
 				B86CF4721C6CB780001F6925 /* Assets.xcassets in Resources */,
+				B86E52D81C7050C0008FD73F /* background_2.png in Resources */,
 				B86E52CE1C7018A2008FD73F /* Unchecked Checkbox_4.png in Resources */,
 				B86CF46D1C6CB780001F6925 /* Main.storyboard in Resources */,
 				B86E52C31C701243008FD73F /* Checked Checkbox 2.png in Resources */,

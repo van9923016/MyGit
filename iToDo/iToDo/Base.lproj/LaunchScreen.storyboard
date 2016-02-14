@@ -16,12 +16,26 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_2.png" translatesAutoresizingMaskIntoConstraints="NO" id="rbF-E5-QDt">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="rbF-E5-QDt" secondAttribute="trailing" id="Fju-VG-3LS"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="rbF-E5-QDt" secondAttribute="bottom" id="Qfn-cd-Bcj"/>
+                            <constraint firstItem="rbF-E5-QDt" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="ipa-uM-njl"/>
+                            <constraint firstItem="rbF-E5-QDt" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="zGq-zv-PNh"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="37" y="374"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background_2.png" width="640" height="1136"/>
+    </resources>
 </document>
