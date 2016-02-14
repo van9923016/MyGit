@@ -33,7 +33,7 @@
 	list.notes = self.notesField.text;
 	list.alarmDate = self.datePicker.date;
 	list.isChecked = self.checked;
-	NSLog(@"%@",list.isChecked);
+	list.edittingTime = [NSDate date];
 	[[AppDelegate sharedInstance] saveContext];
 }
 
@@ -70,8 +70,6 @@
 }
 #pragma mark - View Life Cycles
 - (void)viewDidLoad {
-
-	
 }
 
 - (void)viewWillAppear:(BOOL)animated {

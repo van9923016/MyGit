@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *notes;
 @property (nullable, nonatomic, retain) NSNumber *priority;
 @property (nullable, nonatomic, retain) NSString *title;
+@property (nullable, nonatomic, retain) NSDate *edittingTime;
 
 @end
 

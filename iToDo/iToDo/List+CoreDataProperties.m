@@ -18,5 +18,6 @@
 @dynamic notes;
 @dynamic priority;
 @dynamic title;
+@dynamic edittingTime;
 
 @end

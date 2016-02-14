@@ -34,6 +34,14 @@
 	[self.tableView reloadData];
 }
 
+- (NSString *)getDateInFormat:(NSDate *)date {
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	dateFormatter.timeStyle = kCFDateFormatterShortStyle;
+	dateFormatter.dateStyle = kCFDateFormatterShortStyle;
+	[dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
+	return [dateFormatter stringFromDate:date];
+}
+
 - (void)deleteObjectAtIndex:(NSUInteger)row {
 	NSError *error = nil;
 	NSArray *dataArray = [[[AppDelegate sharedInstance] managedObjectContext] executeFetchRequest:[NSFetchRequest fetchRequestWithEntityName:@"List"] error:nil];
@@ -46,7 +54,6 @@
 
 }
 
-//TODO: Order
 #pragma mark - List Order Function
 - (IBAction)newestAtTop:(UIBarButtonItem *)sender {
 	
@@ -83,7 +90,7 @@
 	}
 		List *list = self.dataLists[indexPath.row];
 		cell.textLabel.text = list.title;
-		cell.detailTextLabel.text = list.notes;
+	    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ Notes: %@",[self getDateInFormat:list.edittingTime], list.notes];
 		cell.accessoryType = [list.isChecked boolValue] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 	
 	return cell;
@@ -112,8 +119,7 @@
 		[self deleteObjectAtIndex:indexPath.row];
 		[self.dataLists removeObjectAtIndex:indexPath.row];
 		[tableView deleteRowsAtIndexPaths:@[indexPath]
-						 withRowAnimation:UITableViewRowAnimationFade];
-
+						 withRowAnimation:UITableViewRowAnimationFade]; 
 	}
 }
 
