@@ -7,12 +7,27 @@
 //
 
 #import "AppDelegate.h"
+#import "List.h"
 
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
+
+- (List *)createList {
+	List *list = [NSEntityDescription insertNewObjectForEntityForName:@"List" inManagedObjectContext:[self managedObjectContext]];
+	return list;
+}
+
++ (instancetype)sharedInstance {
+	static  AppDelegate *sharedInstance = nil;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		sharedInstance = [[AppDelegate alloc] init];
+	});
+	return sharedInstance;
+}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

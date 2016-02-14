@@ -6,6 +6,7 @@
 //  Copyright © 2016 Wen Tan. All rights reserved.
 //
 
+#import "List.h"
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
@@ -19,7 +20,8 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
-
+- (List *)createList;
++ (instancetype)sharedInstance;
 
 @end
 

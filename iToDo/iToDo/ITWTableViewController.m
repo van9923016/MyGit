@@ -7,27 +7,43 @@
 //
 
 #import "ITWTableViewController.h"
-#import "TWList.h"
+
 #import "TWListEditingView.h"
+#import "AppDelegate.h"
 
 @interface ITWTableViewController ()
 
-@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) NSMutableArray *dataLists;
 
 @end
 
 @implementation ITWTableViewController
 
-- (void)testExample {
-	
-	TWList *a = [[TWList alloc] initWithTitle:@"Buy Milk" priority:ListPriorityHigh alarmDate:[NSDate dateWithTimeIntervalSinceNow:100] notes:@"Alarm me buy milk at saturday afternoon 3 o'clock"];
-	a.checked = NO;
-	TWList *b = [[TWList alloc] initWithTitle:@"Buy Fruits" priority:ListPriorityNone alarmDate:[NSDate dateWithTimeIntervalSinceNow:200] notes:@"Hello fruits"];
-	b.checked = YES;
-	TWList *c = [[TWList alloc] initWithTitle:@"exericise" priority:ListPriorityMedium alarmDate:[NSDate dateWithTimeIntervalSinceNow:300] notes:@"Running for 30 minutes"];
-	c.checked = YES;
-	self.dataArray = @[a,b,c,a,b,c,a,b,c];
-	
+- (NSMutableArray *)dataLists {
+	if (!_dataLists) {
+		_dataLists = [[NSMutableArray alloc] init];
+	}
+	return _dataLists;
+}
+
+- (void)fetchData {
+	NSError *error = nil;
+	NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"List"];
+	NSArray *fetchedData = [[[AppDelegate sharedInstance] managedObjectContext] executeFetchRequest:request error:&error];
+	self.dataLists = [NSMutableArray arrayWithArray:fetchedData];
+	[self.tableView reloadData];
+}
+
+- (void)deleteObjectAtIndex:(NSUInteger)row {
+	NSError *error = nil;
+	NSArray *dataArray = [[[AppDelegate sharedInstance] managedObjectContext] executeFetchRequest:[NSFetchRequest fetchRequestWithEntityName:@"List"] error:nil];
+	for (NSManagedObject *a in dataArray) {
+		if ([a isEqual:self.dataLists[row]]) {
+			[[[AppDelegate sharedInstance] managedObjectContext] deleteObject:a];
+			[[[AppDelegate sharedInstance] managedObjectContext] save:&error];
+		}
+	}
+
 }
 
 //TODO: Order
@@ -45,18 +61,19 @@
 
 #pragma mark - View lifecycles
 - (void)viewDidLoad {
-	[self testExample];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
+	[self fetchData];
 }
 
 
 #pragma mark - TableView delegate
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return self.dataArray.count;
+	return self.dataLists.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -64,10 +81,11 @@
 	if (!cell) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
 	}
-	TWList *list = self.dataArray[indexPath.row];
-	cell.textLabel.text = list.title;
-	cell.detailTextLabel.text = list.notes;
-	cell.accessoryType = list.isChecked ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+		List *list = self.dataLists[indexPath.row];
+		cell.textLabel.text = list.title;
+		cell.detailTextLabel.text = list.notes;
+		cell.accessoryType = [list.isChecked boolValue] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+	
 	return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -77,11 +95,25 @@
 
 //Preparing data for destinationViewController
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-	NSIndexPath *indexPath = sender;
+	
 	if ([[segue identifier] isEqualToString:@"showDetail"]) {
 		TWListEditingView *editingVC = [segue destinationViewController];
-		//TODO: Passing data to ViewController
-		editingVC.editingList = self.dataArray[indexPath.row];
+		if (![sender isKindOfClass:[UIBarButtonItem class]]) {
+			NSIndexPath *indexPath = sender;
+			//TODO: Passing data to ViewController
+			editingVC.editingList = self.dataLists[indexPath.row];
+		}
+	}
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+	if (editingStyle == UITableViewCellEditingStyleDelete) {
+		//need remove datalist data first
+		[self deleteObjectAtIndex:indexPath.row];
+		[self.dataLists removeObjectAtIndex:indexPath.row];
+		[tableView deleteRowsAtIndexPaths:@[indexPath]
+						 withRowAnimation:UITableViewRowAnimationFade];
+
 	}
 }
 

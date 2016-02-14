@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TWList.h"
+#import "List.h"
 
 @interface TWListEditingView : UIViewController
 
-@property (nonatomic, strong) TWList *editingList;
+@property (nonatomic, strong) List *editingList;
 
 @end
