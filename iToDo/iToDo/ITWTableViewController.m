@@ -73,6 +73,19 @@
 	return [array sortedArrayUsingDescriptors:@[listSortDescriptor]];
 }
 
+- (void)adjustUI {
+	[self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:2555/255.f green:102/255.f blue:102/255.f alpha:1.0]];
+	//	set title color
+	
+	NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys: [UIColor blackColor], NSForegroundColorAttributeName, nil];
+	[self.navigationController.navigationBar setTitleTextAttributes: textAttributes];
+	
+	UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background_2"]];
+	[tempImageView setFrame:self.tableView.frame];
+	
+	self.tableView.backgroundView = tempImageView;
+}
+
 #pragma mark - List Order Function
 - (IBAction)newestAtTop:(UIBarButtonItem *)sender {
 	self.dataLists = [NSMutableArray arrayWithArray:[self sortDateArray:self.dataLists Ascending:NO]];
@@ -97,10 +110,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
-	UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background_2"]];
-	[tempImageView setFrame:self.tableView.frame];
-	
-	self.tableView.backgroundView = tempImageView;
+	[self adjustUI];
 	[self fetchData];
 }
 

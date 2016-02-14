@@ -29,9 +29,16 @@
 	return sharedInstance;
 }
 
+- (void)globalTintBar {
+	[[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:207/255.f green:222/255.f blue:255/255.f alpha:1.0]];
+	[[UINavigationBar appearance] setTranslucent:NO];
+	[[UIToolbar appearance] setBarTintColor:[UIColor colorWithRed:207/255.f green:222/255.f blue:255/255.f alpha:1.0]];
+	[[UIToolbar appearance] setTranslucent:NO];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	// Override point for customization after application launch.
+	[self globalTintBar];
+	
 	return YES;
 }
 
