@@ -6,6 +6,8 @@
 //  Copyright © 2016 Wen Tan. All rights reserved.
 //
 
+#define PREPCONSTRAINTS(VIEW) [VIEW setTranslatesAutoresizingMaskIntoConstraints:NO]
+
 #import "ViewController.h"
 
 @interface ViewController ()
@@ -26,19 +28,19 @@
 	self.button = [[UIButton alloc] init];
 	self.button.backgroundColor = [UIColor blackColor];
 	[self.button setTitle:@"Log in" forState:UIControlStateNormal];
-	self.button.translatesAutoresizingMaskIntoConstraints = NO;
+	//Using Macro simplify view setting
+	PREPCONSTRAINTS(self.button);
 	self.button.layer.cornerRadius = 8.0;
-	
 	self.myLabel = [[UILabel alloc] init];
-	self.myLabel.translatesAutoresizingMaskIntoConstraints = NO;
+	PREPCONSTRAINTS(self.myLabel);
 	self.myLabel.text = @"Add constraints and Visual format way layout";
 	
 	self.aView = [[UIView alloc] init];
 	self.bView = [[UIView alloc] init];
 	self.aView.backgroundColor = [UIColor blueColor];
 	self.bView.backgroundColor = [UIColor purpleColor];
-	self.aView.translatesAutoresizingMaskIntoConstraints = NO;
-	self.bView.translatesAutoresizingMaskIntoConstraints = NO;
+	PREPCONSTRAINTS(self.aView);
+	PREPCONSTRAINTS(self.bView);
 	
 	[self.view addSubview:self.button];
 	[self.view addSubview:self.aView];
