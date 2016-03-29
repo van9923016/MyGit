@@ -11,7 +11,7 @@
 //Predefine Variable
 //指针常量
 NSString *const kWormAnimationFirst  = @"kWormAnimationFirst";
-NSString *const kWormAniamtionSecond = @"kWormAnimationSecond";
+NSString *const kWormAnimationSecond = @"kWormAnimationSecond";
 NSString *const kWormAnimationThird  = @"kWormAnimationThird";
 
 //动画半径为HUD尺寸的一半
@@ -32,8 +32,7 @@ static NSUInteger kWormDuration      = 1.2f;
 static NSInteger wormHUDViewWidth   = 0;
 static NSInteger wormHUDViewHeight  = 0;
 static NSInteger wormHUDViewLineWidth   = 0;
-
-
+//////////////////////////////////////////////////
 
 @interface TWWormView ()
 
@@ -123,6 +122,7 @@ static NSInteger wormHUDViewLineWidth   = 0;
 	//set join shape round
 	firstWorm.lineJoin = kCALineCapRound;
 	firstWorm.strokeColor = [UIColor redColor].CGColor;
+	//fill the view that path covered
 	firstWorm.fillColor = [UIColor clearColor].CGColor;
 	firstWorm.actions = [NSDictionary dictionaryWithObjectsAndKeys:
 						  [NSNull null],@"strokeStart",
@@ -177,16 +177,32 @@ static NSInteger wormHUDViewLineWidth   = 0;
 	strokeStartAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
 	strokeStartAnimation.fillMode = kCAFillModeForwards;
 	
+	//虫子拉伸2
+	CABasicAnimation *strokeEndAnimation2= [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+	strokeEndAnimation2.toValue = [NSNumber numberWithFloat:0.5+0.5];
+	strokeEndAnimation2.fromValue = [NSNumber numberWithFloat:0.5+0];
+	strokeEndAnimation2.duration = 0.75;
+	strokeEndAnimation2.beginTime = 1.2;
+	strokeEndAnimation2.timingFunction = [CAMediaTimingFunction functionWithControlPoints:0.42 :0.0 :1.0 :0.55];
+	strokeEndAnimation2.fillMode = kCAFillModeForwards;
 	
+	//虫子收缩2
+	CABasicAnimation *strokeStartAnimation2 = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
+	strokeStartAnimation2.toValue = [NSNumber numberWithFloat:0.5+0.5];
+	strokeStartAnimation2.fromValue = [NSNumber numberWithFloat:0.5+0];
+	strokeStartAnimation2.duration = 0.45;
+	strokeStartAnimation2.beginTime = 1.2+0.75;
+	strokeStartAnimation2.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+	strokeStartAnimation2.fillMode= kCAFillModeForwards;
 	
+	//Animation Group
 	CAAnimationGroup *animationGroup = [CAAnimationGroup animation];
-	animationGroup.animations = [NSArray arrayWithObjects: strokeEndAnimation, strokeStartAnimation, nil];
+	animationGroup.animations = [NSArray arrayWithObjects: strokeEndAnimation, strokeStartAnimation, strokeEndAnimation2,strokeStartAnimation2,nil];
 	animationGroup.repeatCount = HUGE_VALF;
 	//动画总时间应该以组中动画时间最长为标准
 	animationGroup.duration = kWormDuration * 2;
 	[self.firstWormShapeLayer addAnimation:animationGroup forKey:kWormAnimationFirst];
 	
-
 }
 
 @end
