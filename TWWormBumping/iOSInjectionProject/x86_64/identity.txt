@@ -1,0 +1,2 @@
+/Users/itaen/Library/Developer/Xcode/DerivedData/TWWormBumping-cueccnvvemzzejcdwwtecpbckbaa/Build/Products/Debug-iphonesimulator/TWWormBumping.app
+
