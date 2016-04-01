@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请依次输入标准方程的特征根系数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tw4-jf-yC4">
+                                <rect key="frame" x="165" y="232" width="270" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ym-lY-65j">
+                                <rect key="frame" x="283" y="422" width="34" height="33"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="求解">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="solveEquationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QkK-zr-p1d"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwV-C2-Rtm">
+                                <rect key="frame" x="466" y="422" width="34" height="33"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="重置">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetValue:" destination="BYZ-38-t0r" eventType="touchUpInside" id="re1-XO-mPm"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="该方程通解为:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YdW-HK-oET">
+                                <rect key="frame" x="20" y="101" width="560" height="20"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="二阶自变量系数：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5OD-54-hg0">
+                                <rect key="frame" x="100" y="288" width="128" height="20"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qio-4F-R9C">
+                                <rect key="frame" x="231" y="283" width="269" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一阶自变量系数：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4Y-6b-QeK">
+                                <rect key="frame" x="100" y="329" width="128" height="20"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vYW-a1-Yww">
+                                <rect key="frame" x="231" y="324" width="269" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="常数项系数：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4eI-F4-kbA">
+                                <rect key="frame" x="132" y="368" width="96" height="20"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NeI-oy-SBz">
+                                <rect key="frame" x="231" y="363" width="269" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="应用计算机求解二阶常系数齐线性常微分方程通解" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5b-Us-VyT">
+                                <rect key="frame" x="20" y="52" width="560" height="20"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="YdW-HK-oET" firstAttribute="top" secondItem="c5b-Us-VyT" secondAttribute="bottom" constant="29" id="0ub-kd-wga"/>
+                            <constraint firstItem="tw4-jf-yC4" firstAttribute="top" secondItem="c5b-Us-VyT" secondAttribute="bottom" constant="160" id="1ce-q6-3dD"/>
+                            <constraint firstAttribute="trailing" secondItem="tw4-jf-yC4" secondAttribute="trailing" constant="164" id="Bb3-8G-YDi"/>
+                            <constraint firstItem="YdW-HK-oET" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="F9E-kM-AuO"/>
+                            <constraint firstItem="5OD-54-hg0" firstAttribute="top" secondItem="tw4-jf-yC4" secondAttribute="bottom" constant="34" id="GcO-1d-cLh"/>
+                            <constraint firstItem="c5b-Us-VyT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="HRh-ec-oTw"/>
+                            <constraint firstItem="NeI-oy-SBz" firstAttribute="leading" secondItem="4eI-F4-kbA" secondAttribute="trailing" constant="3" id="JvE-mI-TzP"/>
+                            <constraint firstItem="2Ym-lY-65j" firstAttribute="top" secondItem="NeI-oy-SBz" secondAttribute="bottom" constant="29" id="KMZ-qQ-n9b"/>
+                            <constraint firstItem="YdW-HK-oET" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="MHa-Ve-hrW"/>
+                            <constraint firstItem="Qio-4F-R9C" firstAttribute="leading" secondItem="5OD-54-hg0" secondAttribute="trailing" constant="3" id="OCq-0X-ctt"/>
+                            <constraint firstAttribute="trailing" secondItem="Qio-4F-R9C" secondAttribute="trailing" constant="100" id="QZ5-ZO-4Yt"/>
+                            <constraint firstAttribute="trailing" secondItem="c5b-Us-VyT" secondAttribute="trailing" constant="80" id="TSC-gT-yaa"/>
+                            <constraint firstAttribute="trailing" secondItem="NeI-oy-SBz" secondAttribute="trailing" constant="100" id="WgM-am-hWn"/>
+                            <constraint firstItem="c5b-Us-VyT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="32" id="Wz5-ij-xGJ"/>
+                            <constraint firstItem="Qio-4F-R9C" firstAttribute="top" secondItem="c5b-Us-VyT" secondAttribute="bottom" constant="211" id="Y77-6T-Zkz"/>
+                            <constraint firstItem="vYW-a1-Yww" firstAttribute="leading" secondItem="F4Y-6b-QeK" secondAttribute="trailing" constant="3" id="YyO-Vd-mzm"/>
+                            <constraint firstItem="vYW-a1-Yww" firstAttribute="top" secondItem="Qio-4F-R9C" secondAttribute="bottom" constant="11" id="fzF-37-POu"/>
+                            <constraint firstItem="4eI-F4-kbA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="132" id="i6r-Wu-XMm"/>
+                            <constraint firstItem="2Ym-lY-65j" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jfX-ZH-YHg"/>
+                            <constraint firstItem="c5b-Us-VyT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="80" id="jwq-Xg-Zo7"/>
+                            <constraint firstItem="NeI-oy-SBz" firstAttribute="top" secondItem="vYW-a1-Yww" secondAttribute="bottom" constant="9" id="k04-0O-mTV"/>
+                            <constraint firstItem="tw4-jf-yC4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kgc-M2-y7u"/>
+                            <constraint firstItem="F4Y-6b-QeK" firstAttribute="top" secondItem="5OD-54-hg0" secondAttribute="bottom" constant="21" id="nZy-eP-e8g"/>
+                            <constraint firstAttribute="trailing" secondItem="vYW-a1-Yww" secondAttribute="trailing" constant="100" id="o4L-5Q-pUB"/>
+                            <constraint firstItem="tw4-jf-yC4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="146" id="oby-Ww-MM5"/>
+                            <constraint firstItem="wwV-C2-Rtm" firstAttribute="trailing" secondItem="NeI-oy-SBz" secondAttribute="trailing" id="pYe-Yy-yt7"/>
+                            <constraint firstItem="c5b-Us-VyT" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="pkK-Yq-108"/>
+                            <constraint firstItem="YdW-HK-oET" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="1" id="rtD-2J-GFu"/>
+                            <constraint firstItem="4eI-F4-kbA" firstAttribute="top" secondItem="F4Y-6b-QeK" secondAttribute="bottom" constant="19" id="saV-Po-JnN"/>
+                            <constraint firstItem="5OD-54-hg0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="100" id="syT-eY-Qcz"/>
+                            <constraint firstItem="F4Y-6b-QeK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="100" id="tvK-hf-FDp"/>
+                            <constraint firstItem="wwV-C2-Rtm" firstAttribute="top" secondItem="NeI-oy-SBz" secondAttribute="bottom" constant="29" id="vmV-yX-eBg"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="TSC-gT-yaa"/>
+                                <exclude reference="jwq-Xg-Zo7"/>
+                                <exclude reference="rtD-2J-GFu"/>
+                                <exclude reference="Bb3-8G-YDi"/>
+                                <exclude reference="oby-Ww-MM5"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="aTextField" destination="Qio-4F-R9C" id="Dx3-Io-AXD"/>
+                        <outlet property="bTextField" destination="vYW-a1-Yww" id="x1z-Oh-qXG"/>
+                        <outlet property="cTextField" destination="NeI-oy-SBz" id="YbK-NQ-f5j"/>
+                        <outlet property="equationLabel" destination="YdW-HK-oET" id="l5f-2G-4H0"/>
+                        <outlet property="solveButton" destination="2Ym-lY-65j" id="Evy-Ze-c0U"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="226" y="238"/>
+        </scene>
+    </scenes>
+</document>
