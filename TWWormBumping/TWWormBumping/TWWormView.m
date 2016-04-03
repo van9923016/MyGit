@@ -39,8 +39,8 @@ static NSInteger wormHUDViewLineWidth = 0;
 @property (nonatomic, strong) CAShapeLayer *firstWormShapeLayer;
 @property (nonatomic, strong) CAShapeLayer *secondWormShapeLayer;
 @property (nonatomic, strong) CAShapeLayer *thirdWormShapeLayer;
-@property (nonatomic) TWWormHUDStyle hudStyle;
-@property (nonatomic,weak) UIView *presentingView;
+@property (nonatomic, assign) TWWormHUDStyle hudStyle;
+@property (nonatomic, weak) UIView *presentingView;
 
 @end
 
