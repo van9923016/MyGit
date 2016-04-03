@@ -10,28 +10,28 @@
 
 //Predefine Variable
 //指针常量
-NSString *const kWormAnimationFirst  = @"kWormAnimationFirst";
-NSString *const kWormAnimationSecond = @"kWormAnimationSecond";
-NSString *const kWormAnimationThird  = @"kWormAnimationThird";
+NSString *const kWormAnimationFirst   = @"kWormAnimationFirst";
+NSString *const kWormAnimationSecond  = @"kWormAnimationSecond";
+NSString *const kWormAnimationThird   = @"kWormAnimationThird";
 
 //动画半径为HUD尺寸的一半
-static NSUInteger kHUDLineWidthSmall     = 4.0f;
-static NSUInteger kHUDWidthSmall     = 25.0f;
-static NSUInteger kHUDHeightSmall    = 25.0f;
+static NSUInteger kHUDLineWidthSmall  = 4.0f;
+static NSUInteger kHUDWidthSmall      = 25.0f;
+static NSUInteger kHUDHeightSmall     = 25.0f;
 
-static NSUInteger kHUDLineWidth         = 6.0f;
-static NSUInteger kHUDWidth          = 40.0f;
-static NSUInteger kHUDHeight         = 40.0f;
+static NSUInteger kHUDLineWidth       = 6.0f;
+static NSUInteger kHUDWidth           = 40.0f;
+static NSUInteger kHUDHeight          = 40.0f;
 
-static NSUInteger kHUDLineWidthLarge    = 8.0f;
-static NSUInteger kHUDWidthLarge     = 80.0f;
-static NSUInteger kHUDHeightLarge    = 80.0f;
+static NSUInteger kHUDLineWidthLarge  = 8.0f;
+static NSUInteger kHUDWidthLarge      = 80.0f;
+static NSUInteger kHUDHeightLarge     = 80.0f;
 
-static NSUInteger kWormDuration      = 1.2f;
+static CGFloat kWormDuration          = 1.2f;
 
-static NSInteger wormHUDViewWidth   = 0;
-static NSInteger wormHUDViewHeight  = 0;
-static NSInteger wormHUDViewLineWidth   = 0;
+static NSInteger wormHUDViewWidth     = 0;
+static NSInteger wormHUDViewHeight    = 0;
+static NSInteger wormHUDViewLineWidth = 0;
 //////////////////////////////////////////////////
 
 @interface TWWormView ()
@@ -39,7 +39,7 @@ static NSInteger wormHUDViewLineWidth   = 0;
 @property (nonatomic, strong) CAShapeLayer *firstWormShapeLayer;
 @property (nonatomic, strong) CAShapeLayer *secondWormShapeLayer;
 @property (nonatomic, strong) CAShapeLayer *thirdWormShapeLayer;
-@property (nonatomic, assign) TWWormHUDStyle hudStyle;
+@property (nonatomic) TWWormHUDStyle hudStyle;
 @property (nonatomic,weak) UIView *presentingView;
 
 @end
@@ -104,7 +104,20 @@ static NSInteger wormHUDViewLineWidth   = 0;
 	
 }
 - (void)endLoading {
-	
+	[UIView animateKeyframesWithDuration:0.6 delay:0 options:0 animations:^{
+		[UIView addKeyframeWithRelativeStartTime:0 relativeDuration:0.5 animations:^{
+			self.transform = CGAffineTransformMakeScale(1.2, 1.2);
+		}];
+		[UIView addKeyframeWithRelativeStartTime:0.5 relativeDuration:0.5 animations:^{
+			self.transform = CGAffineTransformMakeScale(0.1, 0.1);
+		}];
+	} completion:^(BOOL finished) {
+		self.isShowing = NO;
+		[self.firstWormShapeLayer removeAnimationForKey:kWormAnimationFirst];
+		[self.secondWormShapeLayer removeAnimationForKey:kWormAnimationSecond];
+		[self.thirdWormShapeLayer removeAnimationForKey:kWormAnimationThird];
+		[self removeFromSuperview];
+	}];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame HUDStyle:(TWWormHUDStyle)style {
@@ -124,7 +137,7 @@ static NSInteger wormHUDViewLineWidth   = 0;
 	//set line start and end shape round
 	firstWorm.lineCap = kCALineCapRound;
 	//set join shape round
-	firstWorm.lineJoin = kCALineCapRound;
+//	firstWorm.lineJoin = kCALineCapRound;
 	firstWorm.strokeColor = [UIColor redColor].CGColor;
 	//fill the view that path covered
 	firstWorm.fillColor = [UIColor clearColor].CGColor;
@@ -184,7 +197,7 @@ static NSInteger wormHUDViewLineWidth   = 0;
 	return wormPath.CGPath;
 }
 
-- (CABasicAnimation *)wormAnimationWithKeyPath:(NSString *)path toValue:(id)endValue fromValue:(id)value duration:(float)duration beginTime:(float)time timingFunction:(CAMediaTimingFunction *)timingFunction fillMode:(NSString *)mode {
+- (CABasicAnimation *)wormAnimationWithKeyPath:(NSString *)path toValue:(id)endValue fromValue:(id)value duration:(CGFloat)duration beginTime:(CGFloat)time timingFunction:(CAMediaTimingFunction *)timingFunction fillMode:(NSString *)mode {
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:path];
 	animation.toValue = endValue;
 	animation.fromValue = value;
@@ -196,10 +209,10 @@ static NSInteger wormHUDViewLineWidth   = 0;
 }
 
 //Core animation of worm stretch
-- (CAAnimationGroup *)animateValueA:(float)valueA fromValue:(float)endValueA duration:(float)durationA begintime:(float)timeA
-							  value:(float)valueB fromValue:(float)endValueB duration:(float)durationB begintime:(float)timeB
-							  value:(float)valueC fromValue:(float)endValueC duration:(float)durationC begintime:(float)timeC
-							  value:(float)valueD fromValue:(float)endValueD duration:(float)durationD begintime:(float)timeD {
+- (CAAnimationGroup *)animateValueA:(CGFloat)valueA fromValue:(CGFloat)endValueA duration:(CGFloat)durationA begintime:(CGFloat)timeA
+							  value:(CGFloat)valueB fromValue:(CGFloat)endValueB duration:(CGFloat)durationB begintime:(CGFloat)timeB
+							  value:(CGFloat)valueC fromValue:(CGFloat)endValueC duration:(CGFloat)durationC begintime:(CGFloat)timeC
+							  value:(CGFloat)valueD fromValue:(CGFloat)endValueD duration:(CGFloat)durationD begintime:(CGFloat)timeD {
 	
 	//1.worm stretch animation
 	//2.keep view after animation
@@ -239,19 +252,20 @@ static NSInteger wormHUDViewLineWidth   = 0;
 																	fillMode:kCAFillModeForwards];
 	//X alias moving animation
 	CABasicAnimation *xTranslationAnimation = [self wormAnimationWithKeyPath:@"transform.translation.x"
-																	 toValue:[NSNumber numberWithFloat:(40/-1.0)]
-																   fromValue:0
+																	 toValue:[NSNumber numberWithFloat:(wormHUDViewWidth/2.0)/-1.0]
+																   fromValue:[NSNull null]
 																	duration:1.18
 																   beginTime:0.0
-															  timingFunction:easeInAndOut
+															  timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut]
 																	fillMode:kCAFillModeForwards];
 	CABasicAnimation *xTranslationAnimation2 = [self wormAnimationWithKeyPath:@"transform.translation.x"
-																	  toValue:[NSNumber numberWithFloat:(40/-1.0)*2]
-																	fromValue:0
+																	  toValue:[NSNumber numberWithFloat:((wormHUDViewWidth/2.0)/-1.0) *2]
+																	fromValue:[NSNull null]
 																	 duration:1.18
 																	beginTime:1.20
-															   timingFunction:easeInAndOut
+															   timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut]
 																	 fillMode:kCAFillModeForwards];
+	
 	
 	CAAnimationGroup *animationGroup = [CAAnimationGroup animation];
 	animationGroup.animations = [NSArray arrayWithObjects: strokeStartAnimation, strokeEndAnimation, xTranslationAnimation,
@@ -274,7 +288,7 @@ static NSInteger wormHUDViewLineWidth   = 0;
 - (void)secondWormAnimation {
 	
 	CAAnimationGroup *animationGroup = [self animateValueA:0.5 fromValue:0.010 duration:0.75 begintime:0
-													 value:0.490 fromValue:0 duration:0.70 begintime:0.50
+													 value:0.49 fromValue:0 duration:0.70 begintime:0.50
 													 value:0.5+0.5 fromValue:0.5+0 duration:0.75 begintime:1.20+0.15
 													 value:0.5+0.5 fromValue:0.5+0 duration:0.30 begintime:0.15+0.75+kWormDuration];
 	
