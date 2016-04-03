@@ -184,6 +184,17 @@ static NSInteger wormHUDViewLineWidth   = 0;
 	return wormPath.CGPath;
 }
 
+- (CABasicAnimation *)wormAnimationWithKeyPath:(NSString *)path toValue:(id)endValue fromValue:(id)value duration:(float)duration beginTime:(float)time timingFunction:(CAMediaTimingFunction *)timingFunction fillMode:(NSString *)mode {
+	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:path];
+	animation.toValue = endValue;
+	animation.fromValue = value;
+	animation.duration = duration;
+	animation.beginTime = time;
+	animation.timingFunction = timingFunction;
+	animation.fillMode = mode;
+	return animation;
+}
+
 - (void)firstWormAnimation {
 	//1.worm stretch animation
 	CABasicAnimation *strokeEndAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
@@ -229,7 +240,7 @@ static NSInteger wormHUDViewLineWidth   = 0;
 	xTranslationAnimation.duration = 1.18;
 	xTranslationAnimation.fillMode = kCAFillModeForwards;
 	
-	CABasicAnimation *xTranslationAnimation2 = [CABasicAnimation animationWithKeyPath:@"tranform.translation.x"];
+	CABasicAnimation *xTranslationAnimation2 = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
 	xTranslationAnimation2.toValue = [NSNumber numberWithFloat:(40/-1.0)*2];
 	xTranslationAnimation2.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
 	xTranslationAnimation2.duration = 1.18;
@@ -238,13 +249,15 @@ static NSInteger wormHUDViewLineWidth   = 0;
 	
 	//Animation Group
 	CAAnimationGroup *animationGroup = [CAAnimationGroup animation];
-	animationGroup.animations = [NSArray arrayWithObjects: strokeEndAnimation, strokeStartAnimation, strokeEndAnimation2,strokeStartAnimation2,xTranslationAnimation2,nil];
+	animationGroup.animations = [NSArray arrayWithObjects: strokeEndAnimation, strokeStartAnimation, strokeEndAnimation2,strokeStartAnimation2,xTranslationAnimation,xTranslationAnimation2,nil];
 	animationGroup.repeatCount = HUGE_VALF;
 	//动画总时间应该以组中动画时间最长为标准
 	animationGroup.duration = kWormDuration * 2;
-	[self.firstWormShapeLayer addAnimation:animationGroup forKey:kWormAnimationFirst];
+	[self.firstWormShapeLayer addAnimation:animationGroup forKey:nil];
 }
+
 - (void)secondWormAnimation {
+	
 	CABasicAnimation *strokeEndAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
 	strokeEndAnimation.toValue = [NSNumber numberWithFloat:0.5];
 	strokeEndAnimation.fromValue = [NSNumber numberWithFloat:0.010];
@@ -283,9 +296,10 @@ static NSInteger wormHUDViewLineWidth   = 0;
 	xTranslationAnimation.toValue = [NSNumber numberWithFloat:(40/-1.0)];
 	xTranslationAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
 	xTranslationAnimation.duration = 1.18;
+	NSLog(@"%@",xTranslationAnimation.fromValue);
 	xTranslationAnimation.fillMode = kCAFillModeForwards;
 	
-	CABasicAnimation *xTranslationAnimation2 = [CABasicAnimation animationWithKeyPath:@"tranform.translation.x"];
+	CABasicAnimation *xTranslationAnimation2 = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
 	xTranslationAnimation2.toValue = [NSNumber numberWithFloat:(40/-1.0)*2];
 	xTranslationAnimation2.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
 	xTranslationAnimation2.duration = 1.18;
@@ -293,67 +307,72 @@ static NSInteger wormHUDViewLineWidth   = 0;
 	xTranslationAnimation2.fillMode = kCAFillModeForwards;
 	
 	CAAnimationGroup *animationGroup = [CAAnimationGroup animation];
-	animationGroup.animations = [NSArray arrayWithObjects: strokeEndAnimation, strokeStartAnimation, strokeEndAnimation2,strokeStartAnimation2,xTranslationAnimation2,nil];
+	animationGroup.animations = [NSArray arrayWithObjects: strokeEndAnimation, strokeStartAnimation, strokeEndAnimation2,strokeStartAnimation2,xTranslationAnimation,xTranslationAnimation2,nil];
 	animationGroup.repeatCount = HUGE_VALF;
 	
 	animationGroup.duration = kWormDuration * 2;
-	[self.secondWormShapeLayer addAnimation:animationGroup forKey:kWormAnimationFirst];
+	[self.secondWormShapeLayer addAnimation:animationGroup forKey:nil];
 }
+
 - (void)thirdWormAnimation {
 	
-	CABasicAnimation *strokeEndAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-	strokeEndAnimation.toValue = [NSNumber numberWithFloat:0.5];
-	strokeEndAnimation.fromValue = [NSNumber numberWithFloat:0.010];
-	strokeEndAnimation.duration = 0.75;
-	strokeEndAnimation.timingFunction = [CAMediaTimingFunction functionWithControlPoints:0.42 :0.0 :1.0 :0.55];
-	strokeEndAnimation.fillMode = kCAFillModeForwards;
+	CABasicAnimation *strokeEndAnimation = [self wormAnimationWithKeyPath:@"strokeEnd"
+																  toValue:[NSNumber numberWithFloat:0.5]
+																fromValue:[NSNumber numberWithFloat:0.010]
+																 duration:0.75
+																beginTime:0
+														   timingFunction:[CAMediaTimingFunction functionWithControlPoints:0.42 :0.0 :1.0 :0.55]
+																 fillMode:kCAFillModeForwards];
+	
+	CABasicAnimation *strokeStartAnimation = [self wormAnimationWithKeyPath:@"strokeStart"
+																	toValue:[NSNumber numberWithFloat:0.490]
+																  fromValue:[NSNumber numberWithFloat:0.0]
+																   duration:0.90
+																  beginTime:0.25
+															 timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]
+																   fillMode:kCAFillModeForwards];
+	
+	CABasicAnimation *strokeEndAnimation2 = [self wormAnimationWithKeyPath:@"strokeEnd"
+																   toValue:[NSNumber numberWithFloat:0.5+0.5]
+																 fromValue:[NSNumber numberWithFloat:0.5+0]
+																  duration:0.75
+																 beginTime:1.2+0.15+0.20
+															timingFunction:[CAMediaTimingFunction functionWithControlPoints:0.42 :0.0 :1.0 :0.55]
+																  fillMode:kCAFillModeForwards];
+	
+	CABasicAnimation *strokeStartAnimation2 = [self wormAnimationWithKeyPath:@"strokeStart"
+																	 toValue:[NSNumber numberWithFloat:0.5+0.5]
+																   fromValue:[NSNumber numberWithFloat:0.5+0]
+																	duration:0.30
+																   beginTime:0.15+0.75+1.2
+															  timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]
+																	fillMode:kCAFillModeForwards];
 	
 	
-	CABasicAnimation *strokeStartAnimation = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
-	strokeStartAnimation.toValue = [NSNumber numberWithFloat:0.490];
-	strokeStartAnimation.fromValue = [NSNumber numberWithFloat:0];
-	strokeStartAnimation.duration = 0.90;
-	strokeStartAnimation.beginTime = 0.25;
-	strokeStartAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-	strokeStartAnimation.fillMode = kCAFillModeForwards;
 	
-	
-	CABasicAnimation *strokeEndAnimation2= [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-	strokeEndAnimation2.toValue = [NSNumber numberWithFloat:0.5+0.5];
-	strokeEndAnimation2.fromValue = [NSNumber numberWithFloat:0.5+0];
-	strokeEndAnimation2.duration = 0.75;
-	strokeEndAnimation2.beginTime = 1.2+0.75+0.20;
-	strokeEndAnimation2.timingFunction = [CAMediaTimingFunction functionWithControlPoints:0.42 :0.0 :1.0 :0.55];
-	strokeEndAnimation2.fillMode = kCAFillModeForwards;
-	
-	CABasicAnimation *strokeStartAnimation2 = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
-	strokeStartAnimation2.toValue = [NSNumber numberWithFloat:0.5+0.5];
-	strokeStartAnimation2.fromValue = [NSNumber numberWithFloat:0.5+0];
-	strokeStartAnimation2.duration = 0.30;
-	strokeStartAnimation2.beginTime = 0.15+0.75+1.2;
-	strokeStartAnimation2.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-	strokeStartAnimation2.fillMode= kCAFillModeForwards;
-	
-	
-	CABasicAnimation *xTranslationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
-	xTranslationAnimation.toValue = [NSNumber numberWithFloat:(40/-1.0)];
-	xTranslationAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-	xTranslationAnimation.duration = 1.18;
-	xTranslationAnimation.fillMode = kCAFillModeForwards;
-	
-	CABasicAnimation *xTranslationAnimation2 = [CABasicAnimation animationWithKeyPath:@"tranform.translation.x"];
-	xTranslationAnimation2.toValue = [NSNumber numberWithFloat:(40/-1.0)*2];
-	xTranslationAnimation2.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-	xTranslationAnimation2.duration = 1.18;
-	xTranslationAnimation2.beginTime = 1.20;
-	xTranslationAnimation2.fillMode = kCAFillModeForwards;
-	
+	CABasicAnimation *xTranslationAnimation = [self wormAnimationWithKeyPath:@"transform.translation.x"
+																	 toValue:[NSNumber numberWithFloat:(40/-1.0)]
+																   fromValue:0
+																	duration:1.18
+																   beginTime:0.0
+															  timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]
+																	fillMode:kCAFillModeForwards];
+	CABasicAnimation *xTranslationAnimation2 = [self wormAnimationWithKeyPath:@"transform.translation.x"
+																	  toValue:[NSNumber numberWithFloat:(40/-1.0)*2]
+																	fromValue:0
+																	 duration:1.18
+																	beginTime:1.20
+															   timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]
+																	 fillMode:kCAFillModeForwards];
+
 	CAAnimationGroup *animationGroup = [CAAnimationGroup animation];
-	animationGroup.animations = [NSArray arrayWithObjects: strokeEndAnimation, strokeStartAnimation, strokeEndAnimation2,strokeStartAnimation2,xTranslationAnimation2,nil];
+	animationGroup.animations = [NSArray arrayWithObjects: strokeStartAnimation, strokeEndAnimation, xTranslationAnimation,strokeEndAnimation2,strokeStartAnimation2,xTranslationAnimation2,nil];
 	animationGroup.repeatCount = HUGE_VALF;
 	
 	animationGroup.duration = kWormDuration * 2;
-	[self.thirdWormShapeLayer addAnimation:animationGroup forKey:kWormAnimationFirst];
+	[self.thirdWormShapeLayer addAnimation:animationGroup forKey:nil];
 }
+
+
 
 @end
