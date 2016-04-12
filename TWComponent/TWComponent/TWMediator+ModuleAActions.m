@@ -39,7 +39,7 @@ NSString *const kTWMediatorActionShowAlert = @"showAlert";
 		// 这里处理image为nil的场景，这里使用背景图，具体如何处理取决于产品
 		[self performTarget:kTWMediatorTargetA
 					 action:kTWMediatorActionNativeNoImage
-					 params:@{@"image":[UIImage imageNamed:@"backRoundImage"]}];
+					 params:@{@"image":[UIImage imageNamed:@"noImageBackRound"]}];
 	}
 }
 

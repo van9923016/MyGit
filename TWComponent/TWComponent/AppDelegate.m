@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "TWMediator.h"
 
 @interface AppDelegate ()
 
@@ -40,6 +41,10 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 	// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
+	return [[[TWMediator sharedInstance] performActionWithURL:url completion:nil] boolValue];
 }
 
 @end

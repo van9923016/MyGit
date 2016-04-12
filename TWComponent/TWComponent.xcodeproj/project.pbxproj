@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		B8006E941CBB7423003A06B2 /* TWMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = B8006E931CBB7423003A06B2 /* TWMediator.m */; };
 		B80113E11CBC9DB3006C0EEA /* noImageBackRound.png in Resources */ = {isa = PBXBuildFile; fileRef = B80113E01CBC9DB3006C0EEA /* noImageBackRound.png */; };
+		B816F0461CBCCF3700F4FA90 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B816F0451CBCCF3700F4FA90 /* image.jpg */; };
 		B85AE68E1CBB81EE00190067 /* TWMediator+ModuleAActions.m in Sources */ = {isa = PBXBuildFile; fileRef = B85AE68D1CBB81EE00190067 /* TWMediator+ModuleAActions.m */; };
-		B85AE6911CBB8B3F00190067 /* TWTargetAAction.m in Sources */ = {isa = PBXBuildFile; fileRef = B85AE6901CBB8B3F00190067 /* TWTargetAAction.m */; };
 		B85F1F891CBC986200631FA8 /* TWDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B85F1F881CBC986200631FA8 /* TWDetailViewController.m */; };
 		B8A8D7301CBB4B690020087D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A8D72F1CBB4B690020087D /* main.m */; };
 		B8A8D7331CBB4B690020087D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A8D7321CBB4B690020087D /* AppDelegate.m */; };
@@ -18,6 +18,7 @@
 		B8A8D7391CBB4B690020087D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8A8D7371CBB4B690020087D /* Main.storyboard */; };
 		B8A8D73B1CBB4B690020087D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8A8D73A1CBB4B690020087D /* Assets.xcassets */; };
 		B8A8D73E1CBB4B690020087D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8A8D73C1CBB4B690020087D /* LaunchScreen.storyboard */; };
+		B8B608541CBCDEBC00D848AE /* Target_A.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B608531CBCDEBC00D848AE /* Target_A.m */; };
 		DE98FA4670F5F6BD3138DF26 /* libPods-TWComponent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5B52514F17DE0FC8620C9DA /* libPods-TWComponent.a */; };
 /* End PBXBuildFile section */
 
@@ -27,10 +28,9 @@
 		B8006E921CBB7423003A06B2 /* TWMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWMediator.h; sourceTree = "<group>"; };
 		B8006E931CBB7423003A06B2 /* TWMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWMediator.m; sourceTree = "<group>"; };
 		B80113E01CBC9DB3006C0EEA /* noImageBackRound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noImageBackRound.png; sourceTree = "<group>"; };
+		B816F0451CBCCF3700F4FA90 /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
 		B85AE68C1CBB81EE00190067 /* TWMediator+ModuleAActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TWMediator+ModuleAActions.h"; sourceTree = "<group>"; };
 		B85AE68D1CBB81EE00190067 /* TWMediator+ModuleAActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TWMediator+ModuleAActions.m"; sourceTree = "<group>"; };
-		B85AE68F1CBB8B3F00190067 /* TWTargetAAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWTargetAAction.h; sourceTree = "<group>"; };
-		B85AE6901CBB8B3F00190067 /* TWTargetAAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWTargetAAction.m; sourceTree = "<group>"; };
 		B85F1F871CBC986200631FA8 /* TWDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWDetailViewController.h; sourceTree = "<group>"; };
 		B85F1F881CBC986200631FA8 /* TWDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWDetailViewController.m; sourceTree = "<group>"; };
 		B8A8D72B1CBB4B690020087D /* TWComponent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TWComponent.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +43,8 @@
 		B8A8D73A1CBB4B690020087D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8A8D73D1CBB4B690020087D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8A8D73F1CBB4B690020087D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8B608521CBCDEBC00D848AE /* Target_A.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Target_A.h; sourceTree = "<group>"; };
+		B8B608531CBCDEBC00D848AE /* Target_A.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Target_A.m; sourceTree = "<group>"; };
 		C5B52514F17DE0FC8620C9DA /* libPods-TWComponent.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TWComponent.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -82,8 +84,8 @@
 		B85AE6921CBB8B4F00190067 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
-				B85AE68F1CBB8B3F00190067 /* TWTargetAAction.h */,
-				B85AE6901CBB8B3F00190067 /* TWTargetAAction.m */,
+				B8B608521CBCDEBC00D848AE /* Target_A.h */,
+				B8B608531CBCDEBC00D848AE /* Target_A.m */,
 			);
 			name = Actions;
 			sourceTree = "<group>";
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				B80113E01CBC9DB3006C0EEA /* noImageBackRound.png */,
+				B816F0451CBCCF3700F4FA90 /* image.jpg */,
 				B8A8D72F1CBB4B690020087D /* main.m */,
 			);
 			name = "Supporting Files";
@@ -215,6 +218,7 @@
 				B8A8D73E1CBB4B690020087D /* LaunchScreen.storyboard in Resources */,
 				B8A8D73B1CBB4B690020087D /* Assets.xcassets in Resources */,
 				B8A8D7391CBB4B690020087D /* Main.storyboard in Resources */,
+				B816F0461CBCCF3700F4FA90 /* image.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,9 +281,9 @@
 				B8A8D7361CBB4B690020087D /* ViewController.m in Sources */,
 				B8A8D7331CBB4B690020087D /* AppDelegate.m in Sources */,
 				B8A8D7301CBB4B690020087D /* main.m in Sources */,
+				B8B608541CBCDEBC00D848AE /* Target_A.m in Sources */,
 				B85F1F891CBC986200631FA8 /* TWDetailViewController.m in Sources */,
 				B8006E941CBB7423003A06B2 /* TWMediator.m in Sources */,
-				B85AE6911CBB8B3F00190067 /* TWTargetAAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

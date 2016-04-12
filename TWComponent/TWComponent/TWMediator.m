@@ -11,11 +11,11 @@
  url sample:
  aaa://targetA/actionB?id=1234
  */
-
+//static NSString *const urlScheme = @"aaa://targetA/actionB?id=1234";
 
 #import "TWMediator.h"
 
-static NSString *const urlScheme = @"aaa://targetA/actionB?id=1234";
+
 
 @implementation TWMediator
 
@@ -29,7 +29,7 @@ static NSString *const urlScheme = @"aaa://targetA/actionB?id=1234";
 }
 
 - (id)performActionWithURL:(NSURL *)url completion:(void (^)(NSDictionary *))completion {
-	if ([url.scheme isEqualToString:@"aaa"]) {
+	if (![url.scheme isEqualToString:@"aaa"]) {
 		return @(NO);
 	}
 	NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
@@ -64,17 +64,17 @@ static NSString *const urlScheme = @"aaa://targetA/actionB?id=1234";
 	
 	//runtime 处理target-action动作
 	NSString *targetClassString = [NSString stringWithFormat:@"Target_%@",targetName];
-	NSString *actionClassString = [NSString stringWithFormat:@"Action_%@",actionName];
+	NSString *actionString = [NSString stringWithFormat:@"Action_%@:",actionName];
 	
 	Class targetClass = NSClassFromString(targetClassString);
 	id target = [[targetClass alloc] init];
-	SEL action = NSSelectorFromString(actionClassString);
+	SEL action = NSSelectorFromString(actionString);
 	
 	if (target == nil) {
 		//处理无响应target情况，本项目不作任何处理直接返回
 		return nil;
 	}
-	
+	NSLog(@"%d",[target respondsToSelector:action]);
 	if ([target respondsToSelector:action]) {
 //忽略runtime 使用未知selector可能会内存泄漏的警告
 #pragma clang diagnostic push
@@ -83,11 +83,11 @@ static NSString *const urlScheme = @"aaa://targetA/actionB?id=1234";
 #pragma clang diagnostic pop
 	} else {
 		//deal with not found situation
-		SEL selector = NSSelectorFromString(@"notFound:");
-		if ([target respondsToSelector:selector]) {
+		SEL action = NSSelectorFromString(@"notFound:");
+		if ([target respondsToSelector:action]) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-			return [target performSelector:selector withObject:params];
+			return [target performSelector:action withObject:params];
 #pragma clang diagnostic pop
 		} else {
 			//处理target响应，target未找到以外的不存在情况
