@@ -26,8 +26,7 @@ NSString *const kTWMediatorActionShowAlert = @"showAlert";
 	} else {
 		//处理界面异常的场景
 		return [[UIViewController alloc] init];
-	}
-	
+	}	
 }
 
 - (void)TWMediator_presentImage:(UIImage *)image {

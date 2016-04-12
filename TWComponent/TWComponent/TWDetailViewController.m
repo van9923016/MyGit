@@ -33,7 +33,7 @@
 	[self.valueLabel topInContainer:70.f shouldResize:NO];
 	[self.valueLabel centerXEqualToView:self.view];
 	
-	self.imageView.size = CGSizeMake(100, 100);
+	self.imageView.size = CGSizeMake(300, 300);
 	[self.imageView centerXEqualToView:self.view];
 	[self.imageView centerYEqualToView:self.view];
 	

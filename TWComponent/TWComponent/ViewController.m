@@ -65,7 +65,7 @@ NSString *const kCellIdentifier = @"kCellIdentifier";
 	}
 	
 	if (indexPath.row == 2) {
-		[[TWMediator sharedInstance] TWMediator_presentImage:[UIImage imageNamed:@"image"]];
+		[[TWMediator sharedInstance] TWMediator_presentImage:[UIImage imageNamed:@"image.jpg"]];
 	}
 	
 	if (indexPath.row == 3) {
