@@ -24,7 +24,7 @@
 
 
 + (instancetype)sharedInstance {
-	static TWInterceptor *sharedInstance;
+	static TWInterceptor *sharedInstance = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
 		sharedInstance = [[TWInterceptor alloc] init];
