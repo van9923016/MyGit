@@ -1,0 +1,15 @@
+PODS:
+  - HandyFrame (1.0.2)
+  - Masonry (1.0.0)
+
+DEPENDENCIES:
+  - HandyFrame
+  - Masonry (= 1.0.0)
+
+SPEC CHECKSUMS:
+  HandyFrame: d93b50479d8ca37c0055e5fcf85fce133689062d
+  Masonry: b529bb169217897b6354d4b56b1fada6d475b13d
+
+PODFILE CHECKSUM: 94bc3f8f18d25662d5a642af1cb3488f8613d059
+
+COCOAPODS: 1.0.0.beta.8
