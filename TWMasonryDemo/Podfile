@@ -6,7 +6,6 @@
 target 'TWMasonryDemo' do
 
 pod 'Masonry','1.0.0'
-pod 'HandyFrame'
 
 end
 

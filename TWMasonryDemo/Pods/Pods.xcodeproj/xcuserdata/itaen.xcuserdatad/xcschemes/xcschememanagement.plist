@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>HandyFrame.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Masonry.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>02D4738B486DAD841142A812EF790B29</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>65D7C4200AE78113307580A9B81EA7CF</key>
+		<key>603371DF5CFDAF491227C4BA1A59E5D3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

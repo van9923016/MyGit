@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import <HandyFrame/UIView+LayoutMethods.h>
 #import <Masonry.h>
 
 @interface ViewController ()
@@ -30,9 +29,6 @@
 	[self.view addSubview:self.aView];
 	[self.view addSubview:self.bView];
 	[self.view addSubview:self.aLabel];
-	
-	//layout subviews
-	[self layoutSubviews];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -45,8 +41,7 @@
 }
 
 #pragma mark - Layout View
-
-- (void)layoutSubviews {
+- (void)updateViewConstraints {
 	//1.aView layout
 	UIEdgeInsets paddingA = UIEdgeInsetsMake(10, 10, -10, -10);
 	[self.aView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -67,6 +62,8 @@
 		make.edges.equalTo(self.view).with.insets(paddingB);
 	}];
 	
+	//call super update in the end.
+	[super updateViewConstraints];
 }
 
 #pragma mark - Getters and Setters
@@ -95,8 +92,4 @@
 	return _aLabel;
 	
 }
-
-
-
-
 @end
