@@ -1,0 +1,388 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3C5F9EEB76D5437948EBE718 /* libPods-TWSocketClientDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E11AC90ECBF32C02AF42B7B3 /* libPods-TWSocketClientDemo.a */; };
+		B80291481CCCAE3400343E46 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B80291471CCCAE3400343E46 /* main.m */; };
+		B802914B1CCCAE3400343E46 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B802914A1CCCAE3400343E46 /* AppDelegate.m */; };
+		B802914E1CCCAE3400343E46 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B802914D1CCCAE3400343E46 /* ViewController.m */; };
+		B80291511CCCAE3400343E46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B802914F1CCCAE3400343E46 /* Main.storyboard */; };
+		B80291531CCCAE3400343E46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B80291521CCCAE3400343E46 /* Assets.xcassets */; };
+		B80291561CCCAE3400343E46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B80291541CCCAE3400343E46 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		151C9A0BA96D36E84D11D2F3 /* Pods-TWSocketClientDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TWSocketClientDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TWSocketClientDemo/Pods-TWSocketClientDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		A4BE242D1FE24A40795E13CF /* Pods-TWSocketClientDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TWSocketClientDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TWSocketClientDemo/Pods-TWSocketClientDemo.release.xcconfig"; sourceTree = "<group>"; };
+		B80291431CCCAE3400343E46 /* TWSocketClientDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TWSocketClientDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B80291471CCCAE3400343E46 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B80291491CCCAE3400343E46 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B802914A1CCCAE3400343E46 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B802914C1CCCAE3400343E46 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B802914D1CCCAE3400343E46 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B80291501CCCAE3400343E46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B80291521CCCAE3400343E46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B80291551CCCAE3400343E46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B80291571CCCAE3400343E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E11AC90ECBF32C02AF42B7B3 /* libPods-TWSocketClientDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TWSocketClientDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B80291401CCCAE3400343E46 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C5F9EEB76D5437948EBE718 /* libPods-TWSocketClientDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B802913A1CCCAE3400343E46 = {
+			isa = PBXGroup;
+			children = (
+				B80291451CCCAE3400343E46 /* TWSocketClientDemo */,
+				B80291441CCCAE3400343E46 /* Products */,
+				F801363C52C9D3A02D6BB276 /* Pods */,
+				E4FBF98661F857A5F09812FE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B80291441CCCAE3400343E46 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B80291431CCCAE3400343E46 /* TWSocketClientDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B80291451CCCAE3400343E46 /* TWSocketClientDemo */ = {
+			isa = PBXGroup;
+			children = (
+				B80291491CCCAE3400343E46 /* AppDelegate.h */,
+				B802914A1CCCAE3400343E46 /* AppDelegate.m */,
+				B802914C1CCCAE3400343E46 /* ViewController.h */,
+				B802914D1CCCAE3400343E46 /* ViewController.m */,
+				B802914F1CCCAE3400343E46 /* Main.storyboard */,
+				B80291521CCCAE3400343E46 /* Assets.xcassets */,
+				B80291541CCCAE3400343E46 /* LaunchScreen.storyboard */,
+				B80291571CCCAE3400343E46 /* Info.plist */,
+				B80291461CCCAE3400343E46 /* Supporting Files */,
+			);
+			path = TWSocketClientDemo;
+			sourceTree = "<group>";
+		};
+		B80291461CCCAE3400343E46 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B80291471CCCAE3400343E46 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E4FBF98661F857A5F09812FE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E11AC90ECBF32C02AF42B7B3 /* libPods-TWSocketClientDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F801363C52C9D3A02D6BB276 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				151C9A0BA96D36E84D11D2F3 /* Pods-TWSocketClientDemo.debug.xcconfig */,
+				A4BE242D1FE24A40795E13CF /* Pods-TWSocketClientDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B80291421CCCAE3400343E46 /* TWSocketClientDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B802915A1CCCAE3400343E46 /* Build configuration list for PBXNativeTarget "TWSocketClientDemo" */;
+			buildPhases = (
+				15E4D76B6FE7D7F7555A3E76 /* 📦 Check Pods Manifest.lock */,
+				B802913F1CCCAE3400343E46 /* Sources */,
+				B80291401CCCAE3400343E46 /* Frameworks */,
+				B80291411CCCAE3400343E46 /* Resources */,
+				FF135707C8B3E8F1D3614230 /* 📦 Embed Pods Frameworks */,
+				D6CA61F65108C75539AFD4FD /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TWSocketClientDemo;
+			productName = TWSocketClientDemo;
+			productReference = B80291431CCCAE3400343E46 /* TWSocketClientDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B802913B1CCCAE3400343E46 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Wen Tan";
+				TargetAttributes = {
+					B80291421CCCAE3400343E46 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 6QRWM94KKM;
+					};
+				};
+			};
+			buildConfigurationList = B802913E1CCCAE3400343E46 /* Build configuration list for PBXProject "TWSocketClientDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B802913A1CCCAE3400343E46;
+			productRefGroup = B80291441CCCAE3400343E46 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B80291421CCCAE3400343E46 /* TWSocketClientDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B80291411CCCAE3400343E46 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B80291561CCCAE3400343E46 /* LaunchScreen.storyboard in Resources */,
+				B80291531CCCAE3400343E46 /* Assets.xcassets in Resources */,
+				B80291511CCCAE3400343E46 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		15E4D76B6FE7D7F7555A3E76 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D6CA61F65108C75539AFD4FD /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TWSocketClientDemo/Pods-TWSocketClientDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF135707C8B3E8F1D3614230 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TWSocketClientDemo/Pods-TWSocketClientDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B802913F1CCCAE3400343E46 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B802914E1CCCAE3400343E46 /* ViewController.m in Sources */,
+				B802914B1CCCAE3400343E46 /* AppDelegate.m in Sources */,
+				B80291481CCCAE3400343E46 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B802914F1CCCAE3400343E46 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B80291501CCCAE3400343E46 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B80291541CCCAE3400343E46 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B80291551CCCAE3400343E46 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B80291581CCCAE3400343E46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B80291591CCCAE3400343E46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B802915B1CCCAE3400343E46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 151C9A0BA96D36E84D11D2F3 /* Pods-TWSocketClientDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TWSocketClientDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wentan.TWSocketClientDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B802915C1CCCAE3400343E46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4BE242D1FE24A40795E13CF /* Pods-TWSocketClientDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TWSocketClientDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wentan.TWSocketClientDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B802913E1CCCAE3400343E46 /* Build configuration list for PBXProject "TWSocketClientDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B80291581CCCAE3400343E46 /* Debug */,
+				B80291591CCCAE3400343E46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B802915A1CCCAE3400343E46 /* Build configuration list for PBXNativeTarget "TWSocketClientDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B802915B1CCCAE3400343E46 /* Debug */,
+				B802915C1CCCAE3400343E46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B802913B1CCCAE3400343E46 /* Project object */;
+}
