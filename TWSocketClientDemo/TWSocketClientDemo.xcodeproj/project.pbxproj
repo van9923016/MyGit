@@ -14,6 +14,7 @@
 		B80291511CCCAE3400343E46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B802914F1CCCAE3400343E46 /* Main.storyboard */; };
 		B80291531CCCAE3400343E46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B80291521CCCAE3400343E46 /* Assets.xcassets */; };
 		B80291561CCCAE3400343E46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B80291541CCCAE3400343E46 /* LaunchScreen.storyboard */; };
+		B802915E1CCCBE5100343E46 /* TWServer.py in Resources */ = {isa = PBXBuildFile; fileRef = B802915D1CCCBE5100343E46 /* TWServer.py */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		B80291521CCCAE3400343E46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B80291551CCCAE3400343E46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B80291571CCCAE3400343E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B802915D1CCCBE5100343E46 /* TWServer.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = TWServer.py; sourceTree = "<group>"; };
 		E11AC90ECBF32C02AF42B7B3 /* libPods-TWSocketClientDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TWSocketClientDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -81,6 +83,7 @@
 		B80291461CCCAE3400343E46 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B802915D1CCCBE5100343E46 /* TWServer.py */,
 				B80291471CCCAE3400343E46 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -164,6 +167,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B802915E1CCCBE5100343E46 /* TWServer.py in Resources */,
 				B80291561CCCAE3400343E46 /* LaunchScreen.storyboard in Resources */,
 				B80291531CCCAE3400343E46 /* Assets.xcassets in Resources */,
 				B80291511CCCAE3400343E46 /* Main.storyboard in Resources */,
